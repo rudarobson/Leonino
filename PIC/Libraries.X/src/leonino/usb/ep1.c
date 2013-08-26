@@ -1,4 +1,4 @@
-#include <htc.h>
+#include "../leonino.h"
 #include "usb.h"
 #include "ep1.h"
 #include "ep2.h"
@@ -27,10 +27,11 @@ void ep1_configure() {
 }
 
 void ep1_unconfigure() {
+    UEP1 = 0;
     ep1_last_data_bit = 1;
     ep1_sent = 1;
     ep1_bd.BDSTAT = 0;
-    UEP1 = 0;
+    total_writen = 0;
 }
 
 unsigned char ep1_write(unsigned char *buffer, unsigned char count) {

@@ -6612,7 +6612,10 @@ extern void _delaywdt(unsigned long);
 #pragma inline(_delay3)
 extern void _delay3(unsigned char);
 
-# 86 "src/leonino/usb/usb.h"
+# 15 "src/leonino/usb/../delay.h"
+void delay_ms(unsigned int t);
+
+# 86 "src/leonino/usb/../usb/usb.h"
 typedef void(*usb_handler_t)(void);
 
 typedef struct bdentry {
@@ -6637,6 +6640,9 @@ unsigned char usb_send();
 
 
 char usb_device_state = 0;
+
+# 63 "src/leonino/usb/../leonino.h"
+void delay_ms(unsigned int t);
 
 # 16 "src/leonino/usb/ep0.h"
 void ep0_handle_setup_transaction();

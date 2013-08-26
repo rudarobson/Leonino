@@ -1,4 +1,4 @@
-#include <htc.h>
+#include "../leonino.h"
 #include "usb.h"
 #include "ep0.h"
 #include "ep2.h"
@@ -28,9 +28,9 @@ void ep2_configure() {
 }
 
 void ep2_unconfigure() {
+    UEP2 = 0;
     ep2_last_data_bit = 0;
     ep2_bd.BDSTAT = 0;
-    UEP2 = 0;
 }
 
 //prepare for read
@@ -51,7 +51,7 @@ void ep2_configure_handler(usb_read_handler handler) {
 
 void ep2_entry_point(unsigned char ustat) {
     if (ep2_receive_handler != 0)
-        ep2_receive_handler((char*)EP2_BUFFER_ADDRESS, ep2_bd.BDCNT);
+        ep2_receive_handler((char*) EP2_BUFFER_ADDRESS, ep2_bd.BDCNT);
 
     ep2_prepare_read();
 

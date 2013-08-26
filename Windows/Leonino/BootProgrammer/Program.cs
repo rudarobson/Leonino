@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Hex;
-using ChipBurner.Communicator;
 using System.IO;
+using Leonino.USB;
 
 namespace BootProgrammer
 {

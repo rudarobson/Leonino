@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"97 src/leonino/usb/usb.h
+"97 src/leonino/usb/../usb/usb.h
 [v _usb_start `(v ~T0 0 ef ]
 "100
 [v _usb_handle `(v ~T0 0 ef ]
@@ -9,7 +9,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _UIR `Vuc ~T0 0 e@3944 ]
 "164
 [v _UIE `Vuc ~T0 0 e@3945 ]
-"99 src/leonino/usb/usb.h
+"99 src/leonino/usb/../usb/usb.h
 [v _usb_reset `(v ~T0 0 ef ]
 "279 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h
 [v _UCFG `Vuc ~T0 0 e@3951 ]
@@ -43,10 +43,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ep1_write `(uc ~T0 0 ef2`*uc`uc ]
 "12
 [v _ep1_send `(uc ~T0 0 ef ]
-"95 src/leonino/usb/usb.h
-[v F5530 `(v ~T0 0 tf2`*uc`i ]
+"95 src/leonino/usb/../usb/usb.h
+[v F5532 `(v ~T0 0 tf2`*uc`i ]
 "13 src/leonino/usb/ep2.h
-[v _ep2_configure_handler `(v ~T0 0 ef1`*F5530 ]
+[v _ep2_configure_handler `(v ~T0 0 ef1`*F5532 ]
 [; ;pic18f4550.h: 17: extern volatile unsigned char SPPDATA @ 0xF62;
 "19 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h
 [; ;pic18f4550.h: 19: asm("SPPDATA equ 0F62h");
@@ -5134,6 +5134,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 186: extern void _delay(unsigned long);
 [; ;pic18.h: 188: extern void _delaywdt(unsigned long);
 [; ;pic18.h: 190: extern void _delay3(unsigned char);
+[; ;delay.h: 15: void delay_ms(unsigned int t);
 [; ;usb.h: 86: typedef void(*usb_handler_t)(void);
 [; ;usb.h: 88: typedef struct bdentry {
 [; ;usb.h: 89: unsigned char BDSTAT;
@@ -5151,12 +5152,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb.h: 103: unsigned char usb_write(unsigned char *buffer, unsigned char count);
 [; ;usb.h: 104: unsigned char usb_write_byte(unsigned char byte);
 [; ;usb.h: 106: unsigned char usb_send();
-"109 src/leonino/usb/usb.h
+"109 src/leonino/usb/../usb/usb.h
 [v _usb_device_state `uc ~T0 1 e ]
 [i _usb_device_state
 -> -> 0 `i `uc
 ]
 [; ;usb.h: 109: char usb_device_state = 0;
+[; ;leonino.h: 63: void delay_ms(unsigned int t);
 [; ;ep0.h: 16: void ep0_handle_setup_transaction();
 [; ;ep0.h: 17: void ep0_handle_standard_device();
 [; ;ep0.h: 18: void ep0_entry_point(unsigned char ustat);
@@ -5429,11 +5431,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 770 ]
 }
 "92
-[v _usb_configure_handler `(v ~T0 1 ef1`*F5530 ]
+[v _usb_configure_handler `(v ~T0 1 ef1`*F5532 ]
 {
 [; ;usb.c: 92: void usb_configure_handler(usb_read_handler handler) {
 [e :U _usb_configure_handler ]
-[v _handler `*F5530 ~T0 1 r1 ]
+[v _handler `*F5532 ~T0 1 r1 ]
 [f ]
 [; ;usb.c: 93: ep2_configure_handler(handler);
 "93

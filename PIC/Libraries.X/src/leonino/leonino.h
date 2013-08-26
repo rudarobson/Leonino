@@ -43,7 +43,7 @@ extern "C" {
     ////#pragma config CONFIG7H = 0x40
     //__CONFIG(12, EBTRB_OFF);
 
-
+#include <htc.h>
 #include "delay.h"
 #include "usb/usb.h"
 #ifndef CPU_FREQ

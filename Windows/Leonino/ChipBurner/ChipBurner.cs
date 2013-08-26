@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Hex;
-using ChipBurner.Communicator;
-namespace ChipBurner
+
+
+namespace Hex
 {
-    class ChipBurner
+    class HexParser
     {
         static void Write(string hexFileName)
         {

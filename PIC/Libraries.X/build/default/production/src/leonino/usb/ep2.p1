@@ -1,8 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [s S748 `uc 1 `uc 1 `uc 1 `uc 1 ]
 [n S748 bdentry BDSTAT BDCNT BDADDRL BDADDRH ]
-"95 src/leonino/usb/usb.h
-[v F5530 `(v ~T0 0 tf2`*uc`i ]
+"95 src/leonino/usb/../usb/usb.h
+[v F5532 `(v ~T0 0 tf2`*uc`i ]
 "416 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h
 [v _UEP2 `Vuc ~T0 0 e@3954 ]
 [; ;pic18f4550.h: 17: extern volatile unsigned char SPPDATA @ 0xF62;
@@ -5092,6 +5092,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 186: extern void _delay(unsigned long);
 [; ;pic18.h: 188: extern void _delaywdt(unsigned long);
 [; ;pic18.h: 190: extern void _delay3(unsigned char);
+[; ;delay.h: 15: void delay_ms(unsigned int t);
 [; ;usb.h: 86: typedef void(*usb_handler_t)(void);
 [; ;usb.h: 88: typedef struct bdentry {
 [; ;usb.h: 89: unsigned char BDSTAT;
@@ -5109,12 +5110,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb.h: 103: unsigned char usb_write(unsigned char *buffer, unsigned char count);
 [; ;usb.h: 104: unsigned char usb_write_byte(unsigned char byte);
 [; ;usb.h: 106: unsigned char usb_send();
-"109 src/leonino/usb/usb.h
+"109 src/leonino/usb/../usb/usb.h
 [v _usb_device_state `uc ~T0 1 e ]
 [i _usb_device_state
 -> -> 0 `i `uc
 ]
 [; ;usb.h: 109: char usb_device_state = 0;
+[; ;leonino.h: 63: void delay_ms(unsigned int t);
 [; ;ep0.h: 16: void ep0_handle_setup_transaction();
 [; ;ep0.h: 17: void ep0_handle_standard_device();
 [; ;ep0.h: 18: void ep0_entry_point(unsigned char ustat);
@@ -5406,9 +5408,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;ep2.c: 16: unsigned char ep2_code = 0;
 "17
-[v _ep2_receive_handler `*F5530 ~T0 1 e ]
+[v _ep2_receive_handler `*F5532 ~T0 1 e ]
 [i _ep2_receive_handler
--> -> 0 `i `*F5530
+-> -> 0 `i `*F5532
 ]
 [; ;ep2.c: 17: usb_read_handler ep2_receive_handler = 0;
 "19
@@ -5445,15 +5447,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ep2.c: 30: void ep2_unconfigure() {
 [e :U _ep2_unconfigure ]
 [f ]
-[; ;ep2.c: 31: ep2_last_data_bit = 0;
+[; ;ep2.c: 31: UEP2 = 0;
 "31
-[e = _ep2_last_data_bit -> -> 0 `i `uc ]
-[; ;ep2.c: 32: ep2_bd.BDSTAT = 0;
-"32
-[e = . _ep2_bd 0 -> -> 0 `i `uc ]
-[; ;ep2.c: 33: UEP2 = 0;
-"33
 [e = _UEP2 -> -> 0 `i `uc ]
+[; ;ep2.c: 32: ep2_last_data_bit = 0;
+"32
+[e = _ep2_last_data_bit -> -> 0 `i `uc ]
+[; ;ep2.c: 33: ep2_bd.BDSTAT = 0;
+"33
+[e = . _ep2_bd 0 -> -> 0 `i `uc ]
 [; ;ep2.c: 34: }
 "34
 [e :UE 750 ]
@@ -5486,11 +5488,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 751 ]
 }
 "48
-[v _ep2_configure_handler `(v ~T0 1 ef1`*F5530 ]
+[v _ep2_configure_handler `(v ~T0 1 ef1`*F5532 ]
 {
 [; ;ep2.c: 48: void ep2_configure_handler(usb_read_handler handler) {
 [e :U _ep2_configure_handler ]
-[v _handler `*F5530 ~T0 1 r1 ]
+[v _handler `*F5532 ~T0 1 r1 ]
 [f ]
 [; ;ep2.c: 49: ep2_receive_handler = handler;
 "49
@@ -5508,8 +5510,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;ep2.c: 53: if (ep2_receive_handler != 0)
 "53
-[e $ ! != _ep2_receive_handler -> -> 0 `i `*F5530 756  ]
-[; ;ep2.c: 54: ep2_receive_handler((char*)(((0x0500 + 0x40) + 0x40) + 0x40), ep2_bd.BDCNT);
+[e $ ! != _ep2_receive_handler -> -> 0 `i `*F5532 756  ]
+[; ;ep2.c: 54: ep2_receive_handler((char*) (((0x0500 + 0x40) + 0x40) + 0x40), ep2_bd.BDCNT);
 "54
 [e ( *U _ep2_receive_handler (2 , -> + + + -> 1280 `i -> 64 `i -> 64 `i -> 64 `i `*uc -> . _ep2_bd 1 `i ]
 [e :U 756 ]

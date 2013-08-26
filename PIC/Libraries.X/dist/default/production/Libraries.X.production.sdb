@@ -2,17 +2,17 @@
 [d version 1.1 ]
 [d edition pro ]
 [d chip 18F4550 ]
-"86 src/leonino/usb/usb.h
-[v F5521 `(v  1 t 0 ]
+"86 src/leonino/usb/../usb/usb.h
+[v F5523 `(v  1 t 0 ]
 "9 src/leonino/usb/ep2.h
 "271 src/leonino/usb/ep0.c
-"78 src/leonino/usb/ep1.c
-"95 src/leonino/usb/usb.h
-[v F5530 `(v  1 t 0 ]
+"79 src/leonino/usb/ep1.c
+"95 src/leonino/usb/../usb/usb.h
+[v F5532 `(v  1 t 0 ]
 "19 src/leonino/usb/ep0.h
 "11 src/leonino/usb/ep2.h
-"95 src/leonino/usb/usb.h
-[v usb@F5530 `(v  1 t 0 ]
+"95 src/leonino/usb/../usb/usb.h
+[v usb@F5532 `(v  1 t 0 ]
 "17 src/main.c
 "5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\abdiv.c
 [v ___abdiv `(c  1 e 1 0 ]
@@ -164,11 +164,11 @@
 [v _ep1_configure `(v  1 e 0 0 ]
 "29
 [v _ep1_unconfigure `(v  1 e 0 0 ]
-"36
+"37
 [v _ep1_write `(uc  1 e 1 0 ]
-"54
+"55
 [v _ep1_send `(uc  1 e 1 0 ]
-"70
+"71
 [v _ep1_entry_point `(v  1 e 0 0 ]
 "19 src/leonino/usb/ep2.c
 [v _ep2_configure `(v  1 e 0 0 ]

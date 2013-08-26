@@ -11,6 +11,7 @@ C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib/pmp.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib/rtcc.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib/pps.h
+src/leonino/usb/../delay.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\errata.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib/xlcd.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib/sw_spi.h
@@ -36,8 +37,10 @@ C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib/portb.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\GenericTypeDefs.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib/i2c.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18.h
+src/leonino/usb/../usb/usb.h
 src/leonino/usb/usb.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib/sw_uart.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib.h
+src/leonino/usb/../leonino.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib/flash.h
 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\plib\pconfig.h

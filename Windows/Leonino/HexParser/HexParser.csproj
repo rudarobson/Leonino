@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{179F4D44-E418-4C8B-A62A-0989979075E8}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{BF7F76E3-4C9B-4AC0-9080-94C39065D2F5}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BootProgrammer</RootNamespace>
-    <AssemblyName>BootProgrammer</AssemblyName>
+    <RootNamespace>HexParser</RootNamespace>
+    <AssemblyName>HexParser</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,21 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="HexConverter.cs" />
+    <Compile Include="HexParser.cs" />
+    <Compile Include="HexRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ChipBurner\ChipBurner.csproj">
-      <Project>{2635e19c-ddf7-4d75-a018-c480b94207ac}</Project>
-      <Name>ChipBurner</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\USB\USB.vcxproj">
-      <Project>{05feb647-1c5c-42ef-804c-624362f31fd7}</Project>
-      <Name>USB</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -132,6 +132,8 @@
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="true"/>
       </HI-TECH-LINK>
+      <Simulator>
+      </Simulator>
     </conf>
   </confs>
 </configurationDescriptor>

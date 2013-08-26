@@ -5090,6 +5090,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 186: extern void _delay(unsigned long);
 [; ;pic18.h: 188: extern void _delaywdt(unsigned long);
 [; ;pic18.h: 190: extern void _delay3(unsigned char);
+[; ;delay.h: 15: void delay_ms(unsigned int t);
 [; ;usb.h: 86: typedef void(*usb_handler_t)(void);
 [; ;usb.h: 88: typedef struct bdentry {
 [; ;usb.h: 89: unsigned char BDSTAT;
@@ -5107,12 +5108,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb.h: 103: unsigned char usb_write(unsigned char *buffer, unsigned char count);
 [; ;usb.h: 104: unsigned char usb_write_byte(unsigned char byte);
 [; ;usb.h: 106: unsigned char usb_send();
-"109 src/leonino/usb/usb.h
+"109 src/leonino/usb/../usb/usb.h
 [v _usb_device_state `uc ~T0 1 e ]
 [i _usb_device_state
 -> -> 0 `i `uc
 ]
 [; ;usb.h: 109: char usb_device_state = 0;
+[; ;leonino.h: 63: void delay_ms(unsigned int t);
 [; ;ep0.h: 16: void ep0_handle_setup_transaction();
 [; ;ep0.h: 17: void ep0_handle_standard_device();
 [; ;ep0.h: 18: void ep0_entry_point(unsigned char ustat);
@@ -5194,150 +5196,153 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;ep1.c: 29: void ep1_unconfigure() {
 [e :U _ep1_unconfigure ]
 [f ]
-[; ;ep1.c: 30: ep1_last_data_bit = 1;
+[; ;ep1.c: 30: UEP1 = 0;
 "30
-[e = _ep1_last_data_bit -> -> 1 `i `uc ]
-[; ;ep1.c: 31: ep1_sent = 1;
-"31
-[e = _ep1_sent -> -> 1 `i `uc ]
-[; ;ep1.c: 32: ep1_bd.BDSTAT = 0;
-"32
-[e = . _ep1_bd 0 -> -> 0 `i `uc ]
-[; ;ep1.c: 33: UEP1 = 0;
-"33
 [e = _UEP1 -> -> 0 `i `uc ]
-[; ;ep1.c: 34: }
+[; ;ep1.c: 31: ep1_last_data_bit = 1;
+"31
+[e = _ep1_last_data_bit -> -> 1 `i `uc ]
+[; ;ep1.c: 32: ep1_sent = 1;
+"32
+[e = _ep1_sent -> -> 1 `i `uc ]
+[; ;ep1.c: 33: ep1_bd.BDSTAT = 0;
+"33
+[e = . _ep1_bd 0 -> -> 0 `i `uc ]
+[; ;ep1.c: 34: total_writen = 0;
 "34
+[e = _total_writen -> -> 0 `i `uc ]
+[; ;ep1.c: 35: }
+"35
 [e :UE 750 ]
 }
-"36
+"37
 [v _ep1_write `(uc ~T0 1 ef2`*uc`uc ]
 {
-[; ;ep1.c: 36: unsigned char ep1_write(unsigned char *buffer, unsigned char count) {
+[; ;ep1.c: 37: unsigned char ep1_write(unsigned char *buffer, unsigned char count) {
 [e :U _ep1_write ]
 [v _buffer `*uc ~T0 1 r1 ]
 [v _count `uc ~T0 1 r2 ]
 [f ]
-[; ;ep1.c: 37: if (ep1_sent && ((total_writen + count) < 0x40)) {
-"37
+[; ;ep1.c: 38: if (ep1_sent && ((total_writen + count) < 0x40)) {
+"38
 [e $ ! && != -> _ep1_sent `i -> -> -> 0 `i `uc `i < + -> _total_writen `i -> _count `i -> 64 `i 752  ]
 {
-"38
-[v _i `uc ~T0 1 a ]
-[; ;ep1.c: 38: unsigned char i = 0;
-[e = _i -> -> 0 `i `uc ]
-[; ;ep1.c: 39: ep1_bd.BDSTAT = 0;
 "39
+[v _i `uc ~T0 1 a ]
+[; ;ep1.c: 39: unsigned char i = 0;
+[e = _i -> -> 0 `i `uc ]
+[; ;ep1.c: 40: ep1_bd.BDSTAT = 0;
+"40
 [e = . _ep1_bd 0 -> -> 0 `i `uc ]
-[; ;ep1.c: 41: for (i = 0; i < count && (i + total_writen) < 0x40; i++)
-"41
+[; ;ep1.c: 42: for (i = 0; i < count && (i + total_writen) < 0x40; i++)
+"42
 {
 [e = _i -> -> 0 `i `uc ]
 [e $U 756  ]
-"42
+"43
 [e :U 753 ]
-[; ;ep1.c: 42: ep1_buffer[total_writen + i] = buffer[i];
+[; ;ep1.c: 43: ep1_buffer[total_writen + i] = buffer[i];
 [e = *U + &U _ep1_buffer * -> -> + -> _total_writen `i -> _i `i `ui `ux -> -> # *U &U _ep1_buffer `ui `ux *U + _buffer * -> _i `ux -> -> # *U _buffer `ui `ux ]
-"41
+"42
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 756 ]
 [e $ && < -> _i `i -> _count `i < + -> _i `i -> _total_writen `i -> 64 `i 753  ]
 [e :U 754 ]
-"42
+"43
 }
-[; ;ep1.c: 44: total_writen += i;
-"44
+[; ;ep1.c: 45: total_writen += i;
+"45
 [e =+ _total_writen _i ]
-[; ;ep1.c: 46: return i;
-"46
+[; ;ep1.c: 47: return i;
+"47
 [e ) _i ]
 [e $UE 751  ]
-"47
+"48
 }
 [e :U 752 ]
-[; ;ep1.c: 47: }
-[; ;ep1.c: 49: return 0;
-"49
+[; ;ep1.c: 48: }
+[; ;ep1.c: 50: return 0;
+"50
 [e ) -> -> 0 `i `uc ]
 [e $UE 751  ]
-[; ;ep1.c: 50: }
-"50
+[; ;ep1.c: 51: }
+"51
 [e :UE 751 ]
 }
-"54
+"55
 [v _ep1_send `(uc ~T0 1 ef ]
 {
-[; ;ep1.c: 54: unsigned char ep1_send() {
+[; ;ep1.c: 55: unsigned char ep1_send() {
 [e :U _ep1_send ]
 [f ]
-[; ;ep1.c: 55: if (ep1_sent) {
-"55
+[; ;ep1.c: 56: if (ep1_sent) {
+"56
 [e $ ! != -> _ep1_sent `i -> -> -> 0 `i `uc `i 758  ]
 {
-[; ;ep1.c: 56: ep1_sent = 0;
-"56
+[; ;ep1.c: 57: ep1_sent = 0;
+"57
 [e = _ep1_sent -> -> 0 `i `uc ]
-[; ;ep1.c: 58: ep1_bd.BDCNT = total_writen;
-"58
-[e = . _ep1_bd 1 _total_writen ]
-[; ;ep1.c: 59: if (ep1_last_data_bit == 0)
+[; ;ep1.c: 59: ep1_bd.BDCNT = total_writen;
 "59
-[e $ ! == -> _ep1_last_data_bit `i -> 0 `i 759  ]
-[; ;ep1.c: 60: ep1_bd.BDSTAT = 0x80 | 0x08 | 0x40;
+[e = . _ep1_bd 1 _total_writen ]
+[; ;ep1.c: 60: if (ep1_last_data_bit == 0)
 "60
+[e $ ! == -> _ep1_last_data_bit `i -> 0 `i 759  ]
+[; ;ep1.c: 61: ep1_bd.BDSTAT = 0x80 | 0x08 | 0x40;
+"61
 [e = . _ep1_bd 0 -> | | -> 128 `i -> 8 `i -> 64 `i `uc ]
 [e $U 760  ]
-"61
-[e :U 759 ]
-[; ;ep1.c: 61: else
-[; ;ep1.c: 62: ep1_bd.BDSTAT = 0x80 | 0x08;
 "62
+[e :U 759 ]
+[; ;ep1.c: 62: else
+[; ;ep1.c: 63: ep1_bd.BDSTAT = 0x80 | 0x08;
+"63
 [e = . _ep1_bd 0 -> | -> 128 `i -> 8 `i `uc ]
 [e :U 760 ]
-[; ;ep1.c: 64: return 1;
-"64
+[; ;ep1.c: 65: return 1;
+"65
 [e ) -> -> 1 `i `uc ]
 [e $UE 757  ]
-"65
+"66
 }
 [e :U 758 ]
-[; ;ep1.c: 65: }
-[; ;ep1.c: 67: return 0;
-"67
+[; ;ep1.c: 66: }
+[; ;ep1.c: 68: return 0;
+"68
 [e ) -> -> 0 `i `uc ]
 [e $UE 757  ]
-[; ;ep1.c: 68: }
-"68
+[; ;ep1.c: 69: }
+"69
 [e :UE 757 ]
 }
-"70
+"71
 [v _ep1_entry_point `(v ~T0 1 ef1`uc ]
 {
-[; ;ep1.c: 70: void ep1_entry_point(unsigned char ustat) {
+[; ;ep1.c: 71: void ep1_entry_point(unsigned char ustat) {
 [e :U _ep1_entry_point ]
 [v _ustat `uc ~T0 1 r1 ]
 [f ]
-[; ;ep1.c: 71: total_writen = 0;
-"71
-[e = _total_writen -> -> 0 `i `uc ]
-[; ;ep1.c: 72: ep1_sent = 1;
+[; ;ep1.c: 72: total_writen = 0;
 "72
+[e = _total_writen -> -> 0 `i `uc ]
+[; ;ep1.c: 73: ep1_sent = 1;
+"73
 [e = _ep1_sent -> -> 1 `i `uc ]
-[; ;ep1.c: 74: if (ep1_last_data_bit == 0)
-"74
-[e $ ! == -> _ep1_last_data_bit `i -> 0 `i 762  ]
-[; ;ep1.c: 75: ep1_last_data_bit = 1;
+[; ;ep1.c: 75: if (ep1_last_data_bit == 0)
 "75
+[e $ ! == -> _ep1_last_data_bit `i -> 0 `i 762  ]
+[; ;ep1.c: 76: ep1_last_data_bit = 1;
+"76
 [e = _ep1_last_data_bit -> -> 1 `i `uc ]
 [e $U 763  ]
-"76
-[e :U 762 ]
-[; ;ep1.c: 76: else
-[; ;ep1.c: 77: ep1_last_data_bit = 0;
 "77
+[e :U 762 ]
+[; ;ep1.c: 77: else
+[; ;ep1.c: 78: ep1_last_data_bit = 0;
+"78
 [e = _ep1_last_data_bit -> -> 0 `i `uc ]
 [e :U 763 ]
-[; ;ep1.c: 78: }
-"78
+[; ;ep1.c: 79: }
+"79
 [e :UE 761 ]
 }
