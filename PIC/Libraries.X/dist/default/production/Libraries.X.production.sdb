@@ -1,0 +1,304 @@
+[p LITE_MODE AUTOSTATIC LFSROK ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4550 ]
+"17 src/main.c
+"86 src/usb/usb.h
+[v F5521 `(v  1 t 0 ]
+"9 src/usb/ep2.h
+"271 src/usb/ep0.c
+"79 src/usb/ep1.c
+"95 src/usb/usb.h
+[v F5530 `(v  1 t 0 ]
+"19 src/usb/ep0.h
+"11 src/usb/ep2.h
+"95 src/usb/usb.h
+[v usb@F5530 `(v  1 t 0 ]
+"94 src/usb/usb.c
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\abdiv.c
+[v ___abdiv `(c  1 e 1 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\abmod.c
+[v ___abmod `(c  1 e 1 0 ]
+"32 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\abtofl.c
+[v ___abtofl `(d  1 e 3 0 ]
+"34 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\abtoft.c
+[v ___abtoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\aldiv.c
+[v ___aldiv `(l  1 e 4 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\almod.c
+[v ___almod `(l  1 e 4 0 ]
+"37 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\altofl.c
+[v ___altofl `(d  1 e 3 0 ]
+"43 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\altoft.c
+[v ___altoft `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asfladd.c
+[v ___asfladd `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asfldiv.c
+[v ___asfldiv `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asflmul.c
+[v ___asflmul `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asflsub.c
+[v ___asflsub `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asftadd.c
+[v ___asftadd `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asftdiv.c
+[v ___asftdiv `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asftmul.c
+[v ___asftmul `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\asftsub.c
+[v ___asftsub `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\aslmul.c
+[v ___aslmul `(ul  1 e 4 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\atdiv.c
+[v ___atdiv `(m  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\atmod.c
+[v ___atmod `(m  1 e 3 0 ]
+"38 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\attofl.c
+[v ___attofl `(d  1 e 3 0 ]
+"38 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\attoft.c
+[v ___attoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\awdiv.c
+[v ___awdiv `(i  1 e 2 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\awmod.c
+[v ___awmod `(i  1 e 2 0 ]
+"32 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\awtofl.c
+[v ___awtofl `(d  1 e 3 0 ]
+"33 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\awtoft.c
+[v ___awtoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\bmul.c
+[v ___bmul `(uc  1 e 1 0 ]
+"64 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\double.c
+[v ___flpack `(d  1 e 3 0 ]
+"89 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\fladd.c
+[v ___fladd `(d  1 e 3 0 ]
+"50 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\fldiv.c
+[v ___fldiv `(d  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\flge.c
+[v ___flge `(b  1 e 0 0 ]
+"51 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\flmul.c
+[v ___flmul `(d  1 e 3 0 ]
+"16 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\flneg.c
+[v ___flneg `(d  1 e 3 0 ]
+"63 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\float.c
+[v ___ftpack `(f  1 e 3 0 ]
+"22 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\flsub.c
+[v ___flsub `(d  1 e 3 0 ]
+"44 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\fltol.c
+[v ___fltol `(l  1 e 4 0 ]
+"87 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftadd.c
+[v ___ftadd `(f  1 e 3 0 ]
+"50 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftdiv.c
+[v ___ftdiv `(f  1 e 3 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftge.c
+[v ___ftge `(b  1 e 0 0 ]
+"52 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftmul.c
+[v ___ftmul `(f  1 e 3 0 ]
+"16 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftneg.c
+[v ___ftneg `(f  1 e 3 0 ]
+"22 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ftsub.c
+[v ___ftsub `(f  1 e 3 0 ]
+"45 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\fttol.c
+[v ___fttol `(l  1 e 4 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lbdiv.c
+[v ___lbdiv `(uc  1 e 1 0 ]
+"5 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lbmod.c
+[v ___lbmod `(uc  1 e 1 0 ]
+"28 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lbtofl.c
+[v ___lbtofl `(d  1 e 3 0 ]
+"28 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lbtoft.c
+[v ___lbtoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lldiv.c
+[v ___lldiv `(ul  1 e 4 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\llmod.c
+[v ___llmod `(ul  1 e 4 0 ]
+"31 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lltofl.c
+[v ___lltofl `(d  1 e 3 0 ]
+"36 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lltoft.c
+[v ___lltoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lmul.c
+[v ___lmul `(ul  1 e 4 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ltdiv.c
+[v ___ltdiv `(um  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\ltmod.c
+[v ___ltmod `(um  1 e 3 0 ]
+"31 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lttofl.c
+[v ___lttofl `(d  1 e 3 0 ]
+"31 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lttoft.c
+[v ___lttoft `(f  1 e 3 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lwdiv.c
+[v ___lwdiv `(ui  1 e 2 0 ]
+"10 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lwmod.c
+[v ___lwmod `(ui  1 e 2 0 ]
+"29 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lwtofl.c
+[v ___lwtofl `(d  1 e 3 0 ]
+"29 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\lwtoft.c
+[v ___lwtoft `(f  1 e 3 0 ]
+"3 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\tmul.c
+[v ___tmul `(um  1 e 3 0 ]
+"3 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\sources\wmul.c
+[v ___wmul `(ui  1 e 2 0 ]
+"24 plib/Flash/ReadFlash.c
+[v _ReadFlash `(v  1 e 0 0 ]
+"4 src/delay/delay.c
+[v _delay_ms `(v  1 e 0 0 ]
+"14 src/main.c
+[v _main `(i  1 e 2 0 ]
+"29 src/usb/ep0.c
+[v _ep0_configure `(v  1 e 0 0 ]
+"42
+[v _ep0_handle_setup_transaction `(v  1 e 0 0 ]
+"179
+[v _ep0_handle_standard_device `(v  1 e 0 0 ]
+"205
+[v _ep0_entry_point `(v  1 e 0 0 ]
+"227
+[v _ep0_in_handler_prepare_to_send_descriptor `(v  1 e 0 0 ]
+"247
+[v _ep0_in_handler_send_descriptor `(v  1 e 0 0 ]
+"253
+[v _ep0_out_handler_ack `(v  1 e 0 0 ]
+"259
+[v _ep0_in_handler_ack `(v  1 e 0 0 ]
+"265
+[v _ep0_in_handler_set_address `(v  1 e 0 0 ]
+"269
+[v _ep0_in_handler_configure `(v  1 e 0 0 ]
+"18 src/usb/ep1.c
+[v _ep1_configure `(v  1 e 0 0 ]
+"29
+[v _ep1_unconfigure `(v  1 e 0 0 ]
+"36
+[v _ep1_write `(uc  1 e 1 0 ]
+"54
+[v _ep1_send `(uc  1 e 1 0 ]
+"70
+[v _ep1_entry_point `(v  1 e 0 0 ]
+"19 src/usb/ep2.c
+[v _ep2_configure `(v  1 e 0 0 ]
+"30
+[v _ep2_unconfigure `(v  1 e 0 0 ]
+"38
+[v _ep2_prepare_read `(v  1 e 0 0 ]
+"48
+[v _ep2_configure_handler `(v  1 e 0 0 ]
+"52
+[v _ep2_entry_point `(v  1 e 0 0 ]
+"7 src/usb/usb.c
+[v _usb_device_configure `(v  1 e 0 0 ]
+"14
+[v _usb_start `(v  1 e 0 0 ]
+"33
+[v _usb_disable `(v  1 e 0 0 ]
+"38
+[v _usb_reset `(v  1 e 0 0 ]
+"53
+[v _usb_handle `(v  1 e 0 0 ]
+"78
+[v _usb_write `(uc  1 e 1 0 ]
+"82
+[v _usb_write_byte `(uc  1 e 1 0 ]
+"88
+[v _usb_send `(uc  1 e 1 0 ]
+"92
+[v _usb_configure_handler `(v  1 e 0 0 ]
+"146 C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h
+[v _UIR `Vuc  1 e 1 @3944 ]
+[s S70 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 SUSPND 1 0 :1:1 
+`uc 1 RESUME 1 0 :1:2 
+`uc 1 USBEN 1 0 :1:3 
+`uc 1 PKTDIS 1 0 :1:4 
+`uc 1 SE0 1 0 :1:5 
+`uc 1 PPBRST 1 0 :1:6 
+]
+"161
+[u S78 . 1 `S70 1 . 1 0 ]
+[v _UIRbits `VS78  1 e 1 @3944 ]
+"164
+[v _UIE `Vuc  1 e 1 @3945 ]
+"218
+[v _USTAT `Vuc  1 e 1 @3948 ]
+"240
+[v _UCON `Vuc  1 e 1 @3949 ]
+"255
+[v _UCONbits `VS78  1 e 1 @3949 ]
+"258
+[v _UADDR `Vuc  1 e 1 @3950 ]
+"279
+[v _UCFG `Vuc  1 e 1 @3951 ]
+"308
+[v _UEP0 `Vuc  1 e 1 @3952 ]
+"362
+[v _UEP1 `Vuc  1 e 1 @3953 ]
+"416
+[v _UEP2 `Vuc  1 e 1 @3954 ]
+"14 src/usb/descriptor.h
+[v _dev_desc `C[18]uc  1 e 18 0 ]
+"52
+[v _conf_desc_0 `C[32]uc  1 e 32 0 ]
+"98
+[v _string_desc_0 `C[4]uc  1 e 4 0 ]
+"107
+[v _string_desc_1 `C[12]uc  1 e 12 0 ]
+"116
+[v _string_desc_2 `C[24]uc  1 e 24 0 ]
+[s S31 bdentry 4 `uc 1 BDSTAT 1 0 `uc 1 BDCNT 1 1 `uc 1 BDADDRL 1 2 `uc 1 BDADDRH 1 3 ]
+"11 src/usb/ep0.c
+[v _ep0_out_bd `S31  1 e 4 @1024 ]
+"12
+[v _ep0_out_handler `*.f(v  1 e 2 0 ]
+"13
+[v _ep0_out_buffer `[64]uc  1 e 64 @1280 ]
+"15
+[v _ep0_in_bd `S31  1 e 4 @1028 ]
+"16
+[v _ep0_in_buffer `[64]uc  1 e 64 @1344 ]
+"17
+[v _ep0_in_handler `*.f(v  1 e 2 0 ]
+"19
+[v _ep0_in_decsriptor `*.cuc  1 e 2 0 ]
+"20
+[v _ep0_in_total_bytes_sent `ui  1 e 2 0 ]
+"21
+[v _ep0_in_total_bytes_to_send `ui  1 e 2 0 ]
+"22
+[v _ep0_in_total_bytes_sent_on_last_transfer `ui  1 e 2 0 ]
+"24
+[v _ep0_last_data_bit `uc  1 e 1 0 ]
+"25
+[v _ep0_bdstat `uc  1 e 1 0 ]
+"26
+[v _ep0_dir `uc  1 e 1 0 ]
+"27
+[v _ep0_temp_uaddr `uc  1 e 1 0 ]
+"11 src/usb/ep1.c
+[v _ep1_bd `S31  1 e 4 @1036 ]
+"12
+[v _ep1_buffer `[64]uc  1 e 64 @1408 ]
+"13
+[v _ep1_last_data_bit `uc  1 e 1 0 ]
+"14
+[v _ep1_sent `uc  1 e 1 0 ]
+"15
+[v _total_writen `uc  1 e 1 0 ]
+"11 src/usb/ep2.c
+[v _ep2_bd `S31  1 e 4 @1040 ]
+"12
+[v _ep2_buffer `[64]uc  1 e 64 @1472 ]
+"15
+[v _ep2_last_data_bit `uc  1 e 1 0 ]
+"16
+[v _ep2_code `uc  1 e 1 0 ]
+"17
+[v _ep2_receive_handler `*.f(v  1 e 2 0 ]
+"51 src/usb/usb.c
+[v _toggle `uc  1 e 1 0 ]
+"109 src/usb/usb.h
+[v _usb_device_state `uc  1 e 1 0 ]
+"14 src/main.c
+[v _main `(i  1 e 2 0 ]
+{
+[v main@argc `i  1 p 2 0 ]
+[v main@argv `*.M*.Muc  1 p 3 2 ]
+"17
+} 0

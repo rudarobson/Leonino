@@ -1,0 +1,2 @@
+#define ENDP_CONTROL_PIPE	3
+#define ENDP_READ_PIPE		
