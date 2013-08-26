@@ -198,11 +198,11 @@ bssCOMRAM 1 1E COMRAM 1 1
 cinit 85C 88F CODE 85C 0
 %locals
 dist/default/production\Libraries.X.production.obj
-C:\Users\RUDARO~1\AppData\Local\Temp\s2o8.
-src/usb/ep1.c
+C:\Users\RUDARO~1\AppData\Local\Temp\s5gg.
+src/leonino/usb/ep1.c
 13 88E 0 CODE 0
 14 88F 0 CODE 0
-src/usb/descriptor.h
+src/leonino/usb/descriptor.h
 52 800 0 SMALLCONST 0
 116 820 0 SMALLCONST 0
 14 838 0 SMALLCONST 0
@@ -210,7 +210,7 @@ src/usb/descriptor.h
 98 856 0 SMALLCONST 0
 src/main.c
 17 85A 0 SMALLCONST 0
-src/usb/ep1.c
+src/leonino/usb/ep1.c
 14 85C 0 CODE 0
 src/main.c
 17 88A 0 CODE 0

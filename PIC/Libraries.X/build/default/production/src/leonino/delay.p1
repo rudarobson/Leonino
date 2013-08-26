@@ -1,0 +1,51 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"6 src/leonino/delay.c
+[v __delay `(i ~T0 0 ef ]
+[; ;usb.h: 86: typedef void(*usb_handler_t)(void);
+[; ;usb.h: 88: typedef struct bdentry {
+[; ;usb.h: 89: unsigned char BDSTAT;
+[; ;usb.h: 90: unsigned char BDCNT;
+[; ;usb.h: 91: unsigned char BDADDRL;
+[; ;usb.h: 92: unsigned char BDADDRH;
+[; ;usb.h: 93: } BDENTRY;
+[; ;usb.h: 95: typedef void (*usb_read_handler)(char *, int);
+[; ;usb.h: 96: void usb_device_configure();
+[; ;usb.h: 97: void usb_start();
+[; ;usb.h: 98: void usb_disable();
+[; ;usb.h: 99: void usb_reset();
+[; ;usb.h: 100: void usb_handle();
+[; ;usb.h: 101: void usb_configure_handler(usb_read_handler);
+[; ;usb.h: 103: unsigned char usb_write(unsigned char *buffer, unsigned char count);
+[; ;usb.h: 104: unsigned char usb_write_byte(unsigned char byte);
+[; ;usb.h: 106: unsigned char usb_send();
+"109 src/leonino/usb/usb.h
+[v _usb_device_state `uc ~T0 1 e ]
+[i _usb_device_state
+-> -> 0 `i `uc
+]
+[; ;usb.h: 109: char usb_device_state = 0;
+[; ;leonino.h: 62: void delay_ms(unsigned int t);
+[; ;delay.h: 15: void delay_ms(unsigned int t);
+"4 src/leonino/delay.c
+[v _delay_ms `(v ~T0 1 ef1`ui ]
+{
+[; ;delay.c: 4: void delay_ms(unsigned int t) {
+[e :U _delay_ms ]
+[v _t `ui ~T0 1 r1 ]
+[f ]
+[; ;delay.c: 5: do {
+"5
+[e :U 5 ]
+{
+[; ;delay.c: 6: _delay(48000000/4 / 1000);
+"6
+[e ( __delay / / -> 48000000 `l -> -> 4 `i `l -> -> 1000 `i `l ]
+"7
+}
+[; ;delay.c: 7: } while (t-- != 0);
+[e $ != -- _t -> -> 1 `i `ui -> -> 0 `i `ui 5  ]
+[e :U 4 ]
+[; ;delay.c: 8: }
+"8
+[e :UE 2 ]
+}

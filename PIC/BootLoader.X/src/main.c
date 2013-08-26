@@ -4,17 +4,17 @@
  *
  * Created on 25 de Outubro de 2012, 01:26
  */
-#include <htc.h>
-#include "usb/usb.h"
+#include <xc.h>
+#include <leonino/leonino.h>
 
 #define PROG_START      0x2000
 #define WRITE_FLASH     0x01
 #define ERASE_FLASH     0x02
 #define BOOT_END        0x03
-char boot_started = 0;
-char wait_boot = 0;
 
-unsigned int last_addr = 0;
+
+char boot_started;
+char wait_boot;
 
 void handler(char *data, int total) {
     unsigned char type = data[0];
@@ -54,7 +54,7 @@ void handler(char *data, int total) {
                 aux = (data[1 + i]) & 0xFF;
                 address |= (aux << (8 * (1 - i)));
             }
-            
+
             if (address >= PROG_START) {
                 EraseFlash(address, address + 0x20); //erase 64 bytes
                 usb_write_byte('O');
@@ -69,6 +69,8 @@ void handler(char *data, int total) {
             wait_boot = 0;
             break;
     }
+
+    return;
 }
 
 void user_app() @ PROG_START {
@@ -81,11 +83,14 @@ int main() @ 0x20 {
 
     usb_disable();
     for (counter = 1000; counter > 1; counter--);
-    counter = 0;
 
     usb_device_configure();
     usb_configure_handler(handler);
+
+    counter = 0;
+    boot_started = 0;
     wait_boot = 1;
+
 
     while (wait_boot == 1) {
         usb_handle();

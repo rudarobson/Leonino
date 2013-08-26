@@ -1,0 +1,42 @@
+
+# 1 "src/leonino/delay.c"
+
+# 86 "src/leonino/usb/usb.h"
+typedef void(*usb_handler_t)(void);
+
+typedef struct bdentry {
+unsigned char BDSTAT;
+unsigned char BDCNT;
+unsigned char BDADDRL;
+unsigned char BDADDRH;
+} BDENTRY;
+
+typedef void (*usb_read_handler)(char *, int);
+void usb_device_configure();
+void usb_start();
+void usb_disable();
+void usb_reset();
+void usb_handle();
+void usb_configure_handler(usb_read_handler);
+
+unsigned char usb_write(unsigned char *buffer, unsigned char count);
+unsigned char usb_write_byte(unsigned char byte);
+
+unsigned char usb_send();
+
+
+char usb_device_state = 0;
+
+# 62 "src/leonino/leonino.h"
+void delay_ms(unsigned int t);
+
+# 15 "src/leonino/delay.h"
+void delay_ms(unsigned int t);
+
+# 4 "src/leonino/delay.c"
+void delay_ms(unsigned int t) {
+do {
+_delay(48000000/4 / 1000);
+} while (t-- != 0);
+}
+

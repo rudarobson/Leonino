@@ -1,7 +1,7 @@
 
 
 HI-TECH Software PIC18 LITE Macro Assembler V9.80 build 11162 
-                                                                                               Sun Aug 25 00:21:49 2013
+                                                                                               Mon Aug 26 03:36:36 2013
 
 HI-TECH Software Omniscient Code Generator (Lite mode) build 11162
      1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 11162"
@@ -1471,907 +1471,567 @@ HI-TECH Software Omniscient Code Generator (Lite mode) build 11162
   1465  0000                     TOSH equ 0FFEh ;# 
   1466                           # 4139 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
   1467  0000                     TOSU equ 0FFFh ;# 
-  1468                           # 19 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1469  0000                     SPPDATA equ 0F62h ;# 
-  1470                           # 31 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1471  0000                     SPPCFG equ 0F63h ;# 
-  1472                           # 55 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1473  0000                     SPPEPS equ 0F64h ;# 
-  1474                           # 81 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1475  0000                     SPPCON equ 0F65h ;# 
-  1476                           # 94 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1477  0000                     UFRM equ 0F66h ;# 
-  1478                           # 106 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1479  0000                     UFRML equ 0F66h ;# 
-  1480                           # 131 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1481  0000                     UFRMH equ 0F67h ;# 
-  1482                           # 148 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1483  0000                     UIR equ 0F68h ;# 
-  1484                           # 166 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1485  0000                     UIE equ 0F69h ;# 
-  1486                           # 184 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1487  0000                     UEIR equ 0F6Ah ;# 
-  1488                           # 202 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1489  0000                     UEIE equ 0F6Bh ;# 
-  1490                           # 220 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1491  0000                     USTAT equ 0F6Ch ;# 
-  1492                           # 242 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1493  0000                     UCON equ 0F6Dh ;# 
-  1494                           # 260 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1495  0000                     UADDR equ 0F6Eh ;# 
-  1496                           # 281 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1497  0000                     UCFG equ 0F6Fh ;# 
-  1498                           # 310 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1499  0000                     UEP0 equ 0F70h ;# 
-  1500                           # 364 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1501  0000                     UEP1 equ 0F71h ;# 
-  1502                           # 418 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1503  0000                     UEP2 equ 0F72h ;# 
-  1504                           # 472 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1505  0000                     UEP3 equ 0F73h ;# 
-  1506                           # 526 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1507  0000                     UEP4 equ 0F74h ;# 
-  1508                           # 580 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1509  0000                     UEP5 equ 0F75h ;# 
-  1510                           # 634 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1511  0000                     UEP6 equ 0F76h ;# 
-  1512                           # 688 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1513  0000                     UEP7 equ 0F77h ;# 
-  1514                           # 742 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1515  0000                     UEP8 equ 0F78h ;# 
-  1516                           # 777 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1517  0000                     UEP9 equ 0F79h ;# 
-  1518                           # 812 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1519  0000                     UEP10 equ 0F7Ah ;# 
-  1520                           # 847 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1521  0000                     UEP11 equ 0F7Bh ;# 
-  1522                           # 882 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1523  0000                     UEP12 equ 0F7Ch ;# 
-  1524                           # 917 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1525  0000                     UEP13 equ 0F7Dh ;# 
-  1526                           # 952 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1527  0000                     UEP14 equ 0F7Eh ;# 
-  1528                           # 987 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1529  0000                     UEP15 equ 0F7Fh ;# 
-  1530                           # 1022 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1531  0000                     PORTA equ 0F80h ;# 
-  1532                           # 1074 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1533  0000                     PORTB equ 0F81h ;# 
-  1534                           # 1109 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1535  0000                     PORTC equ 0F82h ;# 
-  1536                           # 1163 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1537  0000                     PORTD equ 0F83h ;# 
-  1538                           # 1199 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1539  0000                     PORTE equ 0F84h ;# 
-  1540                           # 1306 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1541  0000                     LATA equ 0F89h ;# 
-  1542                           # 1362 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1543  0000                     LATB equ 0F8Ah ;# 
-  1544                           # 1415 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1545  0000                     LATC equ 0F8Bh ;# 
-  1546                           # 1466 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1547  0000                     LATD equ 0F8Ch ;# 
-  1548                           # 1519 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1549  0000                     LATE equ 0F8Dh ;# 
-  1550                           # 1567 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1551  0000                     TRISA equ 0F92h ;# 
-  1552                           # 1572 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1553  0000                     DDRA equ 0F92h ;# 
-  1554                           # 1626 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1555  0000                     TRISB equ 0F93h ;# 
-  1556                           # 1631 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1557  0000                     DDRB equ 0F93h ;# 
-  1558                           # 1689 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1559  0000                     TRISC equ 0F94h ;# 
-  1560                           # 1694 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1561  0000                     DDRC equ 0F94h ;# 
-  1562                           # 1752 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1563  0000                     TRISD equ 0F95h ;# 
-  1564                           # 1757 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1565  0000                     DDRD equ 0F95h ;# 
-  1566                           # 1815 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1567  0000                     TRISE equ 0F96h ;# 
-  1568                           # 1820 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1569  0000                     DDRE equ 0F96h ;# 
-  1570                           # 1858 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1571  0000                     OSCTUNE equ 0F9Bh ;# 
-  1572                           # 1879 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1573  0000                     PIE1 equ 0F9Dh ;# 
-  1574                           # 1910 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1575  0000                     PIR1 equ 0F9Eh ;# 
-  1576                           # 1941 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1577  0000                     IPR1 equ 0F9Fh ;# 
-  1578                           # 1972 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1579  0000                     PIE2 equ 0FA0h ;# 
-  1580                           # 1995 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1581  0000                     PIR2 equ 0FA1h ;# 
-  1582                           # 2018 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1583  0000                     IPR2 equ 0FA2h ;# 
-  1584                           # 2041 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1585  0000                     EECON1 equ 0FA6h ;# 
-  1586                           # 2064 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1587  0000                     EECON2 equ 0FA7h ;# 
-  1588                           # 2076 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1589  0000                     EEDATA equ 0FA8h ;# 
-  1590                           # 2088 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1591  0000                     EEADR equ 0FA9h ;# 
-  1592                           # 2100 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1593  0000                     RCSTA equ 0FABh ;# 
-  1594                           # 2105 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1595  0000                     RCSTA1 equ 0FABh ;# 
-  1596                           # 2153 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1597  0000                     TXSTA equ 0FACh ;# 
-  1598                           # 2158 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1599  0000                     TXSTA1 equ 0FACh ;# 
-  1600                           # 2252 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1601  0000                     TXREG equ 0FADh ;# 
-  1602                           # 2257 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1603  0000                     TXREG1 equ 0FADh ;# 
-  1604                           # 2275 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1605  0000                     RCREG equ 0FAEh ;# 
-  1606                           # 2280 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1607  0000                     RCREG1 equ 0FAEh ;# 
-  1608                           # 2298 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1609  0000                     SPBRG equ 0FAFh ;# 
-  1610                           # 2303 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1611  0000                     SPBRG1 equ 0FAFh ;# 
-  1612                           # 2321 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1613  0000                     SPBRGH equ 0FB0h ;# 
-  1614                           # 2333 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1615  0000                     T3CON equ 0FB1h ;# 
-  1616                           # 2378 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1617  0000                     TMR3 equ 0FB2h ;# 
-  1618                           # 2390 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1619  0000                     TMR3L equ 0FB2h ;# 
-  1620                           # 2402 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1621  0000                     TMR3H equ 0FB3h ;# 
-  1622                           # 2414 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1623  0000                     CMCON equ 0FB4h ;# 
-  1624                           # 2447 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1625  0000                     CVRCON equ 0FB5h ;# 
-  1626                           # 2474 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1627  0000                     ECCP1AS equ 0FB6h ;# 
-  1628                           # 2479 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1629  0000                     CCP1AS equ 0FB6h ;# 
-  1630                           # 2521 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1631  0000                     ECCP1DEL equ 0FB7h ;# 
-  1632                           # 2526 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1633  0000                     CCP1DEL equ 0FB7h ;# 
-  1634                           # 2564 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1635  0000                     BAUDCON equ 0FB8h ;# 
-  1636                           # 2569 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1637  0000                     BAUDCTL equ 0FB8h ;# 
-  1638                           # 2629 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1639  0000                     CCP2CON equ 0FBAh ;# 
-  1640                           # 2650 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1641  0000                     CCPR2 equ 0FBBh ;# 
-  1642                           # 2662 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1643  0000                     CCPR2L equ 0FBBh ;# 
-  1644                           # 2674 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1645  0000                     CCPR2H equ 0FBCh ;# 
-  1646                           # 2686 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1647  0000                     CCP1CON equ 0FBDh ;# 
-  1648                           # 2691 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1649  0000                     ECCP1CON equ 0FBDh ;# 
-  1650                           # 2733 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1651  0000                     CCPR1 equ 0FBEh ;# 
-  1652                           # 2745 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1653  0000                     CCPR1L equ 0FBEh ;# 
-  1654                           # 2757 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1655  0000                     CCPR1H equ 0FBFh ;# 
-  1656                           # 2769 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1657  0000                     ADCON2 equ 0FC0h ;# 
-  1658                           # 2792 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1659  0000                     ADCON1 equ 0FC1h ;# 
-  1660                           # 2825 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1661  0000                     ADCON0 equ 0FC2h ;# 
-  1662                           # 2880 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1663  0000                     ADRES equ 0FC3h ;# 
-  1664                           # 2892 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1665  0000                     ADRESL equ 0FC3h ;# 
-  1666                           # 2904 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1667  0000                     ADRESH equ 0FC4h ;# 
-  1668                           # 2916 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1669  0000                     SSPCON2 equ 0FC5h ;# 
-  1670                           # 2935 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1671  0000                     SSPCON1 equ 0FC6h ;# 
-  1672                           # 2957 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1673  0000                     SSPSTAT equ 0FC7h ;# 
-  1674                           # 3071 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1675  0000                     SSPADD equ 0FC8h ;# 
-  1676                           # 3083 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1677  0000                     SSPBUF equ 0FC9h ;# 
-  1678                           # 3095 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1679  0000                     T2CON equ 0FCAh ;# 
-  1680                           # 3125 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1681  0000                     PR2 equ 0FCBh ;# 
-  1682                           # 3130 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1683  0000                     MEMCON equ 0FCBh ;# 
-  1684                           # 3148 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1685  0000                     TMR2 equ 0FCCh ;# 
-  1686                           # 3160 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1687  0000                     T1CON equ 0FCDh ;# 
-  1688                           # 3197 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1689  0000                     TMR1 equ 0FCEh ;# 
-  1690                           # 3209 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1691  0000                     TMR1L equ 0FCEh ;# 
-  1692                           # 3221 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1693  0000                     TMR1H equ 0FCFh ;# 
-  1694                           # 3233 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1695  0000                     RCON equ 0FD0h ;# 
-  1696                           # 3284 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1697  0000                     WDTCON equ 0FD1h ;# 
-  1698                           # 3299 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1699  0000                     HLVDCON equ 0FD2h ;# 
-  1700                           # 3304 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1701  0000                     LVDCON equ 0FD2h ;# 
-  1702                           # 3374 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1703  0000                     OSCCON equ 0FD3h ;# 
-  1704                           # 3399 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1705  0000                     T0CON equ 0FD5h ;# 
-  1706                           # 3421 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1707  0000                     TMR0 equ 0FD6h ;# 
-  1708                           # 3433 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1709  0000                     TMR0L equ 0FD6h ;# 
-  1710                           # 3445 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1711  0000                     TMR0H equ 0FD7h ;# 
-  1712                           # 3457 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1713  0000                     STATUS equ 0FD8h ;# 
-  1714                           # 3488 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1715  0000                     FSR2 equ 0FD9h ;# 
-  1716                           # 3500 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1717  0000                     FSR2L equ 0FD9h ;# 
-  1718                           # 3512 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1719  0000                     FSR2H equ 0FDAh ;# 
-  1720                           # 3524 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1721  0000                     PLUSW2 equ 0FDBh ;# 
-  1722                           # 3536 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1723  0000                     PREINC2 equ 0FDCh ;# 
-  1724                           # 3548 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1725  0000                     POSTDEC2 equ 0FDDh ;# 
-  1726                           # 3560 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1727  0000                     POSTINC2 equ 0FDEh ;# 
-  1728                           # 3572 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1729  0000                     INDF2 equ 0FDFh ;# 
-  1730                           # 3584 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1731  0000                     BSR equ 0FE0h ;# 
-  1732                           # 3596 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1733  0000                     FSR1 equ 0FE1h ;# 
-  1734                           # 3608 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1735  0000                     FSR1L equ 0FE1h ;# 
-  1736                           # 3620 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1737  0000                     FSR1H equ 0FE2h ;# 
-  1738                           # 3632 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1739  0000                     PLUSW1 equ 0FE3h ;# 
-  1740                           # 3644 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1741  0000                     PREINC1 equ 0FE4h ;# 
-  1742                           # 3656 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1743  0000                     POSTDEC1 equ 0FE5h ;# 
-  1744                           # 3668 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1745  0000                     POSTINC1 equ 0FE6h ;# 
-  1746                           # 3680 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1747  0000                     INDF1 equ 0FE7h ;# 
-  1748                           # 3692 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1749  0000                     WREG equ 0FE8h ;# 
-  1750                           # 3704 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1751  0000                     FSR0 equ 0FE9h ;# 
-  1752                           # 3716 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1753  0000                     FSR0L equ 0FE9h ;# 
-  1754                           # 3728 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1755  0000                     FSR0H equ 0FEAh ;# 
-  1756                           # 3740 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1757  0000                     PLUSW0 equ 0FEBh ;# 
-  1758                           # 3752 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1759  0000                     PREINC0 equ 0FECh ;# 
-  1760                           # 3764 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1761  0000                     POSTDEC0 equ 0FEDh ;# 
-  1762                           # 3776 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1763  0000                     POSTINC0 equ 0FEEh ;# 
-  1764                           # 3788 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1765  0000                     INDF0 equ 0FEFh ;# 
-  1766                           # 3800 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1767  0000                     INTCON3 equ 0FF0h ;# 
-  1768                           # 3829 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1769  0000                     INTCON2 equ 0FF1h ;# 
-  1770                           # 3858 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1771  0000                     INTCON equ 0FF2h ;# 
-  1772                           # 3922 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1773  0000                     PROD equ 0FF3h ;# 
-  1774                           # 3934 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1775  0000                     PRODL equ 0FF3h ;# 
-  1776                           # 3946 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1777  0000                     PRODH equ 0FF4h ;# 
-  1778                           # 3958 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1779  0000                     TABLAT equ 0FF5h ;# 
-  1780                           # 3970 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1781  0000                     TBLPTR equ 0FF6h ;# 
-  1782                           # 3982 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1783  0000                     TBLPTRL equ 0FF6h ;# 
-  1784                           # 3994 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1785  0000                     TBLPTRH equ 0FF7h ;# 
-  1786                           # 4006 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1787  0000                     TBLPTRU equ 0FF8h ;# 
-  1788                           # 4018 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1789  0000                     PCLAT equ 0FF9h ;# 
-  1790                           # 4023 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1791  0000                     PC equ 0FF9h ;# 
-  1792                           # 4041 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1793  0000                     PCL equ 0FF9h ;# 
-  1794                           # 4053 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1795  0000                     PCLATH equ 0FFAh ;# 
-  1796                           # 4065 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1797  0000                     PCLATU equ 0FFBh ;# 
-  1798                           # 4077 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1799  0000                     STKPTR equ 0FFCh ;# 
-  1800                           # 4103 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1801  0000                     TOS equ 0FFDh ;# 
-  1802                           # 4115 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1803  0000                     TOSL equ 0FFDh ;# 
-  1804                           # 4127 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1805  0000                     TOSH equ 0FFEh ;# 
-  1806                           # 4139 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\pic18f4550.h"
-  1807  0000                     TOSU equ 0FFFh ;# 
-  1808 ;; Function _ep0_in_handler_send_descriptor is unused but had its address taken
-  1809                           global _ep0_in_handler_send_descriptor
-  1810  0000                     _ep0_in_handler_send_descriptor equ 0
-  1811 ;; Function _ep0_out_handler_ack is unused but had its address taken
-  1812                           global _ep0_out_handler_ack
-  1813  0000                     _ep0_out_handler_ack equ 0
-  1814 ;; Function _ep0_in_handler_ack is unused but had its address taken
-  1815                           global _ep0_in_handler_ack
-  1816  0000                     _ep0_in_handler_ack equ 0
-  1817 ;; Function _ep0_in_handler_set_address is unused but had its address taken
-  1818                           global _ep0_in_handler_set_address
-  1819  0000                     _ep0_in_handler_set_address equ 0
-  1820 ;; Function _ep0_in_handler_configure is unused but had its address taken
-  1821                           global _ep0_in_handler_configure
-  1822  0000                     _ep0_in_handler_configure equ 0
-  1823                           	FNROOT	_main
-  1824                           	global	_ep1_last_data_bit
-  1825                           	global	_ep1_sent
-  1826                           psect	idataCOMRAM,class=CODE,space=0,delta=1
-  1827                           global __pidataCOMRAM
-  1828  00088E                     __pidataCOMRAM:
-  1829                           	file	"src/usb/ep1.c"
-  1830                           	line	13
-  1831                           
-  1832                           ;initializer for _ep1_last_data_bit
-  1833  00088E  01                 	db	low(01h)
-  1834                           	line	14
-  1835                           
-  1836                           ;initializer for _ep1_sent
-  1837  00088F  01                 	db	low(01h)
-  1838                           	global	_conf_desc_0
-  1839                           psect	smallconst,class=SMALLCONST,space=0,reloc=2
-  1840                           global __psmallconst
-  1841  000800                     __psmallconst:
-  1842                           	file	"src/usb/descriptor.h"
-  1843                           	line	52
-  1844  000800                     _conf_desc_0:
-  1845  000800  09                 	db	low(09h)
-  1846  000801  02                 	db	low(02h)
-  1847  000802  20                 	db	low(020h)
-  1848  000803  00                 	db	low(0)
-  1849  000804  01                 	db	low(01h)
-  1850  000805  01                 	db	low(01h)
-  1851  000806  00                 	db	low(0)
-  1852  000807  80                 	db	low(080h)
-  1853  000808  32                 	db	low(032h)
-  1854  000809  09                 	db	low(09h)
-  1855  00080A  04                 	db	low(04h)
-  1856  00080B  00                 	db	low(0)
-  1857  00080C  00                 	db	low(0)
-  1858  00080D  02                 	db	low(02h)
-  1859  00080E  FF                 	db	low(0FFh)
-  1860  00080F  FF                 	db	low(0FFh)
-  1861  000810  FF                 	db	low(0FFh)
-  1862  000811  02                 	db	low(02h)
-  1863  000812  07                 	db	low(07h)
-  1864  000813  05                 	db	low(05h)
-  1865  000814  81                 	db	low(081h)
-  1866  000815  02                 	db	low(02h)
-  1867  000816  40                 	db	low(040h)
-  1868  000817  00                 	db	low(0)
-  1869  000818  0F                 	db	low(0Fh)
-  1870  000819  07                 	db	low(07h)
-  1871  00081A  05                 	db	low(05h)
-  1872  00081B  02                 	db	low(02h)
-  1873  00081C  02                 	db	low(02h)
-  1874  00081D  40                 	db	low(040h)
-  1875  00081E  00                 	db	low(0)
-  1876  00081F  0F                 	db	low(0Fh)
-  1877                           	global	_string_desc_2
-  1878                           psect	smallconst
-  1879                           	file	"src/usb/descriptor.h"
-  1880                           	line	116
-  1881  000820                     _string_desc_2:
-  1882  000820  18                 	db	low(018h)
-  1883  000821  03                 	db	low(03h)
-  1884  000822  50                 	db	low(050h)
-  1885  000823  00                 	db	low(0)
-  1886  000824  00                 	db	low(0)
-  1887  000825  52                 	db	low(052h)
-  1888  000826  00                 	db	low(0)
-  1889  000827  4F                 	db	low(04Fh)
-  1890  000828  00                 	db	low(0)
-  1891  000829  47                 	db	low(047h)
-  1892  00082A  00                 	db	low(0)
-  1893  00082B  52                 	db	low(052h)
-  1894  00082C  00                 	db	low(0)
-  1895  00082D  41                 	db	low(041h)
-  1896  00082E  00                 	db	low(0)
-  1897  00082F  4D                 	db	low(04Dh)
-  1898  000830  00                 	db	low(0)
-  1899  000831  4D                 	db	low(04Dh)
-  1900  000832  00                 	db	low(0)
-  1901  000833  45                 	db	low(045h)
-  1902  000834  00                 	db	low(0)
-  1903  000835  52                 	db	low(052h)
-  1904  000836  00                 	db	low(0)
-  1905  000837  00                 	db	low(0)
-  1906                           	global	_dev_desc
-  1907                           psect	smallconst
-  1908                           	file	"src/usb/descriptor.h"
-  1909                           	line	14
-  1910  000838                     _dev_desc:
-  1911  000838  12                 	db	low(012h)
-  1912  000839  01                 	db	low(01h)
-  1913  00083A  00                 	db	low(0)
-  1914  00083B  02                 	db	low(02h)
-  1915  00083C  00                 	db	low(0)
-  1916  00083D  00                 	db	low(0)
-  1917  00083E  00                 	db	low(0)
-  1918  00083F  40                 	db	low(040h)
-  1919  000840  AD                 	db	low(0ADh)
-  1920  000841  DE                 	db	low(0DEh)
-  1921  000842  02                 	db	low(02h)
-  1922  000843  00                 	db	low(0)
-  1923  000844  00                 	db	low(0)
-  1924  000845  00                 	db	low(0)
-  1925  000846  01                 	db	low(01h)
-  1926  000847  02                 	db	low(02h)
-  1927  000848  00                 	db	low(0)
-  1928  000849  01                 	db	low(01h)
-  1929                           	global	_string_desc_1
-  1930                           psect	smallconst
-  1931                           	file	"src/usb/descriptor.h"
-  1932                           	line	107
-  1933  00084A                     _string_desc_1:
-  1934  00084A  0C                 	db	low(0Ch)
-  1935  00084B  03                 	db	low(03h)
-  1936  00084C  00                 	db	low(0)
-  1937  00084D  52                 	db	low(052h)
-  1938  00084E  00                 	db	low(0)
-  1939  00084F  55                 	db	low(055h)
-  1940  000850  00                 	db	low(0)
-  1941  000851  44                 	db	low(044h)
-  1942  000852  00                 	db	low(0)
-  1943  000853  41                 	db	low(041h)
-  1944  000854  00                 	db	low(0)
-  1945  000855  00                 	db	low(0)
-  1946                           	global	_string_desc_0
-  1947                           psect	smallconst
-  1948                           	file	"src/usb/descriptor.h"
-  1949                           	line	98
-  1950  000856                     _string_desc_0:
-  1951  000856  04                 	db	low(04h)
-  1952  000857  03                 	db	low(03h)
-  1953  000858  09                 	db	low(09h)
-  1954  000859  04                 	db	low(04h)
-  1955                           	global	_conf_desc_0
-  1956                           	global	_string_desc_2
-  1957                           	global	_dev_desc
-  1958                           	global	_string_desc_1
-  1959                           	global	_string_desc_0
-  1960                           	global	_ep0_in_decsriptor
-  1961                           	global	_ep0_in_handler
-  1962                           	global	_ep0_in_total_bytes_sent
-  1963                           	global	_ep0_in_total_bytes_sent_on_last_transfer
-  1964                           	global	_ep0_in_total_bytes_to_send
-  1965                           	global	_ep0_out_handler
-  1966                           	global	_ep2_receive_handler
-  1967                           	global	_ep0_bdstat
-  1968                           	global	_ep0_dir
-  1969                           	global	_ep0_last_data_bit
-  1970                           	global	_ep0_temp_uaddr
-  1971                           	global	_ep2_code
-  1972                           	global	_ep2_last_data_bit
-  1973                           	global	_toggle
-  1974                           	global	_total_writen
-  1975                           	global	_usb_device_state
-  1976                           	global	_UADDR
-  1977  0000                     _UADDR	set	0xF6E
-  1978                           	global	_UCFG
-  1979  0000                     _UCFG	set	0xF6F
-  1980                           	global	_UCON
-  1981  0000                     _UCON	set	0xF6D
-  1982                           	global	_UCONbits
-  1983  0000                     _UCONbits	set	0xF6D
-  1984                           	global	_UEP0
-  1985  0000                     _UEP0	set	0xF70
-  1986                           	global	_UEP1
-  1987  0000                     _UEP1	set	0xF71
-  1988                           	global	_UEP2
-  1989  0000                     _UEP2	set	0xF72
-  1990                           	global	_UIE
-  1991  0000                     _UIE	set	0xF69
-  1992                           	global	_UIR
-  1993  0000                     _UIR	set	0xF68
-  1994                           	global	_UIRbits
-  1995  0000                     _UIRbits	set	0xF68
-  1996                           	global	_USTAT
-  1997  0000                     _USTAT	set	0xF6C
-  1998                           	global	_ep0_out_bd
-  1999                           	global	_ep0_out_bd
-  2000  0000                     _ep0_out_bd  equ     1024
-  2001                           
-  2002                           	DABS	1,1024,4	;_ep0_out_bd
-  2003                           	global	_ep0_out_buffer
-  2004                           	global	_ep0_out_buffer
-  2005  0000                     _ep0_out_buffer  equ     1280
-  2006                           
-  2007                           	DABS	1,1280,64	;_ep0_out_buffer
-  2008                           	global	_ep1_bd
-  2009                           	global	_ep1_bd
-  2010  0000                     _ep1_bd  equ     1036
-  2011                           
-  2012                           	DABS	1,1036,4	;_ep1_bd
-  2013                           	global	_ep0_in_bd
-  2014                           	global	_ep0_in_bd
-  2015  0000                     _ep0_in_bd  equ     1028
-  2016                           
-  2017                           	DABS	1,1028,4	;_ep0_in_bd
-  2018                           	global	_ep1_buffer
-  2019                           	global	_ep1_buffer
-  2020  0000                     _ep1_buffer  equ     1408
-  2021                           
-  2022                           	DABS	1,1408,64	;_ep1_buffer
-  2023                           	global	_ep2_buffer
-  2024                           	global	_ep2_buffer
-  2025  0000                     _ep2_buffer  equ     1472
-  2026                           
-  2027                           	DABS	1,1472,64	;_ep2_buffer
-  2028                           	global	_ep0_in_buffer
-  2029                           	global	_ep0_in_buffer
-  2030  0000                     _ep0_in_buffer  equ     1344
-  2031                           
-  2032                           	DABS	1,1344,64	;_ep0_in_buffer
-  2033                           	global	_ep2_bd
-  2034                           	global	_ep2_bd
-  2035  0000                     _ep2_bd  equ     1040
-  2036                           
-  2037                           	DABS	1,1040,4	;_ep2_bd
-  2038                           ; #config settings
-  2039                           	file	"C:\Users\RUDARO~1\AppData\Local\Temp\s2o8."
-  2040                           	line	#
-  2041                           psect	cinit,class=CODE,delta=1,reloc=2
-  2042                           global __pcinit
-  2043  00085C                     __pcinit:
-  2044                           global start_initialization
-  2045  00085C                     start_initialization:
-  2046                           
-  2047                           psect	bssCOMRAM,class=COMRAM,space=1
-  2048                           global __pbssCOMRAM
-  2049  000001                     __pbssCOMRAM:
-  2050                           	global	_ep0_in_decsriptor
-  2051  000001                     _ep0_in_decsriptor:
-  2052  000001                            ds      2
-  2053                           	global	_ep0_in_handler
-  2054  000003                     _ep0_in_handler:
-  2055  000003                            ds      2
-  2056                           	global	_ep0_in_total_bytes_sent
-  2057  000005                     _ep0_in_total_bytes_sent:
-  2058  000005                            ds      2
-  2059                           	global	_ep0_in_total_bytes_sent_on_last_transfer
-  2060  000007                     _ep0_in_total_bytes_sent_on_last_transfer:
-  2061  000007                            ds      2
-  2062                           	global	_ep0_in_total_bytes_to_send
-  2063  000009                     _ep0_in_total_bytes_to_send:
-  2064  000009                            ds      2
-  2065                           	global	_ep0_out_handler
-  2066  00000B                     _ep0_out_handler:
-  2067  00000B                            ds      2
-  2068                           	global	_ep2_receive_handler
-  2069  00000D                     _ep2_receive_handler:
-  2070  00000D                            ds      2
-  2071                           	global	_ep0_bdstat
-  2072  00000F                     _ep0_bdstat:
-  2073  00000F                            ds      1
-  2074                           	global	_ep0_dir
-  2075  000010                     _ep0_dir:
-  2076  000010                            ds      1
-  2077                           	global	_ep0_last_data_bit
-  2078  000011                     _ep0_last_data_bit:
-  2079  000011                            ds      1
-  2080                           	global	_ep0_temp_uaddr
-  2081  000012                     _ep0_temp_uaddr:
-  2082  000012                            ds      1
-  2083                           	global	_ep2_code
-  2084                           	global	_ep2_code
-  2085  000013                     _ep2_code:
-  2086  000013                            ds      1
-  2087                           	global	_ep2_last_data_bit
-  2088  000014                     _ep2_last_data_bit:
-  2089  000014                            ds      1
-  2090                           	global	_toggle
-  2091                           	global	_toggle
-  2092  000015                     _toggle:
-  2093  000015                            ds      1
-  2094                           	global	_total_writen
-  2095  000016                     _total_writen:
-  2096  000016                            ds      1
-  2097                           	global	_usb_device_state
-  2098  000017                     _usb_device_state:
-  2099  000017                            ds      1
-  2100                           psect	dataCOMRAM,class=COMRAM,space=1
-  2101                           global __pdataCOMRAM
-  2102  00001D                     __pdataCOMRAM:
-  2103                           	file	"src/usb/ep1.c"
-  2104                           	line	13
-  2105                           	global	_ep1_last_data_bit
-  2106  00001D                     _ep1_last_data_bit:
-  2107  00001D                            ds      1
-  2108                           psect	dataCOMRAM
-  2109                           	file	"src/usb/ep1.c"
-  2110                           	line	14
-  2111                           	global	_ep1_sent
-  2112  00001E                     _ep1_sent:
-  2113  00001E                            ds      1
-  2114                           psect	cinit
-  2115                           ; Clear objects allocated to COMRAM (23 bytes)
-  2116                           	global __pbssCOMRAM
-  2117  00085C  EE00  F001         lfsr	0,__pbssCOMRAM
-  2118  000860  0E17               movlw	23
-  2119  000862                     clear_0:
-  2120  000862  6AEE               clrf	postinc0,c
-  2121  000864  06E8               decf	wreg
-  2122  000866  E1FD               bnz	clear_0
-  2123                           ; Initialize objects allocated to COMRAM (2 bytes)
-  2124                           	global __pidataCOMRAM
-  2125                           	; load TBLPTR registers with __pidataCOMRAM
-  2126  000868  0E8E               	movlw	low (__pidataCOMRAM)
-  2127  00086A  6EF6               	movwf	tblptrl
-  2128  00086C  0E08               	movlw	high(__pidataCOMRAM)
-  2129  00086E  6EF7               	movwf	tblptrh
-  2130  000870  0E00               	movlw	low highword(__pidataCOMRAM)
-  2131  000872  6EF8               	movwf	tblptru
-  2132  000874  0009               	tblrd*+ ;fetch initializer
-  2133  000876  CFF5 F01D          	movff	tablat, __pdataCOMRAM+0		
-  2134  00087A  0009               	tblrd*+ ;fetch initializer
-  2135  00087C  CFF5 F01E          	movff	tablat, __pdataCOMRAM+1		
-  2136                           psect cinit,class=CODE,delta=1
-  2137                           global end_of_initialization
-  2138                           
-  2139                           ;End of C runtime variable initialization code
-  2140                           
-  2141  000880                     end_of_initialization:
-  2142                           	GLOBAL	__Lmediumconst
-  2143  000880  0E00               	movlw	low highword(__Lmediumconst)
-  2144  000882  6EF8               	movwf	tblptru
-  2145  000884  0100               movlb 0
-  2146  000886  EF45  F004         goto _main	;jump to C main() function
-  2147                           psect	cstackCOMRAM,class=COMRAM,space=1
-  2148                           global __pcstackCOMRAM
-  2149  000018                     __pcstackCOMRAM:
-  2150                           	global	?_main
-  2151  000018                     ?_main:	; 2 bytes @ 0x0
-  2152                           	global	main@argc
-  2153  000018                     main@argc:	; 2 bytes @ 0x0
-  2154  000018                     	ds   2
-  2155                           	global	main@argv
-  2156  00001A                     main@argv:	; 3 bytes @ 0x2
-  2157  00001A                     	ds   3
-  2158                           	global	??_main
-  2159  00001D                     ??_main:	; 0 bytes @ 0x5
-  2160                           ;!
-  2161                           ;!Data Sizes:
-  2162                           ;!    Strings     0
-  2163                           ;!    Constant    90
-  2164                           ;!    Data        2
-  2165                           ;!    BSS         23
-  2166                           ;!    Persistent  0
-  2167                           ;!    Stack       0
-  2168                           ;!
-  2169                           ;!Auto Spaces:
-  2170                           ;!    Space          Size  Autos    Used
-  2171                           ;!    COMRAM           95      5      30
-  2172                           ;!    BANK0           160      0       0
-  2173                           ;!    BANK1           256      0       0
-  2174                           ;!    BANK2           256      0       0
-  2175                           ;!    BANK3           256      0       0
-  2176                           ;!    BANK4h          236      0       0
-  2177                           ;!    BANK4l            4      0       0
-  2178                           ;!    BANK6           256      0       0
-  2179                           ;!    BANK7           256      0       0
-  2180                           
-  2181                           ;!
-  2182                           ;!Pointer List with Targets:
-  2183                           ;!
-  2184                           ;!    Absolute function$0	PTR unsigned char  size(2) Largest target is 2047
-  2185                           ;!		 -> RAM(DATA[2047]), 
-  2186                           ;!
-  2187                           ;!    ep2_receive_handler$0	PTR unsigned char  size(2) Largest target is 2047
-  2188                           ;!		 -> RAM(DATA[2047]), 
-  2189                           ;!
-  2190                           ;!    ep2_receive_handler	PTR FTN(PTR unsigned char ,int ,)void  size(2) Largest target 
+  1468 ;; Function _ep0_in_handler_send_descriptor is unused but had its address taken
+  1469                           global _ep0_in_handler_send_descriptor
+  1470  0000                     _ep0_in_handler_send_descriptor equ 0
+  1471 ;; Function _ep0_out_handler_ack is unused but had its address taken
+  1472                           global _ep0_out_handler_ack
+  1473  0000                     _ep0_out_handler_ack equ 0
+  1474 ;; Function _ep0_in_handler_ack is unused but had its address taken
+  1475                           global _ep0_in_handler_ack
+  1476  0000                     _ep0_in_handler_ack equ 0
+  1477 ;; Function _ep0_in_handler_set_address is unused but had its address taken
+  1478                           global _ep0_in_handler_set_address
+  1479  0000                     _ep0_in_handler_set_address equ 0
+  1480 ;; Function _ep0_in_handler_configure is unused but had its address taken
+  1481                           global _ep0_in_handler_configure
+  1482  0000                     _ep0_in_handler_configure equ 0
+  1483                           	FNROOT	_main
+  1484                           	global	_ep1_last_data_bit
+  1485                           	global	_ep1_sent
+  1486                           psect	idataCOMRAM,class=CODE,space=0,delta=1
+  1487                           global __pidataCOMRAM
+  1488  00088E                     __pidataCOMRAM:
+  1489                           	file	"src/leonino/usb/ep1.c"
+  1490                           	line	13
+  1491                           
+  1492                           ;initializer for _ep1_last_data_bit
+  1493  00088E  01                 	db	low(01h)
+  1494                           	line	14
+  1495                           
+  1496                           ;initializer for _ep1_sent
+  1497  00088F  01                 	db	low(01h)
+  1498                           	global	_conf_desc_0
+  1499                           psect	smallconst,class=SMALLCONST,space=0,reloc=2
+  1500                           global __psmallconst
+  1501  000800                     __psmallconst:
+  1502                           	file	"src/leonino/usb/descriptor.h"
+  1503                           	line	52
+  1504  000800                     _conf_desc_0:
+  1505  000800  09                 	db	low(09h)
+  1506  000801  02                 	db	low(02h)
+  1507  000802  20                 	db	low(020h)
+  1508  000803  00                 	db	low(0)
+  1509  000804  01                 	db	low(01h)
+  1510  000805  01                 	db	low(01h)
+  1511  000806  00                 	db	low(0)
+  1512  000807  80                 	db	low(080h)
+  1513  000808  32                 	db	low(032h)
+  1514  000809  09                 	db	low(09h)
+  1515  00080A  04                 	db	low(04h)
+  1516  00080B  00                 	db	low(0)
+  1517  00080C  00                 	db	low(0)
+  1518  00080D  02                 	db	low(02h)
+  1519  00080E  FF                 	db	low(0FFh)
+  1520  00080F  FF                 	db	low(0FFh)
+  1521  000810  FF                 	db	low(0FFh)
+  1522  000811  02                 	db	low(02h)
+  1523  000812  07                 	db	low(07h)
+  1524  000813  05                 	db	low(05h)
+  1525  000814  81                 	db	low(081h)
+  1526  000815  02                 	db	low(02h)
+  1527  000816  40                 	db	low(040h)
+  1528  000817  00                 	db	low(0)
+  1529  000818  0F                 	db	low(0Fh)
+  1530  000819  07                 	db	low(07h)
+  1531  00081A  05                 	db	low(05h)
+  1532  00081B  02                 	db	low(02h)
+  1533  00081C  02                 	db	low(02h)
+  1534  00081D  40                 	db	low(040h)
+  1535  00081E  00                 	db	low(0)
+  1536  00081F  0F                 	db	low(0Fh)
+  1537                           	global	_string_desc_2
+  1538                           psect	smallconst
+  1539                           	file	"src/leonino/usb/descriptor.h"
+  1540                           	line	116
+  1541  000820                     _string_desc_2:
+  1542  000820  18                 	db	low(018h)
+  1543  000821  03                 	db	low(03h)
+  1544  000822  50                 	db	low(050h)
+  1545  000823  00                 	db	low(0)
+  1546  000824  00                 	db	low(0)
+  1547  000825  52                 	db	low(052h)
+  1548  000826  00                 	db	low(0)
+  1549  000827  4F                 	db	low(04Fh)
+  1550  000828  00                 	db	low(0)
+  1551  000829  47                 	db	low(047h)
+  1552  00082A  00                 	db	low(0)
+  1553  00082B  52                 	db	low(052h)
+  1554  00082C  00                 	db	low(0)
+  1555  00082D  41                 	db	low(041h)
+  1556  00082E  00                 	db	low(0)
+  1557  00082F  4D                 	db	low(04Dh)
+  1558  000830  00                 	db	low(0)
+  1559  000831  4D                 	db	low(04Dh)
+  1560  000832  00                 	db	low(0)
+  1561  000833  45                 	db	low(045h)
+  1562  000834  00                 	db	low(0)
+  1563  000835  52                 	db	low(052h)
+  1564  000836  00                 	db	low(0)
+  1565  000837  00                 	db	low(0)
+  1566                           	global	_dev_desc
+  1567                           psect	smallconst
+  1568                           	file	"src/leonino/usb/descriptor.h"
+  1569                           	line	14
+  1570  000838                     _dev_desc:
+  1571  000838  12                 	db	low(012h)
+  1572  000839  01                 	db	low(01h)
+  1573  00083A  00                 	db	low(0)
+  1574  00083B  02                 	db	low(02h)
+  1575  00083C  00                 	db	low(0)
+  1576  00083D  00                 	db	low(0)
+  1577  00083E  00                 	db	low(0)
+  1578  00083F  40                 	db	low(040h)
+  1579  000840  AD                 	db	low(0ADh)
+  1580  000841  DE                 	db	low(0DEh)
+  1581  000842  02                 	db	low(02h)
+  1582  000843  00                 	db	low(0)
+  1583  000844  00                 	db	low(0)
+  1584  000845  00                 	db	low(0)
+  1585  000846  01                 	db	low(01h)
+  1586  000847  02                 	db	low(02h)
+  1587  000848  00                 	db	low(0)
+  1588  000849  01                 	db	low(01h)
+  1589                           	global	_string_desc_1
+  1590                           psect	smallconst
+  1591                           	file	"src/leonino/usb/descriptor.h"
+  1592                           	line	107
+  1593  00084A                     _string_desc_1:
+  1594  00084A  0C                 	db	low(0Ch)
+  1595  00084B  03                 	db	low(03h)
+  1596  00084C  00                 	db	low(0)
+  1597  00084D  52                 	db	low(052h)
+  1598  00084E  00                 	db	low(0)
+  1599  00084F  55                 	db	low(055h)
+  1600  000850  00                 	db	low(0)
+  1601  000851  44                 	db	low(044h)
+  1602  000852  00                 	db	low(0)
+  1603  000853  41                 	db	low(041h)
+  1604  000854  00                 	db	low(0)
+  1605  000855  00                 	db	low(0)
+  1606                           	global	_string_desc_0
+  1607                           psect	smallconst
+  1608                           	file	"src/leonino/usb/descriptor.h"
+  1609                           	line	98
+  1610  000856                     _string_desc_0:
+  1611  000856  04                 	db	low(04h)
+  1612  000857  03                 	db	low(03h)
+  1613  000858  09                 	db	low(09h)
+  1614  000859  04                 	db	low(04h)
+  1615                           	global	_conf_desc_0
+  1616                           	global	_string_desc_2
+  1617                           	global	_dev_desc
+  1618                           	global	_string_desc_1
+  1619                           	global	_string_desc_0
+  1620                           	global	_ep0_in_decsriptor
+  1621                           	global	_ep0_in_handler
+  1622                           	global	_ep0_in_total_bytes_sent
+  1623                           	global	_ep0_in_total_bytes_sent_on_last_transfer
+  1624                           	global	_ep0_in_total_bytes_to_send
+  1625                           	global	_ep0_out_handler
+  1626                           	global	_ep2_receive_handler
+  1627                           	global	_ep0_bdstat
+  1628                           	global	_ep0_dir
+  1629                           	global	_ep0_last_data_bit
+  1630                           	global	_ep0_temp_uaddr
+  1631                           	global	_ep2_code
+  1632                           	global	_ep2_last_data_bit
+  1633                           	global	_toggle
+  1634                           	global	_total_writen
+  1635                           	global	_usb_device_state
+  1636                           	global	_UADDR
+  1637  0000                     _UADDR	set	0xF6E
+  1638                           	global	_UCFG
+  1639  0000                     _UCFG	set	0xF6F
+  1640                           	global	_UCON
+  1641  0000                     _UCON	set	0xF6D
+  1642                           	global	_UCONbits
+  1643  0000                     _UCONbits	set	0xF6D
+  1644                           	global	_UEP0
+  1645  0000                     _UEP0	set	0xF70
+  1646                           	global	_UEP1
+  1647  0000                     _UEP1	set	0xF71
+  1648                           	global	_UEP2
+  1649  0000                     _UEP2	set	0xF72
+  1650                           	global	_UIE
+  1651  0000                     _UIE	set	0xF69
+  1652                           	global	_UIR
+  1653  0000                     _UIR	set	0xF68
+  1654                           	global	_UIRbits
+  1655  0000                     _UIRbits	set	0xF68
+  1656                           	global	_USTAT
+  1657  0000                     _USTAT	set	0xF6C
+  1658                           	global	_ep0_out_bd
+  1659                           	global	_ep0_out_bd
+  1660  0000                     _ep0_out_bd  equ     1024
+  1661                           
+  1662                           	DABS	1,1024,4	;_ep0_out_bd
+  1663                           	global	_ep0_out_buffer
+  1664                           	global	_ep0_out_buffer
+  1665  0000                     _ep0_out_buffer  equ     1280
+  1666                           
+  1667                           	DABS	1,1280,64	;_ep0_out_buffer
+  1668                           	global	_ep1_bd
+  1669                           	global	_ep1_bd
+  1670  0000                     _ep1_bd  equ     1036
+  1671                           
+  1672                           	DABS	1,1036,4	;_ep1_bd
+  1673                           	global	_ep0_in_bd
+  1674                           	global	_ep0_in_bd
+  1675  0000                     _ep0_in_bd  equ     1028
+  1676                           
+  1677                           	DABS	1,1028,4	;_ep0_in_bd
+  1678                           	global	_ep1_buffer
+  1679                           	global	_ep1_buffer
+  1680  0000                     _ep1_buffer  equ     1408
+  1681                           
+  1682                           	DABS	1,1408,64	;_ep1_buffer
+  1683                           	global	_ep2_buffer
+  1684                           	global	_ep2_buffer
+  1685  0000                     _ep2_buffer  equ     1472
+  1686                           
+  1687                           	DABS	1,1472,64	;_ep2_buffer
+  1688                           	global	_ep0_in_buffer
+  1689                           	global	_ep0_in_buffer
+  1690  0000                     _ep0_in_buffer  equ     1344
+  1691                           
+  1692                           	DABS	1,1344,64	;_ep0_in_buffer
+  1693                           	global	_ep2_bd
+  1694                           	global	_ep2_bd
+  1695  0000                     _ep2_bd  equ     1040
+  1696                           
+  1697                           	DABS	1,1040,4	;_ep2_bd
+  1698                           ; #config settings
+  1699                           	file	"C:\Users\RUDARO~1\AppData\Local\Temp\s5gg."
+  1700                           	line	#
+  1701                           psect	cinit,class=CODE,delta=1,reloc=2
+  1702                           global __pcinit
+  1703  00085C                     __pcinit:
+  1704                           global start_initialization
+  1705  00085C                     start_initialization:
+  1706                           
+  1707                           psect	bssCOMRAM,class=COMRAM,space=1
+  1708                           global __pbssCOMRAM
+  1709  000001                     __pbssCOMRAM:
+  1710                           	global	_ep0_in_decsriptor
+  1711  000001                     _ep0_in_decsriptor:
+  1712  000001                            ds      2
+  1713                           	global	_ep0_in_handler
+  1714  000003                     _ep0_in_handler:
+  1715  000003                            ds      2
+  1716                           	global	_ep0_in_total_bytes_sent
+  1717  000005                     _ep0_in_total_bytes_sent:
+  1718  000005                            ds      2
+  1719                           	global	_ep0_in_total_bytes_sent_on_last_transfer
+  1720  000007                     _ep0_in_total_bytes_sent_on_last_transfer:
+  1721  000007                            ds      2
+  1722                           	global	_ep0_in_total_bytes_to_send
+  1723  000009                     _ep0_in_total_bytes_to_send:
+  1724  000009                            ds      2
+  1725                           	global	_ep0_out_handler
+  1726  00000B                     _ep0_out_handler:
+  1727  00000B                            ds      2
+  1728                           	global	_ep2_receive_handler
+  1729  00000D                     _ep2_receive_handler:
+  1730  00000D                            ds      2
+  1731                           	global	_ep0_bdstat
+  1732  00000F                     _ep0_bdstat:
+  1733  00000F                            ds      1
+  1734                           	global	_ep0_dir
+  1735  000010                     _ep0_dir:
+  1736  000010                            ds      1
+  1737                           	global	_ep0_last_data_bit
+  1738  000011                     _ep0_last_data_bit:
+  1739  000011                            ds      1
+  1740                           	global	_ep0_temp_uaddr
+  1741  000012                     _ep0_temp_uaddr:
+  1742  000012                            ds      1
+  1743                           	global	_ep2_code
+  1744                           	global	_ep2_code
+  1745  000013                     _ep2_code:
+  1746  000013                            ds      1
+  1747                           	global	_ep2_last_data_bit
+  1748  000014                     _ep2_last_data_bit:
+  1749  000014                            ds      1
+  1750                           	global	_toggle
+  1751                           	global	_toggle
+  1752  000015                     _toggle:
+  1753  000015                            ds      1
+  1754                           	global	_total_writen
+  1755  000016                     _total_writen:
+  1756  000016                            ds      1
+  1757                           	global	_usb_device_state
+  1758  000017                     _usb_device_state:
+  1759  000017                            ds      1
+  1760                           psect	dataCOMRAM,class=COMRAM,space=1
+  1761                           global __pdataCOMRAM
+  1762  00001D                     __pdataCOMRAM:
+  1763                           	file	"src/leonino/usb/ep1.c"
+  1764                           	line	13
+  1765                           	global	_ep1_last_data_bit
+  1766  00001D                     _ep1_last_data_bit:
+  1767  00001D                            ds      1
+  1768                           psect	dataCOMRAM
+  1769                           	file	"src/leonino/usb/ep1.c"
+  1770                           	line	14
+  1771                           	global	_ep1_sent
+  1772  00001E                     _ep1_sent:
+  1773  00001E                            ds      1
+  1774                           psect	cinit
+  1775                           ; Clear objects allocated to COMRAM (23 bytes)
+  1776                           	global __pbssCOMRAM
+  1777  00085C  EE00  F001         lfsr	0,__pbssCOMRAM
+  1778  000860  0E17               movlw	23
+  1779  000862                     clear_0:
+  1780  000862  6AEE               clrf	postinc0,c
+  1781  000864  06E8               decf	wreg
+  1782  000866  E1FD               bnz	clear_0
+  1783                           ; Initialize objects allocated to COMRAM (2 bytes)
+  1784                           	global __pidataCOMRAM
+  1785                           	; load TBLPTR registers with __pidataCOMRAM
+  1786  000868  0E8E               	movlw	low (__pidataCOMRAM)
+  1787  00086A  6EF6               	movwf	tblptrl
+  1788  00086C  0E08               	movlw	high(__pidataCOMRAM)
+  1789  00086E  6EF7               	movwf	tblptrh
+  1790  000870  0E00               	movlw	low highword(__pidataCOMRAM)
+  1791  000872  6EF8               	movwf	tblptru
+  1792  000874  0009               	tblrd*+ ;fetch initializer
+  1793  000876  CFF5 F01D          	movff	tablat, __pdataCOMRAM+0		
+  1794  00087A  0009               	tblrd*+ ;fetch initializer
+  1795  00087C  CFF5 F01E          	movff	tablat, __pdataCOMRAM+1		
+  1796                           psect cinit,class=CODE,delta=1
+  1797                           global end_of_initialization
+  1798                           
+  1799                           ;End of C runtime variable initialization code
+  1800                           
+  1801  000880                     end_of_initialization:
+  1802                           	GLOBAL	__Lmediumconst
+  1803  000880  0E00               	movlw	low highword(__Lmediumconst)
+  1804  000882  6EF8               	movwf	tblptru
+  1805  000884  0100               movlb 0
+  1806  000886  EF45  F004         goto _main	;jump to C main() function
+  1807                           psect	cstackCOMRAM,class=COMRAM,space=1
+  1808                           global __pcstackCOMRAM
+  1809  000018                     __pcstackCOMRAM:
+  1810                           	global	?_main
+  1811  000018                     ?_main:	; 2 bytes @ 0x0
+  1812                           	global	main@argc
+  1813  000018                     main@argc:	; 2 bytes @ 0x0
+  1814  000018                     	ds   2
+  1815                           	global	main@argv
+  1816  00001A                     main@argv:	; 3 bytes @ 0x2
+  1817  00001A                     	ds   3
+  1818                           	global	??_main
+  1819  00001D                     ??_main:	; 0 bytes @ 0x5
+  1820                           ;!
+  1821                           ;!Data Sizes:
+  1822                           ;!    Strings     0
+  1823                           ;!    Constant    90
+  1824                           ;!    Data        2
+  1825                           ;!    BSS         23
+  1826                           ;!    Persistent  0
+  1827                           ;!    Stack       0
+  1828                           ;!
+  1829                           ;!Auto Spaces:
+  1830                           ;!    Space          Size  Autos    Used
+  1831                           ;!    COMRAM           95      5      30
+  1832                           ;!    BANK0           160      0       0
+  1833                           ;!    BANK1           256      0       0
+  1834                           ;!    BANK2           256      0       0
+  1835                           ;!    BANK3           256      0       0
+  1836                           ;!    BANK4h          236      0       0
+  1837                           ;!    BANK4l            4      0       0
+  1838                           ;!    BANK6           256      0       0
+  1839                           ;!    BANK7           256      0       0
+  1840                           
+  1841                           ;!
+  1842                           ;!Pointer List with Targets:
+  1843                           ;!
+  1844                           ;!    Absolute function$0	PTR unsigned char  size(2) Largest target is 2047
+  1845                           ;!		 -> RAM(DATA[2047]), 
+  1846                           ;!
+  1847                           ;!    ep2_receive_handler$0	PTR unsigned char  size(2) Largest target is 2047
+  1848                           ;!		 -> RAM(DATA[2047]), 
+  1849                           ;!
+  1850                           ;!    ep2_receive_handler	PTR FTN(PTR unsigned char ,int ,)void  size(2) Largest target 
                                  is 0
-  2191                           ;!		 -> Absolute function(), 
-  2192                           ;!
-  2193                           ;!    ep0_in_decsriptor	PTR unsigned char  size(2) Largest target is 32
-  2194                           ;!		 -> NULL(NULL[0]), string_desc_2(CODE[24]), string_desc_1(CODE[12]), string_desc_0(C
+  1851                           ;!		 -> Absolute function(), 
+  1852                           ;!
+  1853                           ;!    ep0_in_decsriptor	PTR unsigned char  size(2) Largest target is 32
+  1854                           ;!		 -> NULL(NULL[0]), string_desc_2(CODE[24]), string_desc_1(CODE[12]), string_desc_0(C
                                  ODE[4]), 
-  2195                           ;!		 -> conf_desc_0(CODE[32]), dev_desc(CODE[18]), 
-  2196                           ;!
-  2197                           ;!    ep0_out_handler	PTR FTN()void  size(2) Largest target is 0
-  2198                           ;!		 -> Absolute function(), ep0_out_handler_ack(), 
-  2199                           ;!
-  2200                           ;!    ep0_in_handler	PTR FTN()void  size(2) Largest target is 0
-  2201                           ;!		 -> Absolute function(), ep0_in_handler_configure(), ep0_in_handler_set_address(), e
+  1855                           ;!		 -> conf_desc_0(CODE[32]), dev_desc(CODE[18]), 
+  1856                           ;!
+  1857                           ;!    ep0_out_handler	PTR FTN()void  size(2) Largest target is 0
+  1858                           ;!		 -> Absolute function(), ep0_out_handler_ack(), 
+  1859                           ;!
+  1860                           ;!    ep0_in_handler	PTR FTN()void  size(2) Largest target is 0
+  1861                           ;!		 -> Absolute function(), ep0_in_handler_configure(), ep0_in_handler_set_address(), e
                                  p0_in_handler_send_descriptor(), 
-  2202                           ;!		 -> ep0_in_handler_ack(), 
-  2203                           ;!
-  2204                           
-  2205                           
-  2206                           ;!
-  2207                           ;!Critical Paths under _main in COMRAM
-  2208                           ;!
-  2209                           ;!    None.
-  2210                           ;!
-  2211                           ;!Critical Paths under _main in BANK0
-  2212                           ;!
-  2213                           ;!    None.
-  2214                           ;!
-  2215                           ;!Critical Paths under _main in BANK1
-  2216                           ;!
-  2217                           ;!    None.
-  2218                           ;!
-  2219                           ;!Critical Paths under _main in BANK2
-  2220                           ;!
-  2221                           ;!    None.
-  2222                           ;!
-  2223                           ;!Critical Paths under _main in BANK3
-  2224                           ;!
-  2225                           ;!    None.
-  2226                           ;!
-  2227                           ;!Critical Paths under _main in BANK4h
-  2228                           ;!
-  2229                           ;!    None.
-  2230                           ;!
-  2231                           ;!Critical Paths under _main in BANK4l
-  2232                           ;!
-  2233                           ;!    None.
-  2234                           ;!
-  2235                           ;!Critical Paths under _main in BANK6
-  2236                           ;!
-  2237                           ;!    None.
-  2238                           ;!
-  2239                           ;!Critical Paths under _main in BANK7
-  2240                           ;!
-  2241                           ;!    None.
-  2242                           
-  2243 ;;
-  2244 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-  2245 ;;
-  2246                           
-  2247                           ;!
-  2248                           ;!Call Graph Tables:
-  2249                           ;!
-  2250                           ;! ---------------------------------------------------------------------------------
-  2251                           ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
-  2252                           ;! ---------------------------------------------------------------------------------
-  2253                           ;! (0) _main                                                 5     0      5       0
-  2254                           ;!                                              0 COMRAM     5     0      5
-  2255                           ;! ---------------------------------------------------------------------------------
-  2256                           ;! Estimated maximum stack depth 0
-  2257                           ;! ---------------------------------------------------------------------------------
-  2258                           ;!
-  2259                           ;! Call Graph Graphs:
-  2260                           ;!
-  2261                           ;! _main (ROOT)
-  2262                           ;!
-  2263                           
-  2264                           ;! Address spaces:
-  2265                           
-  2266                           ;!Name               Size   Autos  Total    Cost      Usage
-  2267                           ;!BIGRAMl            3FF      0       0      24        0.0%
-  2268                           ;!BIGRAMhh           200      0       0      21        0.0%
-  2269                           ;!EEDATA             100      0       0       0        0.0%
-  2270                           ;!BITBANK7           100      0       0      19        0.0%
-  2271                           ;!BANK7              100      0       0      20        0.0%
-  2272                           ;!BITBANK6           100      0       0      17        0.0%
-  2273                           ;!BANK6              100      0       0      18        0.0%
-  2274                           ;!BITBANK3           100      0       0      10        0.0%
-  2275                           ;!BANK3              100      0       0      11        0.0%
-  2276                           ;!BITBANK2           100      0       0       8        0.0%
-  2277                           ;!BANK2              100      0       0       9        0.0%
-  2278                           ;!BITBANK1           100      0       0       6        0.0%
-  2279                           ;!BANK1              100      0       0       7        0.0%
-  2280                           ;!BIGRAMhlh           EC      0       0      22        0.0%
-  2281                           ;!BANK4h              EC      0       0      14        0.0%
-  2282                           ;!BITBANK4h           EC      0       0      12        0.0%
-  2283                           ;!BITBANK0            A0      0       0       4        0.0%
-  2284                           ;!BANK0               A0      0       0       5        0.0%
-  2285                           ;!BITCOMRAM           5F      0       0       0        0.0%
-  2286                           ;!COMRAM              5F      5      1E       1       31.6%
-  2287                           ;!BIGRAMhll            4      0       0      23        0.0%
-  2288                           ;!BITBANK4l            4      0       0      13        0.0%
-  2289                           ;!BANK4l               4      0       0      15        0.0%
-  2290                           ;!BITSFR               0      0       0      40        0.0%
-  2291                           ;!SFR                  0      0       0      40        0.0%
-  2292                           ;!STACK                0      0       0       2        0.0%
-  2293                           ;!NULL                 0      0       0       0        0.0%
-  2294                           ;!ABS                  0      0      1E      16        0.0%
-  2295                           ;!DATA                 0      0      1E       3        0.0%
-  2296                           ;!CODE                 0      0       0       0        0.0%
-  2297                           
-  2298                           	global	_main
-  2299                           
-  2300 ;; *************** function _main *****************
-  2301 ;; Defined at:
-  2302 ;;		line 14 in file "src/main.c"
-  2303 ;; Parameters:    Size  Location     Type
-  2304 ;;  argc            2    0[COMRAM] int 
-  2305 ;;  argv            3    2[COMRAM] PTR PTR unsigned char 
-  2306 ;; Auto vars:     Size  Location     Type
-  2307 ;;		None
-  2308 ;; Return value:  Size  Location     Type
-  2309 ;;                  2    0[COMRAM] int 
-  2310 ;; Registers used:
-  2311 ;;		None
-  2312 ;; Tracked objects:
-  2313 ;;		On entry : 0/0
-  2314 ;;		On exit  : 0/0
-  2315 ;;		Unchanged: 0/0
-  2316 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3  BANK4h  BANK4l   BANK6   BANK7
-  2317 ;;      Params:         5       0       0       0       0       0       0       0       0
-  2318 ;;      Locals:         0       0       0       0       0       0       0       0       0
-  2319 ;;      Temps:          0       0       0       0       0       0       0       0       0
-  2320 ;;      Totals:         5       0       0       0       0       0       0       0       0
-  2321 ;;Total ram usage:        5 bytes
-  2322 ;; This function calls:
-  2323 ;;		Nothing
-  2324 ;; This function is called by:
-  2325 ;;		Startup code after reset
-  2326 ;; This function uses a non-reentrant model
-  2327 ;;
-  2328                           psect	text0,class=CODE,space=0,reloc=2
-  2329                           global __ptext0
-  2330  00088A                     __ptext0:
-  2331                           psect	text0
-  2332                           	file	"src/main.c"
-  2333                           	global	__size_of_main
-  2334  0000                     	__size_of_main	equ	__end_of_main-_main
-  2335                           	
-  2336  00088A                     _main:
-  2337                           	opt	stack 31
-  2338                           	line	16
-  2339                           	
-  2340  00088A                     l929:
-  2341                           	line	17
-  2342                           ;main.c: 16: return (0);
-  2343                           ;	Return value of _main is never used
-  2344                           	
-  2345  00088A                     l10:
-  2346                           	global	start
-  2347  00088A  EF00  F000         	goto	start
-  2348                           	opt stack 0
-  2349                           GLOBAL	__end_of_main
-  2350  00088E                     	__end_of_main:
-  2351                           	signat	_main,8314
-  2352                           psect	smallconst
-  2353  00085A  00                 	db 0	; dummy byte at the end
-  2354                           	global	__smallconst
-  2355                           	global	__mediumconst
-  2356                           	GLOBAL	__activetblptr
-  2357  0000                     __activetblptr	EQU	2
-  2358                           	psect	intsave_regs,class=BIGRAM,space=1
-  2359                           	PSECT	rparam,class=COMRAM,space=1
-  2360                           	GLOBAL	__Lrparam
-  2361                           	FNCONF	rparam,??,?
-  2362                           GLOBAL	__Lparam, __Hparam
-  2363                           GLOBAL	__Lrparam, __Hrparam
-  2364  0000                     __Lparam	EQU	__Lrparam
-  2365  0000                     __Hparam	EQU	__Hrparam
+  1862                           ;!		 -> ep0_in_handler_ack(), 
+  1863                           ;!
+  1864                           
+  1865                           
+  1866                           ;!
+  1867                           ;!Critical Paths under _main in COMRAM
+  1868                           ;!
+  1869                           ;!    None.
+  1870                           ;!
+  1871                           ;!Critical Paths under _main in BANK0
+  1872                           ;!
+  1873                           ;!    None.
+  1874                           ;!
+  1875                           ;!Critical Paths under _main in BANK1
+  1876                           ;!
+  1877                           ;!    None.
+  1878                           ;!
+  1879                           ;!Critical Paths under _main in BANK2
+  1880                           ;!
+  1881                           ;!    None.
+  1882                           ;!
+  1883                           ;!Critical Paths under _main in BANK3
+  1884                           ;!
+  1885                           ;!    None.
+  1886                           ;!
+  1887                           ;!Critical Paths under _main in BANK4h
+  1888                           ;!
+  1889                           ;!    None.
+  1890                           ;!
+  1891                           ;!Critical Paths under _main in BANK4l
+  1892                           ;!
+  1893                           ;!    None.
+  1894                           ;!
+  1895                           ;!Critical Paths under _main in BANK6
+  1896                           ;!
+  1897                           ;!    None.
+  1898                           ;!
+  1899                           ;!Critical Paths under _main in BANK7
+  1900                           ;!
+  1901                           ;!    None.
+  1902                           
+  1903 ;;
+  1904 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+  1905 ;;
+  1906                           
+  1907                           ;!
+  1908                           ;!Call Graph Tables:
+  1909                           ;!
+  1910                           ;! ---------------------------------------------------------------------------------
+  1911                           ;! (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+  1912                           ;! ---------------------------------------------------------------------------------
+  1913                           ;! (0) _main                                                 5     0      5       0
+  1914                           ;!                                              0 COMRAM     5     0      5
+  1915                           ;! ---------------------------------------------------------------------------------
+  1916                           ;! Estimated maximum stack depth 0
+  1917                           ;! ---------------------------------------------------------------------------------
+  1918                           ;!
+  1919                           ;! Call Graph Graphs:
+  1920                           ;!
+  1921                           ;! _main (ROOT)
+  1922                           ;!
+  1923                           
+  1924                           ;! Address spaces:
+  1925                           
+  1926                           ;!Name               Size   Autos  Total    Cost      Usage
+  1927                           ;!BIGRAMl            3FF      0       0      24        0.0%
+  1928                           ;!BIGRAMhh           200      0       0      21        0.0%
+  1929                           ;!EEDATA             100      0       0       0        0.0%
+  1930                           ;!BITBANK7           100      0       0      19        0.0%
+  1931                           ;!BANK7              100      0       0      20        0.0%
+  1932                           ;!BITBANK6           100      0       0      17        0.0%
+  1933                           ;!BANK6              100      0       0      18        0.0%
+  1934                           ;!BITBANK3           100      0       0      10        0.0%
+  1935                           ;!BANK3              100      0       0      11        0.0%
+  1936                           ;!BITBANK2           100      0       0       8        0.0%
+  1937                           ;!BANK2              100      0       0       9        0.0%
+  1938                           ;!BITBANK1           100      0       0       6        0.0%
+  1939                           ;!BANK1              100      0       0       7        0.0%
+  1940                           ;!BIGRAMhlh           EC      0       0      22        0.0%
+  1941                           ;!BANK4h              EC      0       0      14        0.0%
+  1942                           ;!BITBANK4h           EC      0       0      12        0.0%
+  1943                           ;!BITBANK0            A0      0       0       4        0.0%
+  1944                           ;!BANK0               A0      0       0       5        0.0%
+  1945                           ;!BITCOMRAM           5F      0       0       0        0.0%
+  1946                           ;!COMRAM              5F      5      1E       1       31.6%
+  1947                           ;!BIGRAMhll            4      0       0      23        0.0%
+  1948                           ;!BITBANK4l            4      0       0      13        0.0%
+  1949                           ;!BANK4l               4      0       0      15        0.0%
+  1950                           ;!BITSFR               0      0       0      40        0.0%
+  1951                           ;!SFR                  0      0       0      40        0.0%
+  1952                           ;!STACK                0      0       0       2        0.0%
+  1953                           ;!NULL                 0      0       0       0        0.0%
+  1954                           ;!ABS                  0      0      1E      16        0.0%
+  1955                           ;!DATA                 0      0      1E       3        0.0%
+  1956                           ;!CODE                 0      0       0       0        0.0%
+  1957                           
+  1958                           	global	_main
+  1959                           
+  1960 ;; *************** function _main *****************
+  1961 ;; Defined at:
+  1962 ;;		line 14 in file "src/main.c"
+  1963 ;; Parameters:    Size  Location     Type
+  1964 ;;  argc            2    0[COMRAM] int 
+  1965 ;;  argv            3    2[COMRAM] PTR PTR unsigned char 
+  1966 ;; Auto vars:     Size  Location     Type
+  1967 ;;		None
+  1968 ;; Return value:  Size  Location     Type
+  1969 ;;                  2    0[COMRAM] int 
+  1970 ;; Registers used:
+  1971 ;;		None
+  1972 ;; Tracked objects:
+  1973 ;;		On entry : 0/0
+  1974 ;;		On exit  : 0/0
+  1975 ;;		Unchanged: 0/0
+  1976 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3  BANK4h  BANK4l   BANK6   BANK7
+  1977 ;;      Params:         5       0       0       0       0       0       0       0       0
+  1978 ;;      Locals:         0       0       0       0       0       0       0       0       0
+  1979 ;;      Temps:          0       0       0       0       0       0       0       0       0
+  1980 ;;      Totals:         5       0       0       0       0       0       0       0       0
+  1981 ;;Total ram usage:        5 bytes
+  1982 ;; This function calls:
+  1983 ;;		Nothing
+  1984 ;; This function is called by:
+  1985 ;;		Startup code after reset
+  1986 ;; This function uses a non-reentrant model
+  1987 ;;
+  1988                           psect	text0,class=CODE,space=0,reloc=2
+  1989                           global __ptext0
+  1990  00088A                     __ptext0:
+  1991                           psect	text0
+  1992                           	file	"src/main.c"
+  1993                           	global	__size_of_main
+  1994  0000                     	__size_of_main	equ	__end_of_main-_main
+  1995                           	
+  1996  00088A                     _main:
+  1997                           	opt	stack 31
+  1998                           	line	16
+  1999                           	
+  2000  00088A                     l1273:
+  2001                           	line	17
+  2002                           ;main.c: 16: return (0);
+  2003                           ;	Return value of _main is never used
+  2004                           	
+  2005  00088A                     l326:
+  2006                           	global	start
+  2007  00088A  EF00  F000         	goto	start
+  2008                           	opt stack 0
+  2009                           GLOBAL	__end_of_main
+  2010  00088E                     	__end_of_main:
+  2011                           	signat	_main,8314
+  2012                           psect	smallconst
+  2013  00085A  00                 	db 0	; dummy byte at the end
+  2014                           	global	__smallconst
+  2015                           	global	__mediumconst
+  2016                           	GLOBAL	__activetblptr
+  2017  0000                     __activetblptr	EQU	2
+  2018                           	psect	intsave_regs,class=BIGRAM,space=1
+  2019                           	PSECT	rparam,class=COMRAM,space=1
+  2020                           	GLOBAL	__Lrparam
+  2021                           	FNCONF	rparam,??,?
+  2022                           GLOBAL	__Lparam, __Hparam
+  2023                           GLOBAL	__Lrparam, __Hrparam
+  2024  0000                     __Lparam	EQU	__Lrparam
+  2025  0000                     __Hparam	EQU	__Hrparam
 
 
 Data Sizes:
@@ -2503,11 +2163,11 @@ CODE                 0      0       0       0        0.0%
 
 
 HI-TECH Software PICC-18 Macro Assembler V9.80 build 11162 
-Symbol Table                                                                                   Sun Aug 25 00:21:49 2013
+Symbol Table                                                                                   Mon Aug 26 03:36:36 2013
 
-                                      l10 088A                                       l929 088A  
-                                     _UIE 000F69                                       _UIR 000F68  
-                                     wreg 000FE8                                      _UCFG 000F6F  
+                                     l326 088A                                       _UIE 000F69  
+                                     _UIR 000F68                                       wreg 000FE8  
+                                    l1273 088A                                      _UCFG 000F6F  
                                     _UEP0 000F70                                      _UEP1 000F71  
                                     _UEP2 000F72                                      _UCON 000F6D  
                                     _main 088A                                      start 0000  
