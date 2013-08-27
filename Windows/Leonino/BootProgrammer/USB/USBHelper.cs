@@ -14,7 +14,7 @@ namespace Leonino.USB
         private static extern Boolean GetDeviceHandle([In] ref Guid guid, ref IntPtr handle);
         
         private static Guid _driverInterfaceGUI = new Guid(0x0410b530, 0x9d8f, 0x44b4, 0xbe, 0x87, 0x5d, 0xa7, 0x78, 0x0e, 0x54, 0xfe);
-
+        
         public static FileStream OpenDevice()
         {
             IntPtr handler = IntPtr.Zero;

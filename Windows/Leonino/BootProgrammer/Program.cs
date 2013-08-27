@@ -11,6 +11,7 @@ namespace BootProgrammer
 {
     class Program
     {
+
         public const int dataOffset = 4;
         public const int pageSize = 32;
         public const int MAXDATASIZE = pageSize;
@@ -22,8 +23,20 @@ namespace BootProgrammer
         public static int addressToWrite = -1;
 
         public const byte write_flash = 1;
-        public const byte erase_fkash = 2;
+        public const byte erase_flash = 2;
         public const byte boot_end = 3;
+
+        private static StreamWriter _stWrite = null;
+        public static StreamWriter streamWriter
+        {
+            get
+            {
+                if (_stWrite == null)
+                    _stWrite = new StreamWriter(@"C:\Users\rudarobson\Desktop\error.txt", false);
+                _stWrite.WriteLine("Address \t Index \t\t Read:Write");
+                return _stWrite;
+            }
+        }
 
         public static void FlushToWriteData(FileStream usb)
         {
@@ -42,15 +55,18 @@ namespace BootProgrammer
             for (int i = 0; i < bytesRead; i++)
             {
                 if (dataRead[i] != dataToWrite[i])
-                    throw new Exception("Data Not Writtern");
+                {
+                    streamWriter.WriteLine("{0:x0000} \t {3:x} \t\t {1:x00}:{2:x00}", addressToWrite, dataRead[i], dataToWrite[i], i - dataOffset);
+                }
+                //                    throw new Exception("Data Not Writtern");
             }
 
             for (int i = 0; i < dataToWriteCount - count; i++)
                 dataToWrite[dataOffset + i] = dataToWrite[dataOffset + i + count];
 
             dataToWriteCount -= count;
-
         }
+
         public static void SimulateWrite(byte[] data, int address, int count, FileStream usb)
         {
             if (address < 0x300000)//not config WORD
@@ -95,7 +111,7 @@ namespace BootProgrammer
                 if (address < 0x2000)
                     throw new Exception("Trying to Overwrite Bootloader!");
                 byte[] dataRec = new byte[4];
-                dataRec[0] = erase_fkash;
+                dataRec[0] = erase_flash;
                 dataRec[1] = (byte)((address >> 8) & 0xFF);
                 dataRec[2] = (byte)(address & 0xFF);
                 usb.Write(dataRec, 0, 3);
@@ -115,6 +131,7 @@ namespace BootProgrammer
 
             LowLevelWrite usbHelper = new LowLevelWrite();
             FileStream usb = usbHelper.GetStream();
+
             try
             {
                 while (record.Type != HexRecord.EOF)
@@ -127,7 +144,7 @@ namespace BootProgrammer
                                 case write_flash:
                                     SimulateWrite(record.Data, record.Address, record.Length, usb);
                                     break;
-                                case erase_fkash:
+                                case erase_flash:
                                     Erase(record.Address, usb);
                                     break;
                             }
@@ -159,7 +176,7 @@ namespace BootProgrammer
         static void Main(string[] args)
         {
             string hexFileName = @"C:\Users\rudarobson\Desktop\app.hex";
-            Write(hexFileName, erase_fkash);
+            Write(hexFileName, erase_flash);
             Write(hexFileName, write_flash);
         }
     }

@@ -152,7 +152,7 @@ extern "C" {
 
 			lpDevicePath[nLength-1] = 0;
 
-			printf("Device path:  %s\n", lpDevicePath);
+			//printf("Device path:  %s\n", lpDevicePath);
 
 		}
 

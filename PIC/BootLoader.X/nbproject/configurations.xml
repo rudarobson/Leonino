@@ -72,7 +72,7 @@
         <property key="asmlist" value="true"/>
         <property key="define-macros" value=""/>
         <property key="extra-include-directories"
-                  value="..\Libraries.X\src;..\Libraries.X\src\leonino"/>
+                  value="..\Libraries.X\src;..\Libraries.X\src\leonino;..\Libraries.X\src\leonino\usb"/>
         <property key="identifier-length" value="31"/>
         <property key="operation-mode" value="free"/>
         <property key="opt-xc8-compiler-strict_ansi" value="false"/>
@@ -119,7 +119,7 @@
         <property key="fill-flash-options-increment" value=""/>
         <property key="fill-flash-options-seq" value=""/>
         <property key="fill-flash-options-what" value="0"/>
-        <property key="format-hex-file-for-download" value="false"/>
+        <property key="format-hex-file-for-download" value="true"/>
         <property key="initialize-data" value="true"/>
         <property key="keep-generated-startup.as" value="false"/>
         <property key="link-in-c-library" value="true"/>
@@ -129,10 +129,11 @@
         <property key="opt-xc8-linker-link_startup" value="false"/>
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="false"/>
-        <appendMe value="-L-N -L-ACODE=00h-F00h"/>
+        <appendMe value="-L-N -L-ACODE=00h-1000h"/>
       </HI-TECH-LINK>
+      <Simulator>
+      </Simulator>
       <XC8-config-global>
-        <property key="output-file-format" value="-mcof,+elf"/>
       </XC8-config-global>
     </conf>
   </confs>

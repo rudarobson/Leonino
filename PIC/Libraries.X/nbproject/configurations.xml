@@ -47,9 +47,9 @@
         <targetDevice>PIC18F4550</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
-        <languageToolchain>hi-tech-picc18</languageToolchain>
-        <languageToolchainVersion>9.80</languageToolchainVersion>
+        <platformTool>ICD3PlatformTool</platformTool>
+        <languageToolchain>XC8</languageToolchain>
+        <languageToolchainVersion>1.20</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -132,8 +132,10 @@
         <property key="opt-xc8-linker-serial" value=""/>
         <property key="program-the-device-with-default-config-words" value="true"/>
       </HI-TECH-LINK>
-      <Simulator>
-      </Simulator>
+      <ICD3PlatformTool>
+      </ICD3PlatformTool>
+      <XC8-config-global>
+      </XC8-config-global>
     </conf>
   </confs>
 </configurationDescriptor>

@@ -20,7 +20,7 @@ void usb_start() {
 
     UCFG = UCFG_FSEN | UCFG_UPUEN | UCFG_UOEMON;
 
-    UIE = UIR = (UIER_STALLI | UIER_TRNI | UIER_URSTI); //set all
+    UIE = UIR = (UIER_STALLI | UIER_TRNI | UIER_URSTI);
 
     //configure endpoints
     ep0_configure();
@@ -41,10 +41,10 @@ void usb_reset() {
     ep2_unconfigure();
     usb_device_state = DEVICE_ATTACHED;
     //clear fifo
-    //	UIRbits.TRNIF = 0;
-    //	UIRbits.TRNIF = 0;
-    //	UIRbits.TRNIF = 0;
-    //	UIRbits.TRNIF = 0;
+    UIRbits.TRNIF = 0;
+    UIRbits.TRNIF = 0;
+    UIRbits.TRNIF = 0;
+    UIRbits.TRNIF = 0;
 
 }
 
@@ -54,6 +54,9 @@ void usb_handle() {
     if (UIRbits.URSTIF) {
         usb_reset();
         UIRbits.URSTIF = 0;
+    } else if (UIRbits.STALLIF) {
+        unsigned char ustat = USTAT;
+        UIRbits.STALLIF = 0;
     } else if (UIRbits.TRNIF) {
         unsigned char ustat;
         unsigned char endpnum;
@@ -75,6 +78,10 @@ void usb_handle() {
     }
 }
 
+void usb_configure_handler(usb_read_handler handler) {
+    ep2_configure_handler(handler);
+}
+
 unsigned char usb_write(unsigned char *buffer, unsigned char count) {
     return ep1_write(buffer, count);
 }
@@ -85,10 +92,11 @@ unsigned char usb_write_byte(unsigned char byte) {
     return ep1_write(buf, 1);
 }
 
+unsigned char usb_read(char *buffer, unsigned char count, unsigned char maxcount) {
+    return ep2_read(buffer, count, maxcount);
+}
+
 unsigned char usb_send() {
     return ep1_send();
 }
 
-void usb_configure_handler(usb_read_handler handler) {
-    ep2_configure_handler(handler);
-}

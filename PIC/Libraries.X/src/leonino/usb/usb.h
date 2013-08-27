@@ -82,7 +82,8 @@
 #define TRANS_DIR_IN	1
 #define TRANS_DIR_OUT	0
 
-
+#define USB_MAX_WRITE_SIZE  0x40
+#define USB_MAX_READ_SIZE   0x40
 typedef void(*usb_handler_t)(void);
 
 typedef struct bdentry {
@@ -92,7 +93,7 @@ typedef struct bdentry {
     unsigned char BDADDRH;
 } BDENTRY;
 
-typedef  void (*usb_read_handler)(char *, int);
+typedef  void (*usb_read_handler)();
 void usb_device_configure();
 void usb_start();
 void usb_disable();
@@ -102,7 +103,7 @@ void usb_configure_handler(usb_read_handler);
 
 unsigned char usb_write(unsigned char *buffer, unsigned char count);
 unsigned char usb_write_byte(unsigned char byte);
-
+unsigned char usb_read(char *buffer,unsigned char count,unsigned char maxcount);
 unsigned char usb_send();
 #define DEVICE_CONFIGURED   1
 #define DEVICE_ATTACHED     0

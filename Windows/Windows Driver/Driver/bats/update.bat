@@ -1,1 +1,0 @@
-devcon update "..\x64\Win7Debug\Driver Package\Driver.inf" "USB\VID_DEAD&PID_0002"

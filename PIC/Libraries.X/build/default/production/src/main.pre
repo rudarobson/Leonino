@@ -1,31 +1,31 @@
 
 # 1 "src/main.c"
 
-# 12 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\stdio.h"
+# 8 "C:\Program Files (x86)\Microchip\xc8\v1.20\include\stdio.h"
 typedef int ptrdiff_t;
 typedef unsigned size_t;
 typedef unsigned short wchar_t;
 
-# 31 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\stdarg.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.20\include\stdarg.h"
 typedef void * va_list[1];
 
-#pragma inline(__va_start)
+#pragma intrinsic(__va_start)
 extern void * __va_start(void);
 
-#pragma inline(__va_arg)
+#pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 27 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\stdio.h"
+# 23 "C:\Program Files (x86)\Microchip\xc8\v1.20\include\stdio.h"
 extern int errno;
 
-# 58
+# 54
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 17 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\conio.h"
+# 17 "C:\Program Files (x86)\Microchip\xc8\v1.20\include\conio.h"
 extern int errno;
 
 
@@ -36,13 +36,13 @@ extern char getche(void);
 extern void putch(char);
 extern void ungetch(char);
 
-extern bit kbhit(void);
+extern __bit kbhit(void);
 
 # 31
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 103 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\stdio.h"
+# 99 "C:\Program Files (x86)\Microchip\xc8\v1.20\include\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -50,13 +50,17 @@ extern int cprintf(char *, ...);
 
 extern int _doprnt(struct __prbuf *, const register char *, register va_list);
 
-# 195
+
+# 191
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
 extern char * gets(char *);
 extern int puts(const char *);
 extern int scanf(const char *, ...);
 extern int sscanf(const char *, const char *, ...);
 extern int vprintf(const char *, va_list);
-extern int vsprintf(char *, const char *, va_list);
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
 extern int vscanf(const char *, va_list ap);
 extern int vsscanf(const char *, const char *, va_list);
 
@@ -65,7 +69,7 @@ extern int vsscanf(const char *, const char *, va_list);
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 27 "C:\Program Files (x86)\HI-TECH Software\PICC-18\9.80\include\stdlib.h"
+# 27 "C:\Program Files (x86)\Microchip\xc8\v1.20\include\stdlib.h"
 typedef struct {
 int rem;
 int quot;
@@ -103,12 +107,13 @@ extern unsigned long _lrotr(unsigned long value, unsigned int shift);
 extern unsigned int _rotl(unsigned int value, unsigned int shift);
 extern unsigned int _rotr(unsigned int value, unsigned int shift);
 
-# 106
+
+
+
 extern void * malloc(size_t);
 extern void free(void *);
 extern void * realloc(void *, size_t);
 
-# 122
 extern void abort(void);
 extern void exit(int);
 extern int atexit(void (*)(void));
@@ -120,7 +125,7 @@ extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *,
 extern int abs(int);
 extern long labs(long);
 
-# 145
+
 extern char * itoa(char * buf, int val, int base);
 extern char * utoa(char * buf, unsigned val, int base);
 

@@ -1,0 +1,6 @@
+; Exports.def : Declares the module parameters.
+
+LIBRARY     "Leonino.DLL"
+
+EXPORTS
+        DllGetClassObject   PRIVATE

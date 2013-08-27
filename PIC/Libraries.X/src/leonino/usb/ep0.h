@@ -9,6 +9,7 @@
 #define GET_STATUS			0x00
 #define GET_DESCRIPTOR                  0x06
 #define SET_ADDRESS			0x05
+#define GET_CONFIGURATION               0x08
 #define SET_CONFIGURATION               0x09
 #define GET_INTERFACE                   0x0A
 #define SET_INTERFACE                   0x0B

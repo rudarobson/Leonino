@@ -17,8 +17,6 @@ unsigned char ep2_code = 0;
 usb_read_handler ep2_receive_handler = 0;
 
 void ep2_configure() {
-    //TRISB = 0xC0; //all B ports for out except 7 and 6
-
     ep2_last_data_bit = 0;
     ep2_bd.BDCNT = EP2_MAX_PACKET_SIZE;
     ep2_bd.BDADDRL = LOW_BYTE(EP2_BUFFER_ADDRESS);
@@ -31,6 +29,7 @@ void ep2_unconfigure() {
     UEP2 = 0;
     ep2_last_data_bit = 0;
     ep2_bd.BDSTAT = 0;
+    ep2_unconfigure_handler();
 }
 
 //prepare for read
@@ -49,9 +48,16 @@ void ep2_configure_handler(usb_read_handler handler) {
     ep2_receive_handler = handler;
 }
 
+void ep2_unconfigure_handler() {
+    ep2_receive_handler = 0;
+}
+
 void ep2_entry_point(unsigned char ustat) {
     if (ep2_receive_handler != 0)
-        ep2_receive_handler((char*) EP2_BUFFER_ADDRESS, ep2_bd.BDCNT);
+        ep2_receive_handler();
+
+#warning this should remain here until XC8 support function pointer with parameters
+    //ep2_receive_handler((char*) EP2_BUFFER_ADDRESS, ep2_bd.BDCNT); this code don't execute on XC8
 
     ep2_prepare_read();
 
@@ -60,6 +66,17 @@ void ep2_entry_point(unsigned char ustat) {
         ep2_last_data_bit = 1;
     else
         ep2_last_data_bit = 0;
+}
+
+unsigned char ep2_read(char *buffer, unsigned char count, unsigned char maxcount) {
+    unsigned char numread;
+    numread = ((count >= maxcount) ? maxcount : count);
+    numread = ((numread > EP2_MAX_PACKET_SIZE) ? EP2_MAX_PACKET_SIZE : numread);
+
+    for (unsigned char i = 0; i < numread; i++)
+        buffer[i] = ep2_buffer[i];
+
+    return numread;
 }
 #endif
 

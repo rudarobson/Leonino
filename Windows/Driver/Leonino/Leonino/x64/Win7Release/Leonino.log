@@ -1,0 +1,14 @@
+﻿Build started 26/08/2013 22:36:59.
+     1>Project "C:\Users\rudarobson\Documents\GitHub\Leonino\Windows\Driver\Leonino\Leonino\Leonino.vcxproj" on node 2 (Build target(s)).
+     1>StampInf:
+         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\stampinf.exe -d "*" -a "amd64" -v "*" -k "1.11" -u "1.11.0" -f x64\Win7Release\Leonino.inf 
+         Stamping x64\Win7Release\Leonino.inf [Version] section with DriverVer=08/26/2013,22.36.59.583
+       RunWpp:
+         C:\Program Files (x86)\Windows Kits\8.0\bin\x86\tracewpp.exe -cfgdir:"C:\Program Files (x86)\Windows Kits\8.0\bin\wppconfig\rev1" -scan:"internal.h" -odir:"x64\Win7Release\\" Device.cpp Dllsup.cpp Driver.cpp IoQueue.cpp Logger.cpp 
+       Link:
+         Leonino.vcxproj -> C:\Users\rudarobson\Documents\GitHub\Leonino\Windows\Driver\Leonino\x64\Win7Release\Leonino.dll
+     1>Done Building Project "C:\Users\rudarobson\Documents\GitHub\Leonino\Windows\Driver\Leonino\Leonino\Leonino.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.18

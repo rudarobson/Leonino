@@ -43,7 +43,17 @@ extern "C" {
     ////#pragma config CONFIG7H = 0x40
     //__CONFIG(12, EBTRB_OFF);
 
+    //#define __COMPILER_SDCC
+    //#define __COMPILER_HITECH
+#define __COMPILER_XC8
+
+#ifdef __COMPILER_SDCC
+#include <pic18fregs.h>
+#elif defined(__COMPILER_HITECH)
 #include <htc.h>
+#elif defined(__COMPILER_XC8)
+#include <xc.h>
+#endif
 #include "delay.h"
 #include "usb/usb.h"
 #ifndef CPU_FREQ

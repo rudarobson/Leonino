@@ -4,8 +4,9 @@
  *
  * Created on 25 de Outubro de 2012, 01:26
  */
-#include <xc.h>
 #include <leonino/leonino.h>
+
+#include "usb/ep2.h"
 
 #define PROG_START      0x2000
 #define WRITE_FLASH     0x01
@@ -16,7 +17,10 @@
 char boot_started;
 char wait_boot;
 
-void handler(char *data, int total) {
+void handler() {
+    char data[USB_MAX_READ_SIZE];
+    unsigned char total = usb_read(data, USB_MAX_READ_SIZE, USB_MAX_READ_SIZE);
+
     unsigned char type = data[0];
 
     switch (type) {
@@ -36,10 +40,11 @@ void handler(char *data, int total) {
             data_len = data[3];
 
             if (address >= PROG_START) {
-                WriteBytesFlash(address, data_len, (data + 4));
                 data[1] = (address >> 8) & 0xff;
-                data[2] = (address & 0xff);
+                data[2] = address & 0xff;
                 usb_write(data, 4); //write { 0x01, ADDRHIGH,ADDRLOW,LENGTH }
+
+                WriteBytesFlash(address, data_len, (data + 4));
                 ReadFlash(address, data_len, data);
                 usb_write(data, data_len); //write data read from flash
                 usb_send();

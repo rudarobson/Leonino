@@ -8,12 +8,34 @@
 #ifndef EP0_C
 #define EP0_C
 
+#if defined(__COMPILER_HITECH) || defined(__COMPILER_XC8)
 BDENTRY ep0_out_bd @ BD_ADDRESS_OUT(0);
-usb_handler_t ep0_out_handler;
-unsigned char ep0_out_buffer[EP0_MAX_PACKET_SIZE] @ EP0_OUT_BUFFER_ADDRESS;
+#elif defined(__COMPILER_SDCC)
+__at(BD_ADDRESS_OUT(0)) BDENTRY ep0_out_bd;
+#endif
 
+usb_handler_t ep0_out_handler;
+
+#if defined(__COMPILER_HITECH) || defined(__COMPILER_XC8)
+unsigned char ep0_out_buffer[EP0_MAX_PACKET_SIZE] @ EP0_OUT_BUFFER_ADDRESS;
+#elif defined(__COMPILER_SDCC)
+__at(EP0_OUT_BUFFER_ADDRESS) unsigned char ep0_out_buffer[EP0_MAX_PACKET_SIZE];
+#endif
+
+#if defined(__COMPILER_HITECH) || defined(__COMPILER_XC8)
 BDENTRY ep0_in_bd @ BD_ADDRESS_IN(0);
+#elif defined(__COMPILER_SDCC)
+__at(BD_ADDRESS_IN(0)) BDENTRY ep0_in_bd;
+#endif
+
+
+#if defined(__COMPILER_HITECH) || defined(__COMPILER_XC8)
 unsigned char ep0_in_buffer[EP0_MAX_PACKET_SIZE]@ EP0_IN_BUFFER_ADDRESS;
+#elif defined(__COMPILER_SDCC)
+__at(EP0_IN_BUFFER_ADDRESS) unsigned char ep0_in_buffer[EP0_MAX_PACKET_SIZE];
+#endif
+
+
 usb_handler_t ep0_in_handler;
 
 unsigned char *ep0_in_decsriptor;
@@ -44,9 +66,6 @@ void ep0_handle_setup_transaction() {
 
     switch (bRequest(ep0_out_buffer)) {
         case GET_STATUS://return two bytes
-
-
-            //log_id(DEBUG_CONST_GETSTATUS, bmRequestType_Recipient(ep0_out_buffer));
             switch (bmRequestType_Recipient(ep0_out_buffer)) {
                 case bmRequestType_Recipient_Device:
                     ep0_in_buffer[0] = 0;
@@ -61,7 +80,6 @@ void ep0_handle_setup_transaction() {
                     ep0_in_buffer[1] = 0;
                     break;
                 default:
-                    //log_id(DEBUG_CONST_NONE, DEBUG_CONST_NONE_bmrequestType_Recipient);
                     break;
             }
             ep0_in_handler = ep0_in_handler_ack;
@@ -71,7 +89,7 @@ void ep0_handle_setup_transaction() {
             ep0_in_bd.BDSTAT = BDSTAT_UOWN | BDSTAT_DTS | BDSTAT_DTSEN;
 
             ep0_out_bd.BDCNT = EP0_MAX_PACKET_SIZE;
-            ep0_out_bd.BDSTAT = BDSTAT_UOWN | BDSTAT_DTSEN; //wait for out at status stage with data0
+            ep0_out_bd.BDSTAT = BDSTAT_UOWN | BDSTAT_DTSEN | BDSTAT_DTS;
             break;
         case GET_DESCRIPTOR://return the descriptor
             //log_id(DEBUG_CONST_DESCRIPTOR, wValue_High(ep0_out_buffer));
@@ -137,6 +155,16 @@ void ep0_handle_setup_transaction() {
             //wait for setup
             ep0_out_bd.BDCNT = EP0_MAX_PACKET_SIZE;
             ep0_out_bd.BDSTAT = BDSTAT_UOWN | BDSTAT_DTSEN; //wait for setup
+            break;
+        case GET_CONFIGURATION:
+            if (usb_device_state == DEVICE_CONFIGURED) {
+                ep0_in_buffer[0] = 1; //only 1 configuration
+                ep0_in_bd.BDCNT = 1; //wLength(ep0_out_buffer);
+                ep0_in_bd.BDSTAT = BDSTAT_UOWN | BDSTAT_DTSEN | BDSTAT_DTS;
+            }
+
+            ep0_out_bd.BDCNT = EP0_MAX_PACKET_SIZE;
+            ep0_out_bd.BDSTAT = BDSTAT_UOWN | BDSTAT_DTS | BDSTAT_DTSEN; //wait for out data1 status stage
             break;
         case SET_CONFIGURATION:
             //log_id(DEBUG_CONST_SET_CONFIGURATION_DESCRIPTOR_INDEX, wValue_Low(ep0_out_buffer)); //log descriptor index
