@@ -49,8 +49,8 @@
 #define wIndexOffset		0x04
 #define wLengthOffset		0x06
 
-#define bmRequestType_Type(b)				((b[bRequestOffset]>>5) & 0x03)
-#define bmRequestType_Recipient(b)			((b[bRequestOffset]) & 0x1f)
+#define bmRequestType_Type(b)				((b>>5) & 0x03)
+#define bmRequestType_Recipient(b)			(b & 0x1f)
 #define bmRequestType_Recipient_Device		0x00
 #define bmRequestType_Recipient_Interface	0x01
 #define bmRequestType_Recipient_Endpoint	0x02
@@ -86,14 +86,67 @@
 #define USB_MAX_READ_SIZE   0x40
 typedef void(*usb_handler_t)(void);
 
+#define BDSTAT_CPU_OWNER(b) (b.BDSTAT.UOWN == 0)
+typedef union SetupPacket {
+
+    struct {
+        unsigned char bmRequestType;
+        unsigned char bRequest;
+        unsigned char wValueLow;
+        unsigned char wValueHigh;
+        unsigned char wIndexLow;
+        unsigned char wIndexHigh;
+        unsigned char wLengthLow;
+        unsigned char wLengthHigh;
+    };
+
+    struct {
+        unsigned char bmRequestType;
+        unsigned char bRequest;
+        unsigned int wValue;
+        unsigned int wIndex;
+        unsigned int wLength;
+    };
+} SetupPacket;
+
+typedef union {
+    unsigned char uc;
+
+    struct {
+        unsigned BC8 : 1;
+        unsigned BC9 : 1;
+        unsigned BSTALL : 1;
+        unsigned DTSEN : 1;
+        unsigned INCDIS : 1;
+        unsigned KEN : 1;
+        unsigned DTS : 1;
+        unsigned UOWN : 1;
+    };
+
+    struct {
+        unsigned : 2;
+        unsigned PID0 : 1;
+        unsigned PID1 : 1;
+        unsigned PID2 : 1;
+        unsigned PID3 : 1;
+        unsigned : 2;
+    };
+
+    struct {
+        unsigned : 2;
+        unsigned PID : 4; /*!< Packet Identifier */
+        unsigned : 2;
+    };
+} BDStat;
+
 typedef struct bdentry {
-    unsigned char BDSTAT;
+    BDStat BDSTAT;
     unsigned char BDCNT;
     unsigned char BDADDRL;
     unsigned char BDADDRH;
 } BDENTRY;
 
-typedef  void (*usb_read_handler)();
+typedef void (*usb_read_handler)();
 void usb_device_configure();
 void usb_start();
 void usb_disable();
@@ -103,7 +156,7 @@ void usb_configure_handler(usb_read_handler);
 
 unsigned char usb_write(unsigned char *buffer, unsigned char count);
 unsigned char usb_write_byte(unsigned char byte);
-unsigned char usb_read(char *buffer,unsigned char count,unsigned char maxcount);
+unsigned char usb_read(char *buffer, unsigned char count, unsigned char maxcount);
 unsigned char usb_send();
 #define DEVICE_CONFIGURED   1
 #define DEVICE_ATTACHED     0

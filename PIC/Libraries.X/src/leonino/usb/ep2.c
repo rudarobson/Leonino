@@ -12,23 +12,19 @@ BDENTRY ep2_bd @ BD_ADDRESS_OUT(2);
 unsigned char ep2_buffer[EP2_MAX_PACKET_SIZE] @ EP2_BUFFER_ADDRESS;
 
 /* OUT DESCRIPTOR */
-unsigned char ep2_last_data_bit = 0;
-unsigned char ep2_code = 0;
 usb_read_handler ep2_receive_handler = 0;
 
 void ep2_configure() {
-    ep2_last_data_bit = 0;
     ep2_bd.BDCNT = EP2_MAX_PACKET_SIZE;
     ep2_bd.BDADDRL = LOW_BYTE(EP2_BUFFER_ADDRESS);
     ep2_bd.BDADDRH = HIGH_BYTE(EP2_BUFFER_ADDRESS);
-    ep2_bd.BDSTAT = BDSTAT_UOWN | BDSTAT_DTSEN; //wait for data 0
+    ep2_bd.BDSTAT.uc = BDSTAT_UOWN | BDSTAT_DTSEN; //wait for data 0
     UEP2 = UEP_EPHSHK | UEP_EPOUTEN | UEP_EPCONDIS;
 }
 
 void ep2_unconfigure() {
     UEP2 = 0;
-    ep2_last_data_bit = 0;
-    ep2_bd.BDSTAT = 0;
+    ep2_bd.BDSTAT.uc = 0;
     ep2_unconfigure_handler();
 }
 
@@ -37,10 +33,10 @@ void ep2_unconfigure() {
 void ep2_prepare_read() {
     ep2_bd.BDCNT = EP2_MAX_PACKET_SIZE;
 
-    if (ep2_last_data_bit == 0)
-        ep2_bd.BDSTAT = BDSTAT_UOWN | BDSTAT_DTSEN | BDSTAT_DTS;
+    if (ep2_bd.BDSTAT.DTS == 0)
+        ep2_bd.BDSTAT.uc = BDSTAT_UOWN | BDSTAT_DTSEN | BDSTAT_DTS;
     else
-        ep2_bd.BDSTAT = BDSTAT_UOWN | BDSTAT_DTSEN;
+        ep2_bd.BDSTAT.uc = BDSTAT_UOWN | BDSTAT_DTSEN;
 
 }
 
@@ -60,12 +56,6 @@ void ep2_entry_point(unsigned char ustat) {
     //ep2_receive_handler((char*) EP2_BUFFER_ADDRESS, ep2_bd.BDCNT); this code don't execute on XC8
 
     ep2_prepare_read();
-
-
-    if (ep2_last_data_bit == 0)
-        ep2_last_data_bit = 1;
-    else
-        ep2_last_data_bit = 0;
 }
 
 unsigned char ep2_read(char *buffer, unsigned char count, unsigned char maxcount) {

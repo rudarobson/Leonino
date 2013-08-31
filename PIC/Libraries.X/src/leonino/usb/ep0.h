@@ -19,7 +19,6 @@ void ep0_handle_standard_device();
 void ep0_entry_point(unsigned char ustat);
 void ep0_configure();
 
-void ep0_in_handler_prepare_to_send_descriptor();
 void ep0_in_handler_send_descriptor();
 void ep0_out_handler_ack();
 void ep0_in_handler_ack();
