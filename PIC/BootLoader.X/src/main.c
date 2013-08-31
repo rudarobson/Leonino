@@ -13,55 +13,36 @@
 #define ERASE_FLASH     0x02
 #define BOOT_END        0x03
 
+typedef struct pck {
+    unsigned char cmd;
+    unsigned int address;
+    unsigned char len;
+} Pckt;
 
 char boot_started;
 char wait_boot;
 
 void handler() {
     char data[USB_MAX_READ_SIZE];
-    unsigned char total = usb_read(data, USB_MAX_READ_SIZE, USB_MAX_READ_SIZE);
+    usb_read(data, USB_MAX_READ_SIZE, USB_MAX_READ_SIZE);
+    Pckt *pckt = data;
 
-    unsigned char type = data[0];
-
-    switch (type) {
+    switch (pckt->cmd) {
         case WRITE_FLASH:
-
             boot_started = 1;
-            unsigned int address = 0;
-            unsigned int data_len;
-            unsigned int aux;
-            unsigned int i = 0;
 
-            for (i = 0; i < 2; i++) {
-                aux = (data[1 + i]) & 0xFF;
-                address |= (aux << (8 * (1 - i)));
-            }
-
-            data_len = data[3];
-
-            if (address >= PROG_START) {
-                data[1] = (address >> 8) & 0xff;
-                data[2] = address & 0xff;
+            if (pckt->address >= PROG_START) {
                 usb_write(data, 4); //write { 0x01, ADDRHIGH,ADDRLOW,LENGTH }
-
-                WriteBytesFlash(address, data_len, (data + 4));
-                ReadFlash(address, data_len, data);
-                usb_write(data, data_len); //write data read from flash
+                WriteBytesFlash(pckt->address, pckt->len, (data + 4));
+                ReadFlash(pckt->address, pckt->len, data);
+                usb_write(data, pckt->len); //write data read from flash
                 usb_send();
             }
             break;
         case ERASE_FLASH:
 
-            boot_started = 1;
-            unsigned int address = 0;
-            unsigned int aux;
-            for (i = 0; i < 2; i++) {
-                aux = (data[1 + i]) & 0xFF;
-                address |= (aux << (8 * (1 - i)));
-            }
-
-            if (address >= PROG_START) {
-                EraseFlash(address, address + 0x20); //erase 64 bytes
+            if (pckt->address >= PROG_START) {
+                EraseFlash(pckt->address, pckt->address + 0x20); //erase 64 bytes
                 usb_write_byte('O');
                 usb_write_byte('K');
                 usb_send();

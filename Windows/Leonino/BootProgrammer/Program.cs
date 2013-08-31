@@ -45,8 +45,8 @@ namespace BootProgrammer
             int count = dataToWriteCount > MAXDATASIZE ? MAXDATASIZE : dataToWriteCount;
 
             dataToWrite[0] = write_flash;
-            dataToWrite[1] = (byte)((addressToWrite >> 8) & 0xFF);
-            dataToWrite[2] = (byte)(addressToWrite & 0xFF);
+            dataToWrite[1] = (byte)(addressToWrite & 0xFF);//little endian
+            dataToWrite[2] = (byte)((addressToWrite >> 8) & 0xFF);
             dataToWrite[3] = (byte)(count & 0xff);
 
             usb.Write(dataToWrite, 0, dataOffset + count);
@@ -112,8 +112,8 @@ namespace BootProgrammer
                     throw new Exception("Trying to Overwrite Bootloader!");
                 byte[] dataRec = new byte[4];
                 dataRec[0] = erase_flash;
-                dataRec[1] = (byte)((address >> 8) & 0xFF);
-                dataRec[2] = (byte)(address & 0xFF);
+                dataRec[1] = (byte)(address & 0xFF);//little endian
+                dataRec[2] = (byte)((address >> 8) & 0xFF);
                 usb.Write(dataRec, 0, 3);
                 usb.Flush();
                 int readBytes = usb.Read(dataRec, 0, 2);
@@ -173,11 +173,30 @@ namespace BootProgrammer
             }
         }
 
+        static void CommandLine()
+        {
+            LowLevelWrite usbHelper = new LowLevelWrite();
+            FileStream usb = usbHelper.GetStream();
+            byte[] data = new byte[5];
+            data[0] = 0x99;
+            data[1] = 0x00;
+            data[2] = 0x20;
+            data[3] = 0x00;
+            data[4] = 0x04;
+            usb.Write(data, 0, 5);
+            usb.Flush();
+            usb.Read(data, 0, 5);
+            byte l = data[1];
+            byte h = data[2];
+            int x = 1;
+        }
+
         static void Main(string[] args)
         {
-            string hexFileName = @"C:\Users\rudarobson\Desktop\app.hex";
-            Write(hexFileName, erase_flash);
-            Write(hexFileName, write_flash);
+            //string hexFileName = @"C:\Users\rudarobson\Desktop\app.hex";
+            //Write(hexFileName, erase_flash);
+            //Write(hexFileName, write_flash);
+            CommandLine();
         }
     }
 }
