@@ -6194,8 +6194,61 @@ void delay_ms(unsigned int t);
 # 87 "src/leonino/usb/../usb/usb.h"
 typedef void(*usb_handler_t)(void);
 
+
+typedef union SetupPacket {
+
+struct {
+unsigned char bmRequestType;
+unsigned char bRequest;
+unsigned char wValueLow;
+unsigned char wValueHigh;
+unsigned char wIndexLow;
+unsigned char wIndexHigh;
+unsigned char wLengthLow;
+unsigned char wLengthHigh;
+};
+
+struct {
+unsigned char bmRequestType;
+unsigned char bRequest;
+unsigned int wValue;
+unsigned int wIndex;
+unsigned int wLength;
+};
+} SetupPacket;
+
+typedef union {
+unsigned char uc;
+
+struct {
+unsigned BC8 : 1;
+unsigned BC9 : 1;
+unsigned BSTALL : 1;
+unsigned DTSEN : 1;
+unsigned INCDIS : 1;
+unsigned KEN : 1;
+unsigned DTS : 1;
+unsigned UOWN : 1;
+};
+
+struct {
+unsigned : 2;
+unsigned PID0 : 1;
+unsigned PID1 : 1;
+unsigned PID2 : 1;
+unsigned PID3 : 1;
+unsigned : 2;
+};
+
+struct {
+unsigned : 2;
+unsigned PID : 4;
+unsigned : 2;
+};
+} BDStat;
+
 typedef struct bdentry {
-unsigned char BDSTAT;
+BDStat BDSTAT;
 unsigned char BDCNT;
 unsigned char BDADDRL;
 unsigned char BDADDRH;
@@ -6211,7 +6264,7 @@ void usb_configure_handler(usb_read_handler);
 
 unsigned char usb_write(unsigned char *buffer, unsigned char count);
 unsigned char usb_write_byte(unsigned char byte);
-unsigned char usb_read(char *buffer,unsigned char count,unsigned char maxcount);
+unsigned char usb_read(char *buffer, unsigned char count, unsigned char maxcount);
 unsigned char usb_send();
 
 
@@ -6226,7 +6279,6 @@ void ep0_handle_standard_device();
 void ep0_entry_point(unsigned char ustat);
 void ep0_configure();
 
-void ep0_in_handler_prepare_to_send_descriptor();
 void ep0_in_handler_send_descriptor();
 void ep0_out_handler_ack();
 void ep0_in_handler_ack();
@@ -6344,51 +6396,46 @@ const unsigned char string_desc_2[] = {
 
 # 12 "src/leonino/usb/ep0.c"
 BDENTRY ep0_out_bd @ (0x400 + 8 * 0);
+unsigned char ep0_out_buffer[0x40] @ 0x0500;
+SetupPacket setup_pkt @ 0x0500;
 
-# 17
+# 20
 usb_handler_t ep0_out_handler;
 
 
-unsigned char ep0_out_buffer[0x40] @ 0x0500;
-
-# 26
 BDENTRY ep0_in_bd @ (0x400 + 8 * 0 + 4);
-
-# 33
 unsigned char ep0_in_buffer[0x40]@ (0x0500 + 0x40);
 
-# 39
+# 30
 usb_handler_t ep0_in_handler;
 
 unsigned char *ep0_in_decsriptor;
-unsigned int ep0_in_total_bytes_sent;
 unsigned int ep0_in_total_bytes_to_send;
-unsigned int ep0_in_total_bytes_sent_on_last_transfer;
 
-unsigned char ep0_last_data_bit;
-unsigned char ep0_bdstat;
 unsigned char ep0_dir;
 unsigned char ep0_temp_uaddr;
 
 void ep0_configure() {
+ep0_in_total_bytes_to_send = 0;
 UEP0 = 0x10 | 0x02 | 0x04;
 ep0_out_bd.BDCNT = 0x40;
 ep0_out_bd.BDADDRL = (0x0500 & 0xff);
 ep0_out_bd.BDADDRH = ((0x0500 >> 8) & 0xff);
-ep0_out_bd.BDSTAT = 0x80 | 0x08;
+ep0_out_bd.BDSTAT.uc = 0x80 | 0x08;
 
 ep0_in_bd.BDCNT = 0;
 ep0_in_bd.BDADDRL = ((0x0500 + 0x40) & 0xff);
 ep0_in_bd.BDADDRH = (((0x0500 + 0x40) >> 8) & 0xff);
-ep0_in_bd.BDSTAT = 0x80 | 0x08 | 0x40;
+ep0_in_bd.BDSTAT.uc = 0;
+
 }
 
 void ep0_handle_setup_transaction() {
 unsigned int desc_len;
 
-switch ((ep0_out_buffer[0x01])) {
+switch (setup_pkt.bRequest) {
 case 0x00:
-switch (((ep0_out_buffer[0x01]) & 0x1f)) {
+switch ((setup_pkt.bRequest & 0x1f)) {
 case 0x00:
 ep0_in_buffer[0] = 0;
 ep0_in_buffer[1] = 0;
@@ -6408,14 +6455,13 @@ ep0_in_handler = ep0_in_handler_ack;
 ep0_out_handler = ep0_out_handler_ack;
 
 ep0_in_bd.BDCNT = 2;
-ep0_in_bd.BDSTAT = 0x80 | 0x40 | 0x08;
+ep0_in_bd.BDSTAT.uc = 0x80 | 0x40 | 0x08;
 
 ep0_out_bd.BDCNT = 0x40;
-ep0_out_bd.BDSTAT = 0x80 | 0x08 | 0x40;
+ep0_out_bd.BDSTAT.uc = 0x80 | 0x08 | 0x40;
 break;
 case 0x06:
-
-switch ((ep0_out_buffer[0x02 + 1])) {
+switch (setup_pkt.wValueHigh) {
 case 0x01:
 ep0_in_decsriptor = dev_desc;
 desc_len = 0x12;
@@ -6425,7 +6471,7 @@ ep0_in_decsriptor = conf_desc_0;
 desc_len = (0x09 + 0x09 + 2* 0x07);
 break;
 case 0x03:
-switch ((ep0_out_buffer[0x02])) {
+switch (setup_pkt.wValueLow) {
 case 0:
 ep0_in_decsriptor = string_desc_0;
 desc_len = 0x04;
@@ -6438,88 +6484,71 @@ case 2:
 ep0_in_decsriptor = string_desc_2;
 desc_len = 0x18;
 break;
-default:
-
-
-break;
 }
 break;
-default:
-
-break;
 }
-ep0_in_total_bytes_sent = 0;
-ep0_in_total_bytes_sent_on_last_transfer = 0;
-ep0_in_total_bytes_to_send = (desc_len < ((((unsigned int)(ep0_out_buffer[0x06 + 1])) << 8) | ((unsigned int) ep0_out_buffer[0x06])) ? desc_len : ((((unsigned int)(ep0_out_buffer[0x06 + 1])) << 8) | ((unsigned int) ep0_out_buffer[0x06])));
-ep0_last_data_bit = 0;
+ep0_in_total_bytes_to_send = (desc_len < setup_pkt.wLength ? desc_len : setup_pkt.wLength);
 
-ep0_in_handler_prepare_to_send_descriptor();
+ep0_in_bd.BDSTAT.DTS = 0;
 
-
-ep0_in_handler = ep0_in_handler_send_descriptor;
 ep0_out_handler = ep0_out_handler_ack;
-
-ep0_in_bd.BDSTAT = ep0_bdstat;
+ep0_in_handler = ep0_in_handler_send_descriptor;
 
 ep0_out_bd.BDCNT = 0x40;
-ep0_out_bd.BDSTAT = 0x80 | 0x08 | 0x40;
+ep0_out_bd.BDSTAT.uc = 0x80 | 0x08 | 0x40;
+
+ep0_in_handler_send_descriptor();
 break;
 case 0x05:
-
-ep0_temp_uaddr = (ep0_out_buffer[0x02]);
+ep0_temp_uaddr = setup_pkt.wValueLow;
 
 ep0_in_handler = ep0_in_handler_set_address;
 
 
 ep0_in_bd.BDCNT = 0;
-ep0_in_bd.BDSTAT = 0x80 | 0x40 | 0x08;
+ep0_in_bd.BDSTAT.uc = 0x80 | 0x40 | 0x08;
 
 
 ep0_out_bd.BDCNT = 0x40;
-ep0_out_bd.BDSTAT = 0x80 | 0x08;
+ep0_out_bd.BDSTAT.uc = 0x80 | 0x08;
 break;
 case 0x08:
 if (usb_device_state == 1) {
 ep0_in_buffer[0] = 1;
 ep0_in_bd.BDCNT = 1;
-ep0_in_bd.BDSTAT = 0x80 | 0x08 | 0x40;
+ep0_in_bd.BDSTAT.uc = 0x80 | 0x08 | 0x40;
 }
 
 ep0_out_bd.BDCNT = 0x40;
-ep0_out_bd.BDSTAT = 0x80 | 0x40 | 0x08;
+ep0_out_bd.BDSTAT.uc = 0x80 | 0x40 | 0x08;
 break;
 case 0x09:
-
-if ((ep0_out_buffer[0x02]) == 1) {
+if (setup_pkt.wValueLow == 1) {
 ep0_in_handler = ep0_in_handler_configure;
 ep1_configure();
 ep2_configure();
 ep0_in_bd.BDCNT = 0;
-ep0_in_bd.BDSTAT = 0x80 | 0x40 | 0x08;
+ep0_in_bd.BDSTAT.uc = 0x80 | 0x40 | 0x08;
 
 ep0_out_bd.BDCNT = 0x40;
-ep0_out_bd.BDSTAT = 0x80 | 0x08;
+ep0_out_bd.BDSTAT.uc = 0x80 | 0x08;
 }
 break;
 case 0x0A:
 ep0_in_buffer[0] = 0;
 
 ep0_in_bd.BDCNT = 1;
-ep0_in_bd.BDSTAT = 0x80 | 0x40 | 0x08;
+ep0_in_bd.BDSTAT.uc = 0x80 | 0x40 | 0x08;
 
 ep0_out_bd.BDCNT = 0x40;
-ep0_out_bd.BDSTAT = 0x80 | 0x08 | 0x40;
+ep0_out_bd.BDSTAT.uc = 0x80 | 0x08 | 0x40;
 break;
 case 0x0B:
 ep0_in_bd.BDCNT = 0;
-ep0_in_bd.BDSTAT = 0x80 | 0x40 | 0x08;
+ep0_in_bd.BDSTAT.uc = 0x80 | 0x40 | 0x08;
 
 ep0_out_bd.BDCNT = 0x40;
-ep0_out_bd.BDSTAT = 0x80 | 0x08;
-break;
-default:
-
-
+ep0_out_bd.BDSTAT.uc = 0x80 | 0x08;
 break;
 }
 
@@ -6530,9 +6559,9 @@ void ep0_handle_standard_device() {
 unsigned char pid;
 
 if (ep0_dir == 1)
-pid = (((0x20 | 0x10 | 0x08 | 0x04) & ep0_in_bd.BDSTAT) >> 2);
+pid = (((0x20 | 0x10 | 0x08 | 0x04) & ep0_in_bd.BDSTAT.uc) >> 2);
 else
-pid = (((0x20 | 0x10 | 0x08 | 0x04) & ep0_out_bd.BDSTAT) >> 2);
+pid = (((0x20 | 0x10 | 0x08 | 0x04) & ep0_out_bd.BDSTAT.uc) >> 2);
 
 
 
@@ -6546,9 +6575,6 @@ break;
 case 0x0D:
 ep0_handle_setup_transaction();
 break;
-default:
-
-break;
 }
 }
 
@@ -6557,59 +6583,46 @@ unsigned char bmRequestType;
 
 if (((ustat & 0x04) >> 2) == 1) {
 ep0_dir = 1;
-bmRequestType = ((ep0_in_buffer[0x01]>>5) & 0x03);
+bmRequestType = ((setup_pkt.bRequest>>5) & 0x03);
 } else {
 ep0_dir = 0;
-bmRequestType = ((ep0_out_buffer[0x01]>>5) & 0x03);
+bmRequestType = ((setup_pkt.bRequest>>5) & 0x03);
 }
 
 switch (bmRequestType) {
 case 0x00:
 ep0_handle_standard_device();
 break;
-default:
-
-break;
 }
-
-}
-
-void ep0_in_handler_prepare_to_send_descriptor() {
-unsigned int num = (0x40 < ep0_in_total_bytes_to_send - ep0_in_total_bytes_sent ? 0x40 : ep0_in_total_bytes_to_send - ep0_in_total_bytes_sent);
-
-
-if (num > 0)
-ReadFlash(ep0_in_decsriptor + ep0_in_total_bytes_sent, num, ep0_in_buffer);
-
-ep0_in_bd.BDCNT = num;
-ep0_in_total_bytes_sent_on_last_transfer = num;
-if (ep0_last_data_bit == 1) {
-ep0_bdstat = 0x80 | 0x08;
-ep0_last_data_bit = 0;
-} else {
-ep0_bdstat = 0x80 | 0x08 | 0x40;
-ep0_last_data_bit = 1;
-}
-
 
 }
 
 void ep0_in_handler_send_descriptor() {
-ep0_in_total_bytes_sent += ep0_in_total_bytes_sent_on_last_transfer;
-ep0_in_handler_prepare_to_send_descriptor();
-ep0_in_bd.BDSTAT = ep0_bdstat;
+unsigned int num = (0x40 < ep0_in_total_bytes_to_send ? 0x40 : ep0_in_total_bytes_to_send);
+
+if (num > 0)
+ReadFlash(ep0_in_decsriptor, num, ep0_in_buffer);
+
+ep0_in_decsriptor += num;
+ep0_in_bd.BDCNT = num;
+
+if (ep0_in_bd.BDSTAT.DTS == 1)
+ep0_in_bd.BDSTAT.uc = 0x80 | 0x08;
+else
+ep0_in_bd.BDSTAT.uc = 0x80 | 0x08 | 0x40;
+
 }
 
 void ep0_out_handler_ack() {
 
 ep0_out_bd.BDCNT = 0x40;
-ep0_out_bd.BDSTAT = 0x80 | 0x08;
+ep0_out_bd.BDSTAT.uc = 0x80 | 0x08;
 }
 
 void ep0_in_handler_ack() {
 
 ep0_in_bd.BDCNT = 0;
-ep0_in_bd.BDSTAT = 0x80;
+ep0_in_bd.BDSTAT.uc = 0x80;
 }
 
 void ep0_in_handler_set_address() {

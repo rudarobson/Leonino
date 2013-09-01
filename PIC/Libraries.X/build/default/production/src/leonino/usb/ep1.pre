@@ -6194,8 +6194,61 @@ void delay_ms(unsigned int t);
 # 87 "src/leonino/usb/../usb/usb.h"
 typedef void(*usb_handler_t)(void);
 
+
+typedef union SetupPacket {
+
+struct {
+unsigned char bmRequestType;
+unsigned char bRequest;
+unsigned char wValueLow;
+unsigned char wValueHigh;
+unsigned char wIndexLow;
+unsigned char wIndexHigh;
+unsigned char wLengthLow;
+unsigned char wLengthHigh;
+};
+
+struct {
+unsigned char bmRequestType;
+unsigned char bRequest;
+unsigned int wValue;
+unsigned int wIndex;
+unsigned int wLength;
+};
+} SetupPacket;
+
+typedef union {
+unsigned char uc;
+
+struct {
+unsigned BC8 : 1;
+unsigned BC9 : 1;
+unsigned BSTALL : 1;
+unsigned DTSEN : 1;
+unsigned INCDIS : 1;
+unsigned KEN : 1;
+unsigned DTS : 1;
+unsigned UOWN : 1;
+};
+
+struct {
+unsigned : 2;
+unsigned PID0 : 1;
+unsigned PID1 : 1;
+unsigned PID2 : 1;
+unsigned PID3 : 1;
+unsigned : 2;
+};
+
+struct {
+unsigned : 2;
+unsigned PID : 4;
+unsigned : 2;
+};
+} BDStat;
+
 typedef struct bdentry {
-unsigned char BDSTAT;
+BDStat BDSTAT;
 unsigned char BDCNT;
 unsigned char BDADDRL;
 unsigned char BDADDRH;
@@ -6211,7 +6264,7 @@ void usb_configure_handler(usb_read_handler);
 
 unsigned char usb_write(unsigned char *buffer, unsigned char count);
 unsigned char usb_write_byte(unsigned char byte);
-unsigned char usb_read(char *buffer,unsigned char count,unsigned char maxcount);
+unsigned char usb_read(char *buffer, unsigned char count, unsigned char maxcount);
 unsigned char usb_send();
 
 
@@ -6226,7 +6279,6 @@ void ep0_handle_standard_device();
 void ep0_entry_point(unsigned char ustat);
 void ep0_configure();
 
-void ep0_in_handler_prepare_to_send_descriptor();
 void ep0_in_handler_send_descriptor();
 void ep0_out_handler_ack();
 void ep0_in_handler_ack();
@@ -6252,41 +6304,33 @@ unsigned char ep2_read(char *buffer,unsigned char count,unsigned char maxcount);
 # 11 "src/leonino/usb/ep1.c"
 BDENTRY ep1_bd @ (0x400 + 8 * 1 + 4);
 unsigned char ep1_buffer[0x40] @ ((0x0500 + 0x40) + 0x40);
-unsigned char ep1_last_data_bit = 1;
-unsigned char ep1_sent = 1;
 unsigned char total_writen = 0;
 
 
 void ep1_configure() {
-ep1_last_data_bit = 1;
-ep1_sent = 1;
-
+total_writen = 0;
 ep1_bd.BDCNT = 0;
 ep1_bd.BDADDRL = (((0x0500 + 0x40) + 0x40) & 0xff);
 ep1_bd.BDADDRH = ((((0x0500 + 0x40) + 0x40) >> 8) & 0xff);
-ep1_bd.BDSTAT = 0;
+ep1_bd.BDSTAT.uc = 0x40;
 UEP1 = 0x10 | 0x02 | 0x08;
 }
 
 void ep1_unconfigure() {
 UEP1 = 0;
-ep1_last_data_bit = 1;
-ep1_sent = 1;
-ep1_bd.BDSTAT = 0;
+ep1_bd.BDSTAT.uc = 0x40;
 total_writen = 0;
 }
 
 unsigned char ep1_write(unsigned char *buffer, unsigned char count) {
-if (ep1_sent && ((total_writen + count) < 0x40)) {
-unsigned char i = 0;
-ep1_bd.BDSTAT = 0;
-
-for (i = 0; i < count && (i + total_writen) < 0x40; i++)
+if ((ep1_bd.BDSTAT.UOWN == 0) && ((total_writen + count) < 0x40)) {
+unsigned char i;
+for (i = 0; i < count; i++)
 ep1_buffer[total_writen + i] = buffer[i];
 
-total_writen += i;
+total_writen += count;
 
-return i;
+return count;
 }
 
 return 0;
@@ -6295,15 +6339,13 @@ return 0;
 
 
 unsigned char ep1_send() {
-if (ep1_sent) {
-ep1_sent = 0;
-
+if ((ep1_bd.BDSTAT.UOWN == 0)) {
 ep1_bd.BDCNT = total_writen;
-if (ep1_last_data_bit == 0)
-ep1_bd.BDSTAT = 0x80 | 0x08 | 0x40;
+total_writen = 0;
+if (ep1_bd.BDSTAT.DTS == 0)
+ep1_bd.BDSTAT.uc = 0x80 | 0x08 | 0x40;
 else
-ep1_bd.BDSTAT = 0x80 | 0x08;
-
+ep1_bd.BDSTAT.uc = 0x80 | 0x08;
 return 1;
 }
 
@@ -6311,12 +6353,5 @@ return 0;
 }
 
 void ep1_entry_point(unsigned char ustat) {
-total_writen = 0;
-ep1_sent = 1;
-
-if (ep1_last_data_bit == 0)
-ep1_last_data_bit = 1;
-else
-ep1_last_data_bit = 0;
 }
 

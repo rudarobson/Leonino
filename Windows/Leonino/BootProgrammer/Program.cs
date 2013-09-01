@@ -193,10 +193,10 @@ namespace BootProgrammer
 
         static void Main(string[] args)
         {
-            //string hexFileName = @"C:\Users\rudarobson\Desktop\app.hex";
-            //Write(hexFileName, erase_flash);
-            //Write(hexFileName, write_flash);
-            CommandLine();
+            string hexFileName = @"C:\Users\rudarobson\Desktop\app.hex";
+            Write(hexFileName, erase_flash);
+            Write(hexFileName, write_flash);
+            //CommandLine();
         }
     }
 }

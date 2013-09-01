@@ -1,25 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"115 src/leonino/usb/../usb/usb.h
-[s S575 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S575 . BC8 BC9 BSTALL DTSEN INCDIS KEN DTS UOWN ]
-"126
-[s S576 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
-[n S576 . . PID0 PID1 PID2 PID3 . ]
-"135
-[s S577 :2 `uc 1 :4 `uc 1 :2 `uc 1 ]
-[n S577 . . PID . ]
-"112
-[u S574 `uc 1 `S575 1 `S576 1 `S577 1 ]
-[n S574 . uc . . . ]
-"147
-[s S578 `S574 1 `uc 1 `uc 1 `uc 1 ]
-[n S578 bdentry BDSTAT BDCNT BDADDRL BDADDRH ]
-"149
-[v F5205 `(v ~T0 @X0 0 tf ]
-"1084 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
-[v _UEP2 `Vuc ~T0 @X0 0 e@3954 ]
-"14 src/leonino/usb/ep2.h
-[v _ep2_unconfigure_handler `(v ~T0 @X0 0 ef ]
+"124 C:\Program Files (x86)\Microchip\xc8\v1.20\include\plib\flash.h
+[v _WriteBytesFlash `(v ~T0 @X0 0 ef3`ul`ui`*uc ]
+"120
+[v _EraseFlash `(v ~T0 @X0 0 ef2`ul`ul ]
 [; ;pic18f4550.h: 44: extern volatile unsigned char SPPDATA @ 0xF62;
 "46 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
 [; ;pic18f4550.h: 46: asm("SPPDATA equ 0F62h");
@@ -4797,457 +4780,51 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb.h: 158: unsigned char usb_write_byte(unsigned char byte);
 [; ;usb.h: 159: unsigned char usb_read(char *buffer, unsigned char count, unsigned char maxcount);
 [; ;usb.h: 160: unsigned char usb_send();
-"163 src/leonino/usb/../usb/usb.h
+"163 src/leonino/usb/usb.h
 [v _usb_device_state `uc ~T0 @X0 1 e ]
 [i _usb_device_state
 -> -> 0 `i `uc
 ]
 [; ;usb.h: 163: char usb_device_state = 0;
 [; ;leonino.h: 73: void delay_ms(unsigned int t);
-[; ;ep0.h: 17: void ep0_handle_setup_transaction();
-[; ;ep0.h: 18: void ep0_handle_standard_device();
-[; ;ep0.h: 19: void ep0_entry_point(unsigned char ustat);
-[; ;ep0.h: 20: void ep0_configure();
-[; ;ep0.h: 22: void ep0_in_handler_send_descriptor();
-[; ;ep0.h: 23: void ep0_out_handler_ack();
-[; ;ep0.h: 24: void ep0_in_handler_ack();
-[; ;ep0.h: 25: void ep0_in_handler_set_address();
-[; ;ep0.h: 26: void ep0_in_handler_configure();
-[; ;ep1.h: 9: void ep1_configure();
-[; ;ep1.h: 10: void ep1_unconfigure();
-[; ;ep1.h: 11: unsigned char ep1_write(unsigned char *buffer, unsigned char count);
-[; ;ep1.h: 12: unsigned char ep1_send();
-[; ;ep1.h: 13: void ep1_entry_point(unsigned char ustat);
-[; ;ep2.h: 9: void ep2_configure();
-[; ;ep2.h: 10: void ep2_entry_point(unsigned char ustat);
-[; ;ep2.h: 11: void ep2_unconfigure();
-[; ;ep2.h: 12: void ep2_prepare_read();
-[; ;ep2.h: 13: void ep2_configure_handler(usb_read_handler handler);
-[; ;ep2.h: 14: void ep2_unconfigure_handler();
-[; ;ep2.h: 15: unsigned char ep2_read(char *buffer,unsigned char count,unsigned char maxcount);
-"14 src/leonino/usb/descriptor.h
-[v _dev_desc `Cuc ~T0 @X0 -> 0 `x e ]
-[i _dev_desc
-:U ..
-"15
--> -> 18 `i `uc
-"16
--> -> 1 `i `uc
-"17
--> -> 0 `i `uc
-"18
--> -> 2 `i `uc
-"19
--> -> 0 `i `uc
-"20
--> -> 0 `i `uc
-"21
--> -> 0 `i `uc
-"22
--> -> 64 `i `uc
-"23
--> & -> 57005 `ui -> -> 255 `i `ui `uc
-"24
--> & >> -> 57005 `ui -> 8 `i -> -> 255 `i `ui `uc
-"25
--> & -> 2 `i -> 255 `i `uc
-"26
--> & >> -> 2 `i -> 8 `i -> 255 `i `uc
-"27
--> & -> 0 `i -> 255 `i `uc
-"28
--> & >> -> 0 `i -> 8 `i -> 255 `i `uc
-"29
--> -> 1 `i `uc
-"30
--> -> 2 `i `uc
-"31
--> -> 0 `i `uc
-"33
--> -> 1 `i `uc
-..
-]
-[; ;descriptor.h: 14: const unsigned char dev_desc[] = {
-[; ;descriptor.h: 15: 0x12,
-[; ;descriptor.h: 16: 0x01,
-[; ;descriptor.h: 17: 0x00,
-[; ;descriptor.h: 18: 0x02,
-[; ;descriptor.h: 19: 0x00,
-[; ;descriptor.h: 20: 0x00,
-[; ;descriptor.h: 21: 0x00,
-[; ;descriptor.h: 22: 0x40,
-[; ;descriptor.h: 23: (0xDEAD & 0xff),
-[; ;descriptor.h: 24: ((0xDEAD >> 8) & 0xff),
-[; ;descriptor.h: 25: (0x0002 & 0xff),
-[; ;descriptor.h: 26: ((0x0002 >> 8) & 0xff),
-[; ;descriptor.h: 27: (0x0000 & 0xff),
-[; ;descriptor.h: 28: ((0x0000 >> 8) & 0xff),
-[; ;descriptor.h: 29: 0x01,
-[; ;descriptor.h: 30: 0x02,
-[; ;descriptor.h: 31: 0x00,
-[; ;descriptor.h: 32: 0x01
-[; ;descriptor.h: 33: };
-"52
-[v _conf_desc_0 `Cuc ~T0 @X0 -> 0 `x e ]
-[i _conf_desc_0
-:U ..
-"54
--> -> 9 `i `uc
-"55
--> -> 2 `i `uc
-"56
--> & + + -> 9 `i -> 9 `i * -> 2 `i -> 7 `i -> 255 `i `uc
-"57
--> & >> + + -> 9 `i -> 9 `i * -> 2 `i -> 7 `i -> 8 `i -> 255 `i `uc
-"58
--> -> 1 `i `uc
-"59
--> -> 1 `i `uc
-"60
--> -> 0 `i `uc
-"61
--> -> 128 `i `uc
-"62
--> -> 50 `i `uc
-"65
--> -> 9 `i `uc
-"66
--> -> 4 `i `uc
-"67
--> -> 0 `i `uc
-"68
--> -> 0 `i `uc
-"69
--> -> 2 `i `uc
-"70
--> -> 255 `i `uc
-"71
--> -> 255 `i `uc
-"72
--> -> 255 `i `uc
-"73
--> -> 2 `i `uc
-"77
--> -> 7 `i `uc
-"78
--> -> 5 `i `uc
-"79
--> -> 129 `i `uc
-"80
--> -> 2 `i `uc
-"81
--> -> 64 `i `uc
-"82
--> -> 0 `i `uc
-"83
--> -> 15 `i `uc
-"86
--> -> 7 `i `uc
-"87
--> -> 5 `i `uc
-"88
--> -> 2 `i `uc
-"89
--> -> 2 `i `uc
-"90
--> -> 64 `i `uc
-"91
--> -> 0 `i `uc
-"92
--> -> 15 `i `uc
-..
-]
-[; ;descriptor.h: 52: const unsigned char conf_desc_0[] = {
-[; ;descriptor.h: 54: 0x09,
-[; ;descriptor.h: 55: 0x02,
-[; ;descriptor.h: 56: ((0x09 + 0x09 + 2* 0x07) & 0xff),
-[; ;descriptor.h: 57: (((0x09 + 0x09 + 2* 0x07) >> 8) & 0xff),
-[; ;descriptor.h: 58: 0x01,
-[; ;descriptor.h: 59: 0x01,
-[; ;descriptor.h: 60: 0x00,
-[; ;descriptor.h: 61: 0x80,
-[; ;descriptor.h: 62: 0x32,
-[; ;descriptor.h: 65: 0x09,
-[; ;descriptor.h: 66: 0x04,
-[; ;descriptor.h: 67: 0x00,
-[; ;descriptor.h: 68: 0x00,
-[; ;descriptor.h: 69: 0x02,
-[; ;descriptor.h: 70: 0xff,
-[; ;descriptor.h: 71: 0xff,
-[; ;descriptor.h: 72: 0xff,
-[; ;descriptor.h: 73: 0x02,
-[; ;descriptor.h: 77: 0x07,
-[; ;descriptor.h: 78: 0x05,
-[; ;descriptor.h: 79: 0x81,
-[; ;descriptor.h: 80: 0x02,
-[; ;descriptor.h: 81: 0x40,
-[; ;descriptor.h: 82: 0x00,
-[; ;descriptor.h: 83: 0x0F,
-[; ;descriptor.h: 86: 0x07,
-[; ;descriptor.h: 87: 0x05,
-[; ;descriptor.h: 88: 0x02,
-[; ;descriptor.h: 89: 0x02,
-[; ;descriptor.h: 90: 0x40,
-[; ;descriptor.h: 91: 0x00,
-[; ;descriptor.h: 92: 0x0F,
-[; ;descriptor.h: 93: };
-"98
-[v _string_desc_0 `Cuc ~T0 @X0 -> 0 `x e ]
-[i _string_desc_0
-:U ..
-"99
--> -> 4 `i `uc
-"100
--> -> 3 `i `uc
-"101
--> -> 9 `i `uc
-"103
--> -> 4 `i `uc
-..
-]
-[; ;descriptor.h: 98: const unsigned char string_desc_0[] = {
-[; ;descriptor.h: 99: 0x04,
-[; ;descriptor.h: 100: 0x03,
-[; ;descriptor.h: 101: 0x09,
-[; ;descriptor.h: 102: 0x04
-[; ;descriptor.h: 103: };
-"107
-[v _string_desc_1 `Cuc ~T0 @X0 -> 0 `x e ]
-[i _string_desc_1
-:U ..
-"108
--> -> 12 `i `uc
-"109
--> -> 3 `i `uc
-"110
--> -> 0 `i `uc
--> -> 82 `ui `uc
--> -> 0 `i `uc
--> -> 85 `ui `uc
--> -> 0 `i `uc
--> -> 68 `ui `uc
--> -> 0 `i `uc
--> -> 65 `ui `uc
--> -> 0 `i `uc
-"111
--> -> 0 `i `uc
-..
-]
-[; ;descriptor.h: 107: const unsigned char string_desc_1[] = {
-[; ;descriptor.h: 108: 0x0C,
-[; ;descriptor.h: 109: 0x03,
-[; ;descriptor.h: 110: 0x00, 'R', 0x00, 'U', 0x00, 'D', 0x00, 'A', 0x00, 0x00
-[; ;descriptor.h: 111: };
-"116
-[v _string_desc_2 `Cuc ~T0 @X0 -> 0 `x e ]
-[i _string_desc_2
-:U ..
-"117
--> -> 24 `i `uc
-"118
--> -> 3 `i `uc
-"119
--> -> 80 `ui `uc
--> -> 0 `i `uc
--> -> 0 `i `uc
--> -> 82 `ui `uc
--> -> 0 `i `uc
--> -> 79 `ui `uc
--> -> 0 `i `uc
--> -> 71 `ui `uc
--> -> 0 `i `uc
--> -> 82 `ui `uc
--> -> 0 `i `uc
--> -> 65 `ui `uc
--> -> 0 `i `uc
--> -> 77 `ui `uc
--> -> 0 `i `uc
--> -> 77 `ui `uc
--> -> 0 `i `uc
--> -> 69 `ui `uc
--> -> 0 `i `uc
--> -> 82 `ui `uc
--> -> 0 `i `uc
-"120
--> -> 0 `i `uc
-..
-]
-[; ;descriptor.h: 116: const unsigned char string_desc_2[] = {
-[; ;descriptor.h: 117: 0x18,
-[; ;descriptor.h: 118: 0x03,
-[; ;descriptor.h: 119: 'P', 0x00, 0x00, 'R', 0x00, 'O', 0x00, 'G', 0x00, 'R', 0x00, 'A', 0x00, 'M', 0x00, 'M', 0x00, 'E', 0x00, 'R', 0x00, 0x00
-[; ;descriptor.h: 120: };
-"11 src/leonino/usb/ep2.c
-[v _ep2_bd `S578 ~T0 @X0 1 e@1040 ]
-[; ;ep2.c: 11: BDENTRY ep2_bd @ (0x400 + 8 * 2);
-"12
-[v _ep2_buffer `uc ~T0 @X0 -> 64 `i e@1472 ]
-[; ;ep2.c: 12: unsigned char ep2_buffer[0x40] @ (((0x0500 + 0x40) + 0x40) + 0x40);
-"15
-[v _ep2_receive_handler `*F5205 ~T0 @X0 1 e ]
-[i _ep2_receive_handler
--> -> 0 `i `*F5205
-]
-[; ;ep2.c: 15: usb_read_handler ep2_receive_handler = 0;
-"17
-[v _ep2_configure `(v ~T0 @X0 1 ef ]
+[; ;mem_flash.h: 16: void SafeWriteBytesFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array);
+[; ;mem_flash.h: 17: void SafeEraseFlash(unsigned long startaddr, unsigned long endaddr);
+"3 src/leonino/mem_flash.c
+[v _SafeWriteBytesFlash `(v ~T0 @X0 1 ef3`ul`ui`*uc ]
 {
-[; ;ep2.c: 17: void ep2_configure() {
-[e :U _ep2_configure ]
+[; ;mem_flash.c: 3: void SafeWriteBytesFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array) {
+[e :U _SafeWriteBytesFlash ]
+[v _startaddr `ul ~T0 @X0 1 r1 ]
+[v _num_bytes `ui ~T0 @X0 1 r2 ]
+[v _flash_array `*uc ~T0 @X0 1 r3 ]
 [f ]
-[; ;ep2.c: 18: ep2_bd.BDCNT = 0x40;
-"18
-[e = . _ep2_bd 1 -> -> 64 `i `uc ]
-[; ;ep2.c: 19: ep2_bd.BDADDRL = ((((0x0500 + 0x40) + 0x40) + 0x40) & 0xff);
-"19
-[e = . _ep2_bd 2 -> & + + + -> 1280 `i -> 64 `i -> 64 `i -> 64 `i -> 255 `i `uc ]
-[; ;ep2.c: 20: ep2_bd.BDADDRH = (((((0x0500 + 0x40) + 0x40) + 0x40) >> 8) & 0xff);
-"20
-[e = . _ep2_bd 3 -> & >> + + + -> 1280 `i -> 64 `i -> 64 `i -> 64 `i -> 8 `i -> 255 `i `uc ]
-[; ;ep2.c: 21: ep2_bd.BDSTAT.uc = 0x80 | 0x08;
-"21
-[e = . . _ep2_bd 0 0 -> | -> 128 `i -> 8 `i `uc ]
-[; ;ep2.c: 22: UEP2 = 0x10 | 0x04 | 0x08;
-"22
-[e = _UEP2 -> | | -> 16 `i -> 4 `i -> 8 `i `uc ]
-[; ;ep2.c: 23: }
-"23
+[; ;mem_flash.c: 4: if (startaddr >= 0x2000)
+"4
+[e $ ! >= _startaddr -> -> -> 8192 `i `l `ul 580  ]
+[; ;mem_flash.c: 5: WriteBytesFlash(startaddr, num_bytes, flash_array);
+"5
+[e ( _WriteBytesFlash (3 , , _startaddr _num_bytes _flash_array ]
+[e :U 580 ]
+[; ;mem_flash.c: 6: }
+"6
 [e :UE 579 ]
 }
-"25
-[v _ep2_unconfigure `(v ~T0 @X0 1 ef ]
+"8
+[v _SafeEraseFlash `(v ~T0 @X0 1 ef2`ul`ul ]
 {
-[; ;ep2.c: 25: void ep2_unconfigure() {
-[e :U _ep2_unconfigure ]
+[; ;mem_flash.c: 8: void SafeEraseFlash(unsigned long startaddr, unsigned long endaddr){
+[e :U _SafeEraseFlash ]
+[v _startaddr `ul ~T0 @X0 1 r1 ]
+[v _endaddr `ul ~T0 @X0 1 r2 ]
 [f ]
-[; ;ep2.c: 26: UEP2 = 0;
-"26
-[e = _UEP2 -> -> 0 `i `uc ]
-[; ;ep2.c: 27: ep2_bd.BDSTAT.uc = 0;
-"27
-[e = . . _ep2_bd 0 0 -> -> 0 `i `uc ]
-[; ;ep2.c: 28: ep2_unconfigure_handler();
-"28
-[e ( _ep2_unconfigure_handler ..  ]
-[; ;ep2.c: 29: }
-"29
-[e :UE 580 ]
-}
-"33
-[v _ep2_prepare_read `(v ~T0 @X0 1 ef ]
-{
-[; ;ep2.c: 33: void ep2_prepare_read() {
-[e :U _ep2_prepare_read ]
-[f ]
-[; ;ep2.c: 34: ep2_bd.BDCNT = 0x40;
-"34
-[e = . _ep2_bd 1 -> -> 64 `i `uc ]
-[; ;ep2.c: 36: if (ep2_bd.BDSTAT.DTS == 0)
-"36
-[e $ ! == -> . . . _ep2_bd 0 1 6 `i -> 0 `i 582  ]
-[; ;ep2.c: 37: ep2_bd.BDSTAT.uc = 0x80 | 0x08 | 0x40;
-"37
-[e = . . _ep2_bd 0 0 -> | | -> 128 `i -> 8 `i -> 64 `i `uc ]
-[e $U 583  ]
-"38
+[; ;mem_flash.c: 9: if (startaddr >= 0x2000 && endaddr >= 0x2000)
+"9
+[e $ ! && >= _startaddr -> -> -> 8192 `i `l `ul >= _endaddr -> -> -> 8192 `i `l `ul 582  ]
+[; ;mem_flash.c: 10: EraseFlash(startaddr,endaddr);
+"10
+[e ( _EraseFlash (2 , _startaddr _endaddr ]
 [e :U 582 ]
-[; ;ep2.c: 38: else
-[; ;ep2.c: 39: ep2_bd.BDSTAT.uc = 0x80 | 0x08;
-"39
-[e = . . _ep2_bd 0 0 -> | -> 128 `i -> 8 `i `uc ]
-[e :U 583 ]
-[; ;ep2.c: 41: }
-"41
+[; ;mem_flash.c: 11: }
+"11
 [e :UE 581 ]
-}
-"43
-[v _ep2_configure_handler `(v ~T0 @X0 1 ef1`*F5205 ]
-{
-[; ;ep2.c: 43: void ep2_configure_handler(usb_read_handler handler) {
-[e :U _ep2_configure_handler ]
-[v _handler `*F5205 ~T0 @X0 1 r1 ]
-[f ]
-[; ;ep2.c: 44: ep2_receive_handler = handler;
-"44
-[e = _ep2_receive_handler _handler ]
-[; ;ep2.c: 45: }
-"45
-[e :UE 584 ]
-}
-"47
-[v _ep2_unconfigure_handler `(v ~T0 @X0 1 ef ]
-{
-[; ;ep2.c: 47: void ep2_unconfigure_handler() {
-[e :U _ep2_unconfigure_handler ]
-[f ]
-[; ;ep2.c: 48: ep2_receive_handler = 0;
-"48
-[e = _ep2_receive_handler -> -> 0 `i `*F5205 ]
-[; ;ep2.c: 49: }
-"49
-[e :UE 585 ]
-}
-"51
-[v _ep2_entry_point `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;ep2.c: 51: void ep2_entry_point(unsigned char ustat) {
-[e :U _ep2_entry_point ]
-[v _ustat `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;ep2.c: 52: if (ep2_receive_handler != 0)
-"52
-[e $ ! != _ep2_receive_handler -> -> 0 `i `*F5205 587  ]
-[; ;ep2.c: 53: ep2_receive_handler();
-"53
-[e ( *U _ep2_receive_handler ..  ]
-[e :U 587 ]
-[; ;ep2.c: 58: ep2_prepare_read();
-"58
-[e ( _ep2_prepare_read ..  ]
-[; ;ep2.c: 59: }
-"59
-[e :UE 586 ]
-}
-"61
-[v _ep2_read `(uc ~T0 @X0 1 ef3`*uc`uc`uc ]
-{
-[; ;ep2.c: 61: unsigned char ep2_read(char *buffer, unsigned char count, unsigned char maxcount) {
-[e :U _ep2_read ]
-[v _buffer `*uc ~T0 @X0 1 r1 ]
-[v _count `uc ~T0 @X0 1 r2 ]
-[v _maxcount `uc ~T0 @X0 1 r3 ]
-[f ]
-"62
-[v _numread `uc ~T0 @X0 1 a ]
-[; ;ep2.c: 62: unsigned char numread;
-[; ;ep2.c: 63: numread = ((count >= maxcount) ? maxcount : count);
-"63
-[e = _numread -> ? >= -> _count `i -> _maxcount `i : -> _maxcount `i -> _count `i `uc ]
-[; ;ep2.c: 64: numread = ((numread > 0x40) ? 0x40 : numread);
-"64
-[e = _numread -> ? > -> _numread `i -> 64 `i : -> 64 `i -> _numread `i `uc ]
-[; ;ep2.c: 66: for (unsigned char i = 0; i < numread; i++)
-"66
-{
-[v _i `uc ~T0 @X0 1 a ]
-[e = _i -> -> 0 `i `uc ]
-[e $U 592  ]
-"67
-[e :U 589 ]
-[; ;ep2.c: 67: buffer[i] = ep2_buffer[i];
-[e = *U + _buffer * -> _i `ux -> -> # *U _buffer `ui `ux *U + &U _ep2_buffer * -> _i `ux -> -> # *U &U _ep2_buffer `ui `ux ]
-"66
-[e ++ _i -> -> 1 `i `uc ]
-[e :U 592 ]
-[e $ < -> _i `i -> _numread `i 589  ]
-[e :U 590 ]
-"67
-}
-[; ;ep2.c: 69: return numread;
-"69
-[e ) _numread ]
-[e $UE 588  ]
-[; ;ep2.c: 70: }
-"70
-[e :UE 588 ]
 }

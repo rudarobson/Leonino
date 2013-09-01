@@ -6194,8 +6194,61 @@ void delay_ms(unsigned int t);
 # 87 "src/leonino/usb/../usb/usb.h"
 typedef void(*usb_handler_t)(void);
 
+
+typedef union SetupPacket {
+
+struct {
+unsigned char bmRequestType;
+unsigned char bRequest;
+unsigned char wValueLow;
+unsigned char wValueHigh;
+unsigned char wIndexLow;
+unsigned char wIndexHigh;
+unsigned char wLengthLow;
+unsigned char wLengthHigh;
+};
+
+struct {
+unsigned char bmRequestType;
+unsigned char bRequest;
+unsigned int wValue;
+unsigned int wIndex;
+unsigned int wLength;
+};
+} SetupPacket;
+
+typedef union {
+unsigned char uc;
+
+struct {
+unsigned BC8 : 1;
+unsigned BC9 : 1;
+unsigned BSTALL : 1;
+unsigned DTSEN : 1;
+unsigned INCDIS : 1;
+unsigned KEN : 1;
+unsigned DTS : 1;
+unsigned UOWN : 1;
+};
+
+struct {
+unsigned : 2;
+unsigned PID0 : 1;
+unsigned PID1 : 1;
+unsigned PID2 : 1;
+unsigned PID3 : 1;
+unsigned : 2;
+};
+
+struct {
+unsigned : 2;
+unsigned PID : 4;
+unsigned : 2;
+};
+} BDStat;
+
 typedef struct bdentry {
-unsigned char BDSTAT;
+BDStat BDSTAT;
 unsigned char BDCNT;
 unsigned char BDADDRL;
 unsigned char BDADDRH;
@@ -6211,7 +6264,7 @@ void usb_configure_handler(usb_read_handler);
 
 unsigned char usb_write(unsigned char *buffer, unsigned char count);
 unsigned char usb_write_byte(unsigned char byte);
-unsigned char usb_read(char *buffer,unsigned char count,unsigned char maxcount);
+unsigned char usb_read(char *buffer, unsigned char count, unsigned char maxcount);
 unsigned char usb_send();
 
 
@@ -6226,7 +6279,6 @@ void ep0_handle_standard_device();
 void ep0_entry_point(unsigned char ustat);
 void ep0_configure();
 
-void ep0_in_handler_prepare_to_send_descriptor();
 void ep0_in_handler_send_descriptor();
 void ep0_out_handler_ack();
 void ep0_in_handler_ack();

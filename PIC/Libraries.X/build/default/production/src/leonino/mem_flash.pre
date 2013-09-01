@@ -1,5 +1,5 @@
 
-# 1 "src/leonino/usb/ep2.c"
+# 1 "src/leonino/mem_flash.c"
 
 # 44 "C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h"
 extern volatile unsigned char SPPDATA @ 0xF62;
@@ -6188,10 +6188,10 @@ extern void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern void _delay3(unsigned char);
 
-# 15 "src/leonino/usb/../delay.h"
+# 15 "src/leonino/delay.h"
 void delay_ms(unsigned int t);
 
-# 87 "src/leonino/usb/../usb/usb.h"
+# 87 "src/leonino/usb/usb.h"
 typedef void(*usb_handler_t)(void);
 
 
@@ -6270,189 +6270,20 @@ unsigned char usb_send();
 
 char usb_device_state = 0;
 
-# 73 "src/leonino/usb/../leonino.h"
+# 73 "src/leonino/leonino.h"
 void delay_ms(unsigned int t);
 
-# 17 "src/leonino/usb/ep0.h"
-void ep0_handle_setup_transaction();
-void ep0_handle_standard_device();
-void ep0_entry_point(unsigned char ustat);
-void ep0_configure();
+# 16 "src/leonino/mem_flash.h"
+void SafeWriteBytesFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array);
+void SafeEraseFlash(unsigned long startaddr, unsigned long endaddr);
 
-void ep0_in_handler_send_descriptor();
-void ep0_out_handler_ack();
-void ep0_in_handler_ack();
-void ep0_in_handler_set_address();
-void ep0_in_handler_configure();
-
-# 9 "src/leonino/usb/ep1.h"
-void ep1_configure();
-void ep1_unconfigure();
-unsigned char ep1_write(unsigned char *buffer, unsigned char count);
-unsigned char ep1_send();
-void ep1_entry_point(unsigned char ustat);
-
-# 9 "src/leonino/usb/ep2.h"
-void ep2_configure();
-void ep2_entry_point(unsigned char ustat);
-void ep2_unconfigure();
-void ep2_prepare_read();
-void ep2_configure_handler(usb_read_handler handler);
-void ep2_unconfigure_handler();
-unsigned char ep2_read(char *buffer,unsigned char count,unsigned char maxcount);
-
-# 14 "src/leonino/usb/descriptor.h"
-const unsigned char dev_desc[] = {
-0x12,
-0x01,
-0x00,
-0x02,
-0x00,
-0x00,
-0x00,
-0x40,
-(0xDEAD & 0xff),
-((0xDEAD >> 8) & 0xff),
-(0x0002 & 0xff),
-((0x0002 >> 8) & 0xff),
-(0x0000 & 0xff),
-((0x0000 >> 8) & 0xff),
-0x01,
-0x02,
-0x00,
-0x01
-};
-
-# 52
-const unsigned char conf_desc_0[] = {
-
-0x09,
-0x02,
-((0x09 + 0x09 + 2* 0x07) & 0xff),
-(((0x09 + 0x09 + 2* 0x07) >> 8) & 0xff),
-0x01,
-0x01,
-0x00,
-0x80,
-0x32,
-
-
-0x09,
-0x04,
-0x00,
-0x00,
-0x02,
-0xff,
-0xff,
-0xff,
-0x02,
-
-
-
-0x07,
-0x05,
-0x81,
-0x02,
-0x40,
-0x00,
-0x0F,
-
-
-0x07,
-0x05,
-0x02,
-0x02,
-0x40,
-0x00,
-0x0F,
-};
-
-
-
-
-const unsigned char string_desc_0[] = {
-0x04,
-0x03,
-0x09,
-0x04
-};
-
-
-
-const unsigned char string_desc_1[] = {
-0x0C,
-0x03,
-0x00, 'R', 0x00, 'U', 0x00, 'D', 0x00, 'A', 0x00, 0x00
-};
-
-
-
-
-const unsigned char string_desc_2[] = {
-0x18,
-0x03,
-'P', 0x00, 0x00, 'R', 0x00, 'O', 0x00, 'G', 0x00, 'R', 0x00, 'A', 0x00, 'M', 0x00, 'M', 0x00, 'E', 0x00, 'R', 0x00, 0x00
-};
-
-# 11 "src/leonino/usb/ep2.c"
-BDENTRY ep2_bd @ (0x400 + 8 * 2);
-unsigned char ep2_buffer[0x40] @ (((0x0500 + 0x40) + 0x40) + 0x40);
-
-
-usb_read_handler ep2_receive_handler = 0;
-
-void ep2_configure() {
-ep2_bd.BDCNT = 0x40;
-ep2_bd.BDADDRL = ((((0x0500 + 0x40) + 0x40) + 0x40) & 0xff);
-ep2_bd.BDADDRH = (((((0x0500 + 0x40) + 0x40) + 0x40) >> 8) & 0xff);
-ep2_bd.BDSTAT.uc = 0x80 | 0x08;
-UEP2 = 0x10 | 0x04 | 0x08;
+# 3 "src/leonino/mem_flash.c"
+void SafeWriteBytesFlash(unsigned long startaddr, unsigned int num_bytes, unsigned char *flash_array) {
+if (startaddr >= 0x2000)
+WriteBytesFlash(startaddr, num_bytes, flash_array);
 }
 
-void ep2_unconfigure() {
-UEP2 = 0;
-ep2_bd.BDSTAT.uc = 0;
-ep2_unconfigure_handler();
+void SafeEraseFlash(unsigned long startaddr, unsigned long endaddr){
+if (startaddr >= 0x2000 && endaddr >= 0x2000)
+EraseFlash(startaddr,endaddr);
 }
-
-
-
-void ep2_prepare_read() {
-ep2_bd.BDCNT = 0x40;
-
-if (ep2_bd.BDSTAT.DTS == 0)
-ep2_bd.BDSTAT.uc = 0x80 | 0x08 | 0x40;
-else
-ep2_bd.BDSTAT.uc = 0x80 | 0x08;
-
-}
-
-void ep2_configure_handler(usb_read_handler handler) {
-ep2_receive_handler = handler;
-}
-
-void ep2_unconfigure_handler() {
-ep2_receive_handler = 0;
-}
-
-void ep2_entry_point(unsigned char ustat) {
-if (ep2_receive_handler != 0)
-ep2_receive_handler();
-
-
-
-
-ep2_prepare_read();
-}
-
-unsigned char ep2_read(char *buffer, unsigned char count, unsigned char maxcount) {
-unsigned char numread;
-numread = ((count >= maxcount) ? maxcount : count);
-numread = ((numread > 0x40) ? 0x40 : numread);
-
-for (unsigned char i = 0; i < numread; i++)
-buffer[i] = ep2_buffer[i];
-
-return numread;
-}
-

@@ -1,7 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"98 src/leonino/usb/../usb/usb.h
+"151 src/leonino/usb/../usb/usb.h
 [v _usb_start `(v ~T0 @X0 0 ef ]
-"101
+"154
 [v _usb_handle `(v ~T0 @X0 0 ef ]
 "628 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
 [v _UCON `Vuc ~T0 @X0 0 e@3949 ]
@@ -9,7 +9,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _UIR `Vuc ~T0 @X0 0 e@3944 ]
 "414
 [v _UIE `Vuc ~T0 @X0 0 e@3945 ]
-"100 src/leonino/usb/../usb/usb.h
+"153 src/leonino/usb/../usb/usb.h
 [v _usb_reset `(v ~T0 @X0 0 ef ]
 "741 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
 [v _UCFG `Vuc ~T0 @X0 0 e@3951 ]
@@ -43,10 +43,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ep1_entry_point `(v ~T0 @X0 0 ef1`uc ]
 "10 src/leonino/usb/ep2.h
 [v _ep2_entry_point `(v ~T0 @X0 0 ef1`uc ]
-"96 src/leonino/usb/../usb/usb.h
-[v F5160 `(v ~T0 @X0 0 tf ]
+"149 src/leonino/usb/../usb/usb.h
+[v F5205 `(v ~T0 @X0 0 tf ]
 "13 src/leonino/usb/ep2.h
-[v _ep2_configure_handler `(v ~T0 @X0 0 ef1`*F5160 ]
+[v _ep2_configure_handler `(v ~T0 @X0 0 ef1`*F5205 ]
 "11 src/leonino/usb/ep1.h
 [v _ep1_write `(uc ~T0 @X0 0 ef2`*uc`uc ]
 "15 src/leonino/usb/ep2.h
@@ -4768,40 +4768,84 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 148: extern void _delay3(unsigned char);
 [; ;delay.h: 15: void delay_ms(unsigned int t);
 [; ;usb.h: 87: typedef void(*usb_handler_t)(void);
-[; ;usb.h: 89: typedef struct bdentry {
-[; ;usb.h: 90: unsigned char BDSTAT;
-[; ;usb.h: 91: unsigned char BDCNT;
-[; ;usb.h: 92: unsigned char BDADDRL;
-[; ;usb.h: 93: unsigned char BDADDRH;
-[; ;usb.h: 94: } BDENTRY;
-[; ;usb.h: 96: typedef void (*usb_read_handler)();
-[; ;usb.h: 97: void usb_device_configure();
-[; ;usb.h: 98: void usb_start();
-[; ;usb.h: 99: void usb_disable();
-[; ;usb.h: 100: void usb_reset();
-[; ;usb.h: 101: void usb_handle();
-[; ;usb.h: 102: void usb_configure_handler(usb_read_handler);
-[; ;usb.h: 104: unsigned char usb_write(unsigned char *buffer, unsigned char count);
-[; ;usb.h: 105: unsigned char usb_write_byte(unsigned char byte);
-[; ;usb.h: 106: unsigned char usb_read(char *buffer,unsigned char count,unsigned char maxcount);
-[; ;usb.h: 107: unsigned char usb_send();
-"110 src/leonino/usb/../usb/usb.h
+[; ;usb.h: 90: typedef union SetupPacket {
+[; ;usb.h: 92: struct {
+[; ;usb.h: 93: unsigned char bmRequestType;
+[; ;usb.h: 94: unsigned char bRequest;
+[; ;usb.h: 95: unsigned char wValueLow;
+[; ;usb.h: 96: unsigned char wValueHigh;
+[; ;usb.h: 97: unsigned char wIndexLow;
+[; ;usb.h: 98: unsigned char wIndexHigh;
+[; ;usb.h: 99: unsigned char wLengthLow;
+[; ;usb.h: 100: unsigned char wLengthHigh;
+[; ;usb.h: 101: };
+[; ;usb.h: 103: struct {
+[; ;usb.h: 104: unsigned char bmRequestType;
+[; ;usb.h: 105: unsigned char bRequest;
+[; ;usb.h: 106: unsigned int wValue;
+[; ;usb.h: 107: unsigned int wIndex;
+[; ;usb.h: 108: unsigned int wLength;
+[; ;usb.h: 109: };
+[; ;usb.h: 110: } SetupPacket;
+[; ;usb.h: 112: typedef union {
+[; ;usb.h: 113: unsigned char uc;
+[; ;usb.h: 115: struct {
+[; ;usb.h: 116: unsigned BC8 : 1;
+[; ;usb.h: 117: unsigned BC9 : 1;
+[; ;usb.h: 118: unsigned BSTALL : 1;
+[; ;usb.h: 119: unsigned DTSEN : 1;
+[; ;usb.h: 120: unsigned INCDIS : 1;
+[; ;usb.h: 121: unsigned KEN : 1;
+[; ;usb.h: 122: unsigned DTS : 1;
+[; ;usb.h: 123: unsigned UOWN : 1;
+[; ;usb.h: 124: };
+[; ;usb.h: 126: struct {
+[; ;usb.h: 127: unsigned : 2;
+[; ;usb.h: 128: unsigned PID0 : 1;
+[; ;usb.h: 129: unsigned PID1 : 1;
+[; ;usb.h: 130: unsigned PID2 : 1;
+[; ;usb.h: 131: unsigned PID3 : 1;
+[; ;usb.h: 132: unsigned : 2;
+[; ;usb.h: 133: };
+[; ;usb.h: 135: struct {
+[; ;usb.h: 136: unsigned : 2;
+[; ;usb.h: 137: unsigned PID : 4;
+[; ;usb.h: 138: unsigned : 2;
+[; ;usb.h: 139: };
+[; ;usb.h: 140: } BDStat;
+[; ;usb.h: 142: typedef struct bdentry {
+[; ;usb.h: 143: BDStat BDSTAT;
+[; ;usb.h: 144: unsigned char BDCNT;
+[; ;usb.h: 145: unsigned char BDADDRL;
+[; ;usb.h: 146: unsigned char BDADDRH;
+[; ;usb.h: 147: } BDENTRY;
+[; ;usb.h: 149: typedef void (*usb_read_handler)();
+[; ;usb.h: 150: void usb_device_configure();
+[; ;usb.h: 151: void usb_start();
+[; ;usb.h: 152: void usb_disable();
+[; ;usb.h: 153: void usb_reset();
+[; ;usb.h: 154: void usb_handle();
+[; ;usb.h: 155: void usb_configure_handler(usb_read_handler);
+[; ;usb.h: 157: unsigned char usb_write(unsigned char *buffer, unsigned char count);
+[; ;usb.h: 158: unsigned char usb_write_byte(unsigned char byte);
+[; ;usb.h: 159: unsigned char usb_read(char *buffer, unsigned char count, unsigned char maxcount);
+[; ;usb.h: 160: unsigned char usb_send();
+"163 src/leonino/usb/../usb/usb.h
 [v _usb_device_state `uc ~T0 @X0 1 e ]
 [i _usb_device_state
 -> -> 0 `i `uc
 ]
-[; ;usb.h: 110: char usb_device_state = 0;
+[; ;usb.h: 163: char usb_device_state = 0;
 [; ;leonino.h: 73: void delay_ms(unsigned int t);
 [; ;ep0.h: 17: void ep0_handle_setup_transaction();
 [; ;ep0.h: 18: void ep0_handle_standard_device();
 [; ;ep0.h: 19: void ep0_entry_point(unsigned char ustat);
 [; ;ep0.h: 20: void ep0_configure();
-[; ;ep0.h: 22: void ep0_in_handler_prepare_to_send_descriptor();
-[; ;ep0.h: 23: void ep0_in_handler_send_descriptor();
-[; ;ep0.h: 24: void ep0_out_handler_ack();
-[; ;ep0.h: 25: void ep0_in_handler_ack();
-[; ;ep0.h: 26: void ep0_in_handler_set_address();
-[; ;ep0.h: 27: void ep0_in_handler_configure();
+[; ;ep0.h: 22: void ep0_in_handler_send_descriptor();
+[; ;ep0.h: 23: void ep0_out_handler_ack();
+[; ;ep0.h: 24: void ep0_in_handler_ack();
+[; ;ep0.h: 25: void ep0_in_handler_set_address();
+[; ;ep0.h: 26: void ep0_in_handler_configure();
 [; ;ep1.h: 9: void ep1_configure();
 [; ;ep1.h: 10: void ep1_unconfigure();
 [; ;ep1.h: 11: unsigned char ep1_write(unsigned char *buffer, unsigned char count);
@@ -4825,22 +4869,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _usb_start ..  ]
 [; ;usb.c: 9: while (usb_device_state != 1) {
 "9
-[e $U 573  ]
-[e :U 574 ]
+[e $U 580  ]
+[e :U 581 ]
 {
 [; ;usb.c: 10: usb_handle();
 "10
 [e ( _usb_handle ..  ]
 "11
 }
-[e :U 573 ]
+[e :U 580 ]
 "9
-[e $ != -> _usb_device_state `i -> 1 `i 574  ]
-[e :U 575 ]
+[e $ != -> _usb_device_state `i -> 1 `i 581  ]
+[e :U 582 ]
 [; ;usb.c: 11: }
 [; ;usb.c: 12: }
 "12
-[e :UE 572 ]
+[e :UE 579 ]
 }
 "14
 [v _usb_start `(v ~T0 @X0 1 ef ]
@@ -4874,14 +4918,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _UCON -> -> 8 `i `uc ]
 [; ;usb.c: 30: while (UCONbits.SE0);
 "30
-[e $U 577  ]
-[e :U 578 ]
-[e :U 577 ]
-[e $ != -> . . _UCONbits 0 5 `i -> -> -> 0 `i `Vuc `i 578  ]
-[e :U 579 ]
+[e $U 584  ]
+[e :U 585 ]
+[e :U 584 ]
+[e $ != -> . . _UCONbits 0 5 `i -> -> -> 0 `i `Vuc `i 585  ]
+[e :U 586 ]
 [; ;usb.c: 31: }
 "31
-[e :UE 576 ]
+[e :UE 583 ]
 }
 "33
 [v _usb_disable `(v ~T0 @X0 1 ef ]
@@ -4897,7 +4941,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _usb_reset ..  ]
 [; ;usb.c: 36: }
 "36
-[e :UE 580 ]
+[e :UE 587 ]
 }
 "38
 [v _usb_reset `(v ~T0 @X0 1 ef ]
@@ -4928,7 +4972,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _UIRbits 0 3 -> -> 0 `i `uc ]
 [; ;usb.c: 49: }
 "49
-[e :UE 581 ]
+[e :UE 588 ]
 }
 "51
 [v _toggle `uc ~T0 @X0 1 e ]
@@ -4944,7 +4988,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;usb.c: 54: if (UIRbits.URSTIF) {
 "54
-[e $ ! != -> . . _UIRbits 0 0 `i -> -> -> 0 `i `Vuc `i 583  ]
+[e $ ! != -> . . _UIRbits 0 0 `i -> -> -> 0 `i `Vuc `i 590  ]
 {
 [; ;usb.c: 55: usb_reset();
 "55
@@ -4955,9 +4999,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "57
 }
 [; ;usb.c: 57: } else if (UIRbits.STALLIF) {
-[e $U 584  ]
-[e :U 583 ]
-[e $ ! != -> . . _UIRbits 0 5 `i -> -> -> 0 `i `Vuc `i 585  ]
+[e $U 591  ]
+[e :U 590 ]
+[e $ ! != -> . . _UIRbits 0 5 `i -> -> -> 0 `i `Vuc `i 592  ]
 {
 "58
 [v _ustat `uc ~T0 @X0 1 a ]
@@ -4969,9 +5013,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "60
 }
 [; ;usb.c: 60: } else if (UIRbits.TRNIF) {
-[e $U 586  ]
-[e :U 585 ]
-[e $ ! != -> . . _UIRbits 0 3 `i -> -> -> 0 `i `Vuc `i 587  ]
+[e $U 593  ]
+[e :U 592 ]
+[e $ ! != -> . . _UIRbits 0 3 `i -> -> -> 0 `i `Vuc `i 594  ]
 {
 "61
 [v _ustat `uc ~T0 @X0 1 a ]
@@ -4990,70 +5034,70 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _endpnum -> >> & | | | -> 64 `i -> 32 `i -> 16 `i -> 8 `i -> _ustat `i -> 3 `i `uc ]
 [; ;usb.c: 67: switch (endpnum) {
 "67
-[e $U 589  ]
+[e $U 596  ]
 {
 [; ;usb.c: 68: case 0:
 "68
-[e :U 590 ]
+[e :U 597 ]
 [; ;usb.c: 69: ep0_entry_point(ustat);
 "69
 [e ( _ep0_entry_point (1 _ustat ]
 [; ;usb.c: 70: break;
 "70
-[e $U 588  ]
+[e $U 595  ]
 [; ;usb.c: 71: case 1:
 "71
-[e :U 591 ]
+[e :U 598 ]
 [; ;usb.c: 72: ep1_entry_point(ustat);
 "72
 [e ( _ep1_entry_point (1 _ustat ]
 [; ;usb.c: 73: break;
 "73
-[e $U 588  ]
+[e $U 595  ]
 [; ;usb.c: 74: case 2:
 "74
-[e :U 592 ]
+[e :U 599 ]
 [; ;usb.c: 75: ep2_entry_point(ustat);
 "75
 [e ( _ep2_entry_point (1 _ustat ]
 [; ;usb.c: 76: break;
 "76
-[e $U 588  ]
+[e $U 595  ]
 "77
 }
 [; ;usb.c: 77: }
-[e $U 588  ]
+[e $U 595  ]
 "67
-[e :U 589 ]
-[e [\ _endpnum , $ -> -> 0 `i `uc 590
- , $ -> -> 1 `i `uc 591
- , $ -> -> 2 `i `uc 592
- 588 ]
+[e :U 596 ]
+[e [\ _endpnum , $ -> -> 0 `i `uc 597
+ , $ -> -> 1 `i `uc 598
+ , $ -> -> 2 `i `uc 599
+ 595 ]
 "77
-[e :U 588 ]
+[e :U 595 ]
 "78
 }
-[e :U 587 ]
+[e :U 594 ]
 "79
-[e :U 586 ]
-[e :U 584 ]
+[e :U 593 ]
+[e :U 591 ]
 [; ;usb.c: 78: }
 [; ;usb.c: 79: }
-[e :UE 582 ]
+[e :UE 589 ]
 }
 "81
-[v _usb_configure_handler `(v ~T0 @X0 1 ef1`*F5160 ]
+[v _usb_configure_handler `(v ~T0 @X0 1 ef1`*F5205 ]
 {
 [; ;usb.c: 81: void usb_configure_handler(usb_read_handler handler) {
 [e :U _usb_configure_handler ]
-[v _handler `*F5160 ~T0 @X0 1 r1 ]
+[v _handler `*F5205 ~T0 @X0 1 r1 ]
 [f ]
 [; ;usb.c: 82: ep2_configure_handler(handler);
 "82
 [e ( _ep2_configure_handler (1 _handler ]
 [; ;usb.c: 83: }
 "83
-[e :UE 593 ]
+[e :UE 600 ]
 }
 "85
 [v _usb_write `(uc ~T0 @X0 1 ef2`*uc`uc ]
@@ -5066,10 +5110,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb.c: 86: return ep1_write(buffer, count);
 "86
 [e ) ( _ep1_write (2 , _buffer _count ]
-[e $UE 594  ]
+[e $UE 601  ]
 [; ;usb.c: 87: }
 "87
-[e :UE 594 ]
+[e :UE 601 ]
 }
 "89
 [v _usb_write_byte `(uc ~T0 @X0 1 ef1`uc ]
@@ -5087,10 +5131,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb.c: 92: return ep1_write(buf, 1);
 "92
 [e ) ( _ep1_write (2 , &U _buf -> -> 1 `i `uc ]
-[e $UE 595  ]
+[e $UE 602  ]
 [; ;usb.c: 93: }
 "93
-[e :UE 595 ]
+[e :UE 602 ]
 }
 "95
 [v _usb_read `(uc ~T0 @X0 1 ef3`*uc`uc`uc ]
@@ -5104,10 +5148,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb.c: 96: return ep2_read(buffer, count, maxcount);
 "96
 [e ) ( _ep2_read (3 , , _buffer _count _maxcount ]
-[e $UE 596  ]
+[e $UE 603  ]
 [; ;usb.c: 97: }
 "97
-[e :UE 596 ]
+[e :UE 603 ]
 }
 "99
 [v _usb_send `(uc ~T0 @X0 1 ef ]
@@ -5118,8 +5162,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;usb.c: 100: return ep1_send();
 "100
 [e ) ( _ep1_send ..  ]
-[e $UE 597  ]
+[e $UE 604  ]
 [; ;usb.c: 101: }
 "101
-[e :UE 597 ]
+[e :UE 604 ]
 }

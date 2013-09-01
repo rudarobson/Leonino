@@ -4717,29 +4717,74 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 148: extern void _delay3(unsigned char);
 [; ;delay.h: 15: void delay_ms(unsigned int t);
 [; ;usb.h: 87: typedef void(*usb_handler_t)(void);
-[; ;usb.h: 89: typedef struct bdentry {
-[; ;usb.h: 90: unsigned char BDSTAT;
-[; ;usb.h: 91: unsigned char BDCNT;
-[; ;usb.h: 92: unsigned char BDADDRL;
-[; ;usb.h: 93: unsigned char BDADDRH;
-[; ;usb.h: 94: } BDENTRY;
-[; ;usb.h: 96: typedef void (*usb_read_handler)();
-[; ;usb.h: 97: void usb_device_configure();
-[; ;usb.h: 98: void usb_start();
-[; ;usb.h: 99: void usb_disable();
-[; ;usb.h: 100: void usb_reset();
-[; ;usb.h: 101: void usb_handle();
-[; ;usb.h: 102: void usb_configure_handler(usb_read_handler);
-[; ;usb.h: 104: unsigned char usb_write(unsigned char *buffer, unsigned char count);
-[; ;usb.h: 105: unsigned char usb_write_byte(unsigned char byte);
-[; ;usb.h: 106: unsigned char usb_read(char *buffer,unsigned char count,unsigned char maxcount);
-[; ;usb.h: 107: unsigned char usb_send();
-"110 src/leonino/usb/usb.h
+[; ;usb.h: 90: typedef union SetupPacket {
+[; ;usb.h: 92: struct {
+[; ;usb.h: 93: unsigned char bmRequestType;
+[; ;usb.h: 94: unsigned char bRequest;
+[; ;usb.h: 95: unsigned char wValueLow;
+[; ;usb.h: 96: unsigned char wValueHigh;
+[; ;usb.h: 97: unsigned char wIndexLow;
+[; ;usb.h: 98: unsigned char wIndexHigh;
+[; ;usb.h: 99: unsigned char wLengthLow;
+[; ;usb.h: 100: unsigned char wLengthHigh;
+[; ;usb.h: 101: };
+[; ;usb.h: 103: struct {
+[; ;usb.h: 104: unsigned char bmRequestType;
+[; ;usb.h: 105: unsigned char bRequest;
+[; ;usb.h: 106: unsigned int wValue;
+[; ;usb.h: 107: unsigned int wIndex;
+[; ;usb.h: 108: unsigned int wLength;
+[; ;usb.h: 109: };
+[; ;usb.h: 110: } SetupPacket;
+[; ;usb.h: 112: typedef union {
+[; ;usb.h: 113: unsigned char uc;
+[; ;usb.h: 115: struct {
+[; ;usb.h: 116: unsigned BC8 : 1;
+[; ;usb.h: 117: unsigned BC9 : 1;
+[; ;usb.h: 118: unsigned BSTALL : 1;
+[; ;usb.h: 119: unsigned DTSEN : 1;
+[; ;usb.h: 120: unsigned INCDIS : 1;
+[; ;usb.h: 121: unsigned KEN : 1;
+[; ;usb.h: 122: unsigned DTS : 1;
+[; ;usb.h: 123: unsigned UOWN : 1;
+[; ;usb.h: 124: };
+[; ;usb.h: 126: struct {
+[; ;usb.h: 127: unsigned : 2;
+[; ;usb.h: 128: unsigned PID0 : 1;
+[; ;usb.h: 129: unsigned PID1 : 1;
+[; ;usb.h: 130: unsigned PID2 : 1;
+[; ;usb.h: 131: unsigned PID3 : 1;
+[; ;usb.h: 132: unsigned : 2;
+[; ;usb.h: 133: };
+[; ;usb.h: 135: struct {
+[; ;usb.h: 136: unsigned : 2;
+[; ;usb.h: 137: unsigned PID : 4;
+[; ;usb.h: 138: unsigned : 2;
+[; ;usb.h: 139: };
+[; ;usb.h: 140: } BDStat;
+[; ;usb.h: 142: typedef struct bdentry {
+[; ;usb.h: 143: BDStat BDSTAT;
+[; ;usb.h: 144: unsigned char BDCNT;
+[; ;usb.h: 145: unsigned char BDADDRL;
+[; ;usb.h: 146: unsigned char BDADDRH;
+[; ;usb.h: 147: } BDENTRY;
+[; ;usb.h: 149: typedef void (*usb_read_handler)();
+[; ;usb.h: 150: void usb_device_configure();
+[; ;usb.h: 151: void usb_start();
+[; ;usb.h: 152: void usb_disable();
+[; ;usb.h: 153: void usb_reset();
+[; ;usb.h: 154: void usb_handle();
+[; ;usb.h: 155: void usb_configure_handler(usb_read_handler);
+[; ;usb.h: 157: unsigned char usb_write(unsigned char *buffer, unsigned char count);
+[; ;usb.h: 158: unsigned char usb_write_byte(unsigned char byte);
+[; ;usb.h: 159: unsigned char usb_read(char *buffer, unsigned char count, unsigned char maxcount);
+[; ;usb.h: 160: unsigned char usb_send();
+"163 src/leonino/usb/usb.h
 [v _usb_device_state `uc ~T0 @X0 1 e ]
 [i _usb_device_state
 -> -> 0 `i `uc
 ]
-[; ;usb.h: 110: char usb_device_state = 0;
+[; ;usb.h: 163: char usb_device_state = 0;
 [; ;leonino.h: 73: void delay_ms(unsigned int t);
 "4 src/leonino/delay.c
 [v _delay_ms `(v ~T0 @X0 1 ef1`ui ]
@@ -4750,7 +4795,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;delay.c: 5: do {
 "5
-[e :U 575 ]
+[e :U 582 ]
 {
 [; ;delay.c: 6: _delay(48000000/4 / 1000);
 "6
@@ -4758,9 +4803,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "7
 }
 [; ;delay.c: 7: } while (t-- != 0);
-[e $ != -- _t -> -> 1 `i `ui -> -> 0 `i `ui 575  ]
-[e :U 574 ]
+[e $ != -- _t -> -> 1 `i `ui -> -> 0 `i `ui 582  ]
+[e :U 581 ]
 [; ;delay.c: 8: }
 "8
-[e :UE 572 ]
+[e :UE 579 ]
 }
