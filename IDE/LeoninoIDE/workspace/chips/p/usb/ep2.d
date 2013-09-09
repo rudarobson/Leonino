@@ -1,0 +1,1 @@
+ C:/Users/rudarobson/Documents/GitHub/Leonino/helpers/lib/leoninop/usb/ep2.d  C:/Users/rudarobson/Documents/GitHub/Leonino/helpers/lib/leoninop/usb/ep2.p1:  ../leonino/usb/ep2.c ../leonino/usb/descriptor.h ../leonino/usb/../delay.h ../leonino/usb/ep0.h ../leonino/usb/ep1.h ../leonino/usb/ep2.h ../leonino/usb/../usb/usb.h ../leonino/usb/usb.h ../leonino/usb/../leonino.h

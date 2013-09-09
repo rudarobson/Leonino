@@ -53,3 +53,8 @@ Windows/Windows Driver/Driver/VistaDebug
 Windows/Windows Driver/Driver/Driver Package/x64
 PIC/BootLoader.X/dist
 PIC/BootLoader.X/build
+/IDE/Windows/USBLeoninoJava/nbproject/private/
+/IDE/Windows/LeoninoUSBJava/nbproject/private/
+/IDE/Windows/LeoninoUSBJava/build/
+/IDE/Windows/LeoninoUSBJava/dist/
+/IDE/LeoninoIDE/dist/

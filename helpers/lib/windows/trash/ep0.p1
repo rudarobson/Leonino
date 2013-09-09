@@ -1,0 +1,1007 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"115 ..\src\leonino\usb/usb.h
+[s S575 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S575 . BC8 BC9 BSTALL DTSEN INCDIS KEN DTS UOWN ]
+"126
+[s S576 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 ]
+[n S576 . . PID0 PID1 PID2 PID3 . ]
+"135
+[s S577 :2 `uc 1 :4 `uc 1 :2 `uc 1 ]
+[n S577 . . PID . ]
+"112
+[u S574 `uc 1 `S575 1 `S576 1 `S577 1 ]
+[n S574 . uc . . . ]
+"147
+[s S578 `S574 1 `uc 1 `uc 1 `uc 1 ]
+[n S578 bdentry BDSTAT BDCNT BDADDRL BDADDRH ]
+"92
+[s S572 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 `uc 1 ]
+[n S572 . bmRequestType bRequest wValueLow wValueHigh wIndexLow wIndexHigh wLengthLow wLengthHigh ]
+"103
+[s S573 `uc 1 `uc 1 `ui 1 `ui 1 `ui 1 ]
+[n S573 . bmRequestType bRequest wValue wIndex wLength ]
+"110
+[u S571 `S572 1 `S573 1 ]
+[n S571 SetupPacket . . ]
+"87
+[v F5151 `(v ~T0 @X0 0 tf ]
+"822 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
+[v _UEP0 `Vuc ~T0 @X0 0 e@3952 ]
+"24 ..\src\leonino\usb\ep0.h
+[v _ep0_in_handler_ack `(v ~T0 @X0 0 ef ]
+"23
+[v _ep0_out_handler_ack `(v ~T0 @X0 0 ef ]
+"22
+[v _ep0_in_handler_send_descriptor `(v ~T0 @X0 0 ef ]
+"25
+[v _ep0_in_handler_set_address `(v ~T0 @X0 0 ef ]
+"26
+[v _ep0_in_handler_configure `(v ~T0 @X0 0 ef ]
+"9 ..\src\leonino\usb\ep1.h
+[v _ep1_configure `(v ~T0 @X0 0 ef ]
+"9 ..\src\leonino\usb\ep2.h
+[v _ep2_configure `(v ~T0 @X0 0 ef ]
+"634 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
+[s S31 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S31 . . SUSPND RESUME USBEN PKTDIS SE0 PPBRST ]
+"633
+[u S30 `S31 1 ]
+[n S30 . . ]
+"644
+[v _UCONbits `VS30 ~T0 @X0 0 e@3949 ]
+"113 C:\Program Files (x86)\Microchip\xc8\v1.20\include\plib\flash.h
+[v _ReadFlash `(v ~T0 @X0 0 ef3`ul`ui`*uc ]
+"678 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
+[v _UADDR `Vuc ~T0 @X0 0 e@3950 ]
+"46 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
+[; <" SPPDATA equ 0F62h ;# ">
+"65
+[; <" SPPCFG equ 0F63h ;# ">
+"141
+[; <" SPPEPS equ 0F64h ;# ">
+"214
+[; <" SPPCON equ 0F65h ;# ">
+"239
+[; <" UFRM equ 0F66h ;# ">
+"245
+[; <" UFRML equ 0F66h ;# ">
+"322
+[; <" UFRMH equ 0F67h ;# ">
+"361
+[; <" UIR equ 0F68h ;# ">
+"416
+[; <" UIE equ 0F69h ;# ">
+"471
+[; <" UEIR equ 0F6Ah ;# ">
+"521
+[; <" UEIE equ 0F6Bh ;# ">
+"571
+[; <" USTAT equ 0F6Ch ;# ">
+"630
+[; <" UCON equ 0F6Dh ;# ">
+"680
+[; <" UADDR equ 0F6Eh ;# ">
+"743
+[; <" UCFG equ 0F6Fh ;# ">
+"824
+[; <" UEP0 equ 0F70h ;# ">
+"955
+[; <" UEP1 equ 0F71h ;# ">
+"1086
+[; <" UEP2 equ 0F72h ;# ">
+"1217
+[; <" UEP3 equ 0F73h ;# ">
+"1348
+[; <" UEP4 equ 0F74h ;# ">
+"1479
+[; <" UEP5 equ 0F75h ;# ">
+"1610
+[; <" UEP6 equ 0F76h ;# ">
+"1741
+[; <" UEP7 equ 0F77h ;# ">
+"1872
+[; <" UEP8 equ 0F78h ;# ">
+"1959
+[; <" UEP9 equ 0F79h ;# ">
+"2046
+[; <" UEP10 equ 0F7Ah ;# ">
+"2133
+[; <" UEP11 equ 0F7Bh ;# ">
+"2220
+[; <" UEP12 equ 0F7Ch ;# ">
+"2307
+[; <" UEP13 equ 0F7Dh ;# ">
+"2394
+[; <" UEP14 equ 0F7Eh ;# ">
+"2481
+[; <" UEP15 equ 0F7Fh ;# ">
+"2568
+[; <" PORTA equ 0F80h ;# ">
+"2724
+[; <" PORTB equ 0F81h ;# ">
+"2833
+[; <" PORTC equ 0F82h ;# ">
+"2986
+[; <" PORTD equ 0F83h ;# ">
+"3106
+[; <" PORTE equ 0F84h ;# ">
+"3357
+[; <" LATA equ 0F89h ;# ">
+"3492
+[; <" LATB equ 0F8Ah ;# ">
+"3624
+[; <" LATC equ 0F8Bh ;# ">
+"3739
+[; <" LATD equ 0F8Ch ;# ">
+"3871
+[; <" LATE equ 0F8Dh ;# ">
+"3973
+[; <" TRISA equ 0F92h ;# ">
+"3978
+[; <" DDRA equ 0F92h ;# ">
+"4170
+[; <" TRISB equ 0F93h ;# ">
+"4175
+[; <" DDRB equ 0F93h ;# ">
+"4391
+[; <" TRISC equ 0F94h ;# ">
+"4396
+[; <" DDRC equ 0F94h ;# ">
+"4562
+[; <" TRISD equ 0F95h ;# ">
+"4567
+[; <" DDRD equ 0F95h ;# ">
+"4783
+[; <" TRISE equ 0F96h ;# ">
+"4788
+[; <" DDRE equ 0F96h ;# ">
+"4884
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"4942
+[; <" PIE1 equ 0F9Dh ;# ">
+"5030
+[; <" PIR1 equ 0F9Eh ;# ">
+"5118
+[; <" IPR1 equ 0F9Fh ;# ">
+"5206
+[; <" PIE2 equ 0FA0h ;# ">
+"5276
+[; <" PIR2 equ 0FA1h ;# ">
+"5346
+[; <" IPR2 equ 0FA2h ;# ">
+"5416
+[; <" EECON1 equ 0FA6h ;# ">
+"5481
+[; <" EECON2 equ 0FA7h ;# ">
+"5487
+[; <" EEDATA equ 0FA8h ;# ">
+"5493
+[; <" EEADR equ 0FA9h ;# ">
+"5499
+[; <" RCSTA equ 0FABh ;# ">
+"5504
+[; <" RCSTA1 equ 0FABh ;# ">
+"5656
+[; <" TXSTA equ 0FACh ;# ">
+"5661
+[; <" TXSTA1 equ 0FACh ;# ">
+"5919
+[; <" TXREG equ 0FADh ;# ">
+"5924
+[; <" TXREG1 equ 0FADh ;# ">
+"5930
+[; <" RCREG equ 0FAEh ;# ">
+"5935
+[; <" RCREG1 equ 0FAEh ;# ">
+"5941
+[; <" SPBRG equ 0FAFh ;# ">
+"5946
+[; <" SPBRG1 equ 0FAFh ;# ">
+"5952
+[; <" SPBRGH equ 0FB0h ;# ">
+"5958
+[; <" T3CON equ 0FB1h ;# ">
+"6080
+[; <" TMR3 equ 0FB2h ;# ">
+"6086
+[; <" TMR3L equ 0FB2h ;# ">
+"6092
+[; <" TMR3H equ 0FB3h ;# ">
+"6098
+[; <" CMCON equ 0FB4h ;# ">
+"6193
+[; <" CVRCON equ 0FB5h ;# ">
+"6277
+[; <" ECCP1AS equ 0FB6h ;# ">
+"6282
+[; <" CCP1AS equ 0FB6h ;# ">
+"6438
+[; <" ECCP1DEL equ 0FB7h ;# ">
+"6443
+[; <" CCP1DEL equ 0FB7h ;# ">
+"6575
+[; <" BAUDCON equ 0FB8h ;# ">
+"6580
+[; <" BAUDCTL equ 0FB8h ;# ">
+"6754
+[; <" CCP2CON equ 0FBAh ;# ">
+"6817
+[; <" CCPR2 equ 0FBBh ;# ">
+"6823
+[; <" CCPR2L equ 0FBBh ;# ">
+"6829
+[; <" CCPR2H equ 0FBCh ;# ">
+"6835
+[; <" CCP1CON equ 0FBDh ;# ">
+"6840
+[; <" ECCP1CON equ 0FBDh ;# ">
+"6996
+[; <" CCPR1 equ 0FBEh ;# ">
+"7002
+[; <" CCPR1L equ 0FBEh ;# ">
+"7008
+[; <" CCPR1H equ 0FBFh ;# ">
+"7014
+[; <" ADCON2 equ 0FC0h ;# ">
+"7084
+[; <" ADCON1 equ 0FC1h ;# ">
+"7174
+[; <" ADCON0 equ 0FC2h ;# ">
+"7296
+[; <" ADRES equ 0FC3h ;# ">
+"7302
+[; <" ADRESL equ 0FC3h ;# ">
+"7308
+[; <" ADRESH equ 0FC4h ;# ">
+"7314
+[; <" SSPCON2 equ 0FC5h ;# ">
+"7375
+[; <" SSPCON1 equ 0FC6h ;# ">
+"7444
+[; <" SSPSTAT equ 0FC7h ;# ">
+"7710
+[; <" SSPADD equ 0FC8h ;# ">
+"7716
+[; <" SSPBUF equ 0FC9h ;# ">
+"7722
+[; <" T2CON equ 0FCAh ;# ">
+"7819
+[; <" PR2 equ 0FCBh ;# ">
+"7824
+[; <" MEMCON equ 0FCBh ;# ">
+"7830
+[; <" TMR2 equ 0FCCh ;# ">
+"7836
+[; <" T1CON equ 0FCDh ;# ">
+"7940
+[; <" TMR1 equ 0FCEh ;# ">
+"7946
+[; <" TMR1L equ 0FCEh ;# ">
+"7952
+[; <" TMR1H equ 0FCFh ;# ">
+"7958
+[; <" RCON equ 0FD0h ;# ">
+"8106
+[; <" WDTCON equ 0FD1h ;# ">
+"8133
+[; <" HLVDCON equ 0FD2h ;# ">
+"8138
+[; <" LVDCON equ 0FD2h ;# ">
+"8402
+[; <" OSCCON equ 0FD3h ;# ">
+"8484
+[; <" T0CON equ 0FD5h ;# ">
+"8553
+[; <" TMR0 equ 0FD6h ;# ">
+"8559
+[; <" TMR0L equ 0FD6h ;# ">
+"8565
+[; <" TMR0H equ 0FD7h ;# ">
+"8571
+[; <" STATUS equ 0FD8h ;# ">
+"8649
+[; <" FSR2 equ 0FD9h ;# ">
+"8655
+[; <" FSR2L equ 0FD9h ;# ">
+"8661
+[; <" FSR2H equ 0FDAh ;# ">
+"8667
+[; <" PLUSW2 equ 0FDBh ;# ">
+"8673
+[; <" PREINC2 equ 0FDCh ;# ">
+"8679
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"8685
+[; <" POSTINC2 equ 0FDEh ;# ">
+"8691
+[; <" INDF2 equ 0FDFh ;# ">
+"8697
+[; <" BSR equ 0FE0h ;# ">
+"8703
+[; <" FSR1 equ 0FE1h ;# ">
+"8709
+[; <" FSR1L equ 0FE1h ;# ">
+"8715
+[; <" FSR1H equ 0FE2h ;# ">
+"8721
+[; <" PLUSW1 equ 0FE3h ;# ">
+"8727
+[; <" PREINC1 equ 0FE4h ;# ">
+"8733
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"8739
+[; <" POSTINC1 equ 0FE6h ;# ">
+"8745
+[; <" INDF1 equ 0FE7h ;# ">
+"8751
+[; <" WREG equ 0FE8h ;# ">
+"8757
+[; <" FSR0 equ 0FE9h ;# ">
+"8763
+[; <" FSR0L equ 0FE9h ;# ">
+"8769
+[; <" FSR0H equ 0FEAh ;# ">
+"8775
+[; <" PLUSW0 equ 0FEBh ;# ">
+"8781
+[; <" PREINC0 equ 0FECh ;# ">
+"8787
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"8793
+[; <" POSTINC0 equ 0FEEh ;# ">
+"8799
+[; <" INDF0 equ 0FEFh ;# ">
+"8805
+[; <" INTCON3 equ 0FF0h ;# ">
+"8896
+[; <" INTCON2 equ 0FF1h ;# ">
+"8972
+[; <" INTCON equ 0FF2h ;# ">
+"9108
+[; <" PROD equ 0FF3h ;# ">
+"9114
+[; <" PRODL equ 0FF3h ;# ">
+"9120
+[; <" PRODH equ 0FF4h ;# ">
+"9126
+[; <" TABLAT equ 0FF5h ;# ">
+"9134
+[; <" TBLPTR equ 0FF6h ;# ">
+"9140
+[; <" TBLPTRL equ 0FF6h ;# ">
+"9146
+[; <" TBLPTRH equ 0FF7h ;# ">
+"9152
+[; <" TBLPTRU equ 0FF8h ;# ">
+"9160
+[; <" PCLAT equ 0FF9h ;# ">
+"9167
+[; <" PC equ 0FF9h ;# ">
+"9173
+[; <" PCL equ 0FF9h ;# ">
+"9179
+[; <" PCLATH equ 0FFAh ;# ">
+"9185
+[; <" PCLATU equ 0FFBh ;# ">
+"9191
+[; <" STKPTR equ 0FFCh ;# ">
+"9266
+[; <" TOS equ 0FFDh ;# ">
+"9272
+[; <" TOSL equ 0FFDh ;# ">
+"9278
+[; <" TOSH equ 0FFEh ;# ">
+"9284
+[; <" TOSU equ 0FFFh ;# ">
+"163 ..\src\leonino\usb/usb.h
+[v _usb_device_state `uc ~T0 @X0 1 e ]
+[i _usb_device_state
+-> -> 0 `i `uc
+]
+"14 ..\src\leonino\usb\descriptor.h
+[v _dev_desc `Cuc ~T0 @X0 -> 0 `x e ]
+[i _dev_desc
+:U ..
+"15
+-> -> 18 `i `uc
+"16
+-> -> 1 `i `uc
+"17
+-> -> 0 `i `uc
+"18
+-> -> 2 `i `uc
+"19
+-> -> 0 `i `uc
+"20
+-> -> 0 `i `uc
+"21
+-> -> 0 `i `uc
+"22
+-> -> 64 `i `uc
+"23
+-> & -> 57005 `ui -> -> 255 `i `ui `uc
+"24
+-> & >> -> 57005 `ui -> 8 `i -> -> 255 `i `ui `uc
+"25
+-> & -> 2 `i -> 255 `i `uc
+"26
+-> & >> -> 2 `i -> 8 `i -> 255 `i `uc
+"27
+-> & -> 0 `i -> 255 `i `uc
+"28
+-> & >> -> 0 `i -> 8 `i -> 255 `i `uc
+"29
+-> -> 0 `i `uc
+"30
+-> -> 1 `i `uc
+"31
+-> -> 0 `i `uc
+"33
+-> -> 1 `i `uc
+..
+]
+"52
+[v _conf_desc_0 `Cuc ~T0 @X0 -> 0 `x e ]
+[i _conf_desc_0
+:U ..
+"54
+-> -> 9 `i `uc
+"55
+-> -> 2 `i `uc
+"56
+-> & + + -> 9 `i -> 9 `i * -> 2 `i -> 7 `i -> 255 `i `uc
+"57
+-> & >> + + -> 9 `i -> 9 `i * -> 2 `i -> 7 `i -> 8 `i -> 255 `i `uc
+"58
+-> -> 1 `i `uc
+"59
+-> -> 1 `i `uc
+"60
+-> -> 0 `i `uc
+"61
+-> -> 128 `i `uc
+"62
+-> -> 50 `i `uc
+"65
+-> -> 9 `i `uc
+"66
+-> -> 4 `i `uc
+"67
+-> -> 0 `i `uc
+"68
+-> -> 0 `i `uc
+"69
+-> -> 2 `i `uc
+"70
+-> -> 255 `i `uc
+"71
+-> -> 255 `i `uc
+"72
+-> -> 255 `i `uc
+"73
+-> -> 0 `i `uc
+"77
+-> -> 7 `i `uc
+"78
+-> -> 5 `i `uc
+"79
+-> -> 129 `i `uc
+"80
+-> -> 2 `i `uc
+"81
+-> -> 64 `i `uc
+"82
+-> -> 0 `i `uc
+"83
+-> -> 15 `i `uc
+"86
+-> -> 7 `i `uc
+"87
+-> -> 5 `i `uc
+"88
+-> -> 2 `i `uc
+"89
+-> -> 2 `i `uc
+"90
+-> -> 64 `i `uc
+"91
+-> -> 0 `i `uc
+"92
+-> -> 15 `i `uc
+..
+]
+"98
+[v _string_desc_1 `Cuc ~T0 @X0 -> 0 `x e ]
+[i _string_desc_1
+:U ..
+"99
+-> -> 16 `i `uc
+"100
+-> -> 3 `i `uc
+"101
+-> -> 76 `ui `uc
+-> -> 0 `i `uc
+-> -> 101 `ui `uc
+-> -> 0 `i `uc
+-> -> 111 `ui `uc
+-> -> 0 `i `uc
+-> -> 110 `ui `uc
+-> -> 0 `i `uc
+-> -> 105 `ui `uc
+-> -> 0 `i `uc
+-> -> 110 `ui `uc
+-> -> 0 `i `uc
+"102
+-> -> 111 `ui `uc
+..
+]
+"12 ..\src\leonino\usb\ep0.c
+[v _ep0_out_bd `S578 ~T0 @X0 1 e@1024 ]
+"13
+[v _ep0_out_buffer `uc ~T0 @X0 -> 64 `i e@1280 ]
+"14
+[v _setup_pkt `S571 ~T0 @X0 1 e@1280 ]
+"20
+[v _ep0_out_handler `*F5151 ~T0 @X0 1 e ]
+"23
+[v _ep0_in_bd `S578 ~T0 @X0 1 e@1028 ]
+"24
+[v _ep0_in_buffer `uc ~T0 @X0 -> 64 `i e@1344 ]
+"30
+[v _ep0_in_handler `*F5151 ~T0 @X0 1 e ]
+"32
+[v _ep0_in_decsriptor `*uc ~T0 @X0 1 e ]
+"33
+[v _ep0_in_total_bytes_to_send `ui ~T0 @X0 1 e ]
+"35
+[v _ep0_dir `uc ~T0 @X0 1 e ]
+"36
+[v _ep0_temp_uaddr `uc ~T0 @X0 1 e ]
+"38
+[v _ep0_configure `(v ~T0 @X0 1 ef ]
+{
+[e :U _ep0_configure ]
+[f ]
+"39
+[e = _ep0_in_total_bytes_to_send -> -> 0 `i `ui ]
+"40
+[e = _UEP0 -> | | -> 16 `i -> 2 `i -> 4 `i `uc ]
+"41
+[e = . _ep0_out_bd 1 -> -> 64 `i `uc ]
+"42
+[e = . _ep0_out_bd 2 -> & -> 1280 `i -> 255 `i `uc ]
+"43
+[e = . _ep0_out_bd 3 -> & >> -> 1280 `i -> 8 `i -> 255 `i `uc ]
+"44
+[e = . . _ep0_out_bd 0 0 -> | -> 128 `i -> 8 `i `uc ]
+"46
+[e = . _ep0_in_bd 1 -> -> 0 `i `uc ]
+"47
+[e = . _ep0_in_bd 2 -> & + -> 1280 `i -> 64 `i -> 255 `i `uc ]
+"48
+[e = . _ep0_in_bd 3 -> & >> + -> 1280 `i -> 64 `i -> 8 `i -> 255 `i `uc ]
+"49
+[e = . . _ep0_in_bd 0 0 -> -> 0 `i `uc ]
+"51
+[e :UE 579 ]
+}
+"53
+[v _ep0_handle_setup_transaction `(v ~T0 @X0 1 ef ]
+{
+[e :U _ep0_handle_setup_transaction ]
+[f ]
+"54
+[v _desc_len `ui ~T0 @X0 1 a ]
+"56
+[e $U 582  ]
+{
+"57
+[e :U 583 ]
+"58
+[e $U 585  ]
+{
+"59
+[e :U 586 ]
+"60
+[e = *U + &U _ep0_in_buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ep0_in_buffer `ui `ux -> -> 0 `i `uc ]
+"61
+[e = *U + &U _ep0_in_buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _ep0_in_buffer `ui `ux -> -> 0 `i `uc ]
+"62
+[e $U 584  ]
+"63
+[e :U 587 ]
+"64
+[e = *U + &U _ep0_in_buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ep0_in_buffer `ui `ux -> -> 0 `i `uc ]
+"65
+[e = *U + &U _ep0_in_buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _ep0_in_buffer `ui `ux -> -> 0 `i `uc ]
+"66
+[e $U 584  ]
+"67
+[e :U 588 ]
+"68
+[e = *U + &U _ep0_in_buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ep0_in_buffer `ui `ux -> -> 0 `i `uc ]
+"69
+[e = *U + &U _ep0_in_buffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _ep0_in_buffer `ui `ux -> -> 0 `i `uc ]
+"70
+[e $U 584  ]
+"71
+[e :U 589 ]
+"72
+[e $U 584  ]
+"73
+}
+[e $U 584  ]
+"58
+[e :U 585 ]
+[e [\ & -> . . _setup_pkt 0 1 `i -> 31 `i , $ -> 0 `i 586
+ , $ -> 1 `i 587
+ , $ -> 2 `i 588
+ 589 ]
+"73
+[e :U 584 ]
+"74
+[e = _ep0_in_handler -> &U _ep0_in_handler_ack `*F5151 ]
+"75
+[e = _ep0_out_handler -> &U _ep0_out_handler_ack `*F5151 ]
+"77
+[e = . _ep0_in_bd 1 -> -> 2 `i `uc ]
+"78
+[e = . . _ep0_in_bd 0 0 -> | | -> 128 `i -> 64 `i -> 8 `i `uc ]
+"80
+[e = . _ep0_out_bd 1 -> -> 64 `i `uc ]
+"81
+[e = . . _ep0_out_bd 0 0 -> | | -> 128 `i -> 8 `i -> 64 `i `uc ]
+"82
+[e $U 581  ]
+"83
+[e :U 590 ]
+"84
+[e $U 592  ]
+{
+"85
+[e :U 593 ]
+"86
+[e = _ep0_in_decsriptor -> &U _dev_desc `*uc ]
+"87
+[e = _desc_len -> -> 18 `i `ui ]
+"88
+[e $U 591  ]
+"89
+[e :U 594 ]
+"90
+[e = _ep0_in_decsriptor -> &U _conf_desc_0 `*uc ]
+"91
+[e = _desc_len -> + + -> 9 `i -> 9 `i * -> 2 `i -> 7 `i `ui ]
+"92
+[e $U 591  ]
+"93
+[e :U 595 ]
+"94
+[e $U 597  ]
+{
+"95
+[e :U 598 ]
+"96
+[e = _ep0_in_decsriptor -> &U _string_desc_1 `*uc ]
+"97
+[e = _desc_len -> -> 16 `i `ui ]
+"98
+[e $U 596  ]
+"99
+}
+[e $U 596  ]
+"94
+[e :U 597 ]
+[e [\ . . _setup_pkt 0 2 , $ -> -> 1 `i `uc 598
+ 596 ]
+"99
+[e :U 596 ]
+"100
+[e $U 591  ]
+"101
+}
+[e $U 591  ]
+"84
+[e :U 592 ]
+[e [\ . . _setup_pkt 0 3 , $ -> -> 1 `i `uc 593
+ , $ -> -> 2 `i `uc 594
+ , $ -> -> 3 `i `uc 595
+ 591 ]
+"101
+[e :U 591 ]
+"102
+[e = _ep0_in_total_bytes_to_send ? < _desc_len . . _setup_pkt 1 4 : _desc_len . . _setup_pkt 1 4 ]
+"104
+[e = . . . _ep0_in_bd 0 1 6 -> -> 0 `i `uc ]
+"106
+[e = _ep0_out_handler -> &U _ep0_out_handler_ack `*F5151 ]
+"107
+[e = _ep0_in_handler -> &U _ep0_in_handler_send_descriptor `*F5151 ]
+"109
+[e = . _ep0_out_bd 1 -> -> 64 `i `uc ]
+"110
+[e = . . _ep0_out_bd 0 0 -> | | -> 128 `i -> 8 `i -> 64 `i `uc ]
+"112
+[e ( _ep0_in_handler_send_descriptor ..  ]
+"113
+[e $U 581  ]
+"114
+[e :U 599 ]
+"115
+[e = _ep0_temp_uaddr . . _setup_pkt 0 2 ]
+"117
+[e = _ep0_in_handler -> &U _ep0_in_handler_set_address `*F5151 ]
+"120
+[e = . _ep0_in_bd 1 -> -> 0 `i `uc ]
+"121
+[e = . . _ep0_in_bd 0 0 -> | | -> 128 `i -> 64 `i -> 8 `i `uc ]
+"124
+[e = . _ep0_out_bd 1 -> -> 64 `i `uc ]
+"125
+[e = . . _ep0_out_bd 0 0 -> | -> 128 `i -> 8 `i `uc ]
+"126
+[e $U 581  ]
+"127
+[e :U 600 ]
+"128
+[e $ ! == -> _usb_device_state `i -> 1 `i 601  ]
+{
+"129
+[e = *U + &U _ep0_in_buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ep0_in_buffer `ui `ux -> -> 1 `i `uc ]
+"130
+[e = . _ep0_in_bd 1 -> -> 1 `i `uc ]
+"131
+[e = . . _ep0_in_bd 0 0 -> | | -> 128 `i -> 8 `i -> 64 `i `uc ]
+"132
+}
+[e :U 601 ]
+"134
+[e = . _ep0_out_bd 1 -> -> 64 `i `uc ]
+"135
+[e = . . _ep0_out_bd 0 0 -> | | -> 128 `i -> 64 `i -> 8 `i `uc ]
+"136
+[e $U 581  ]
+"137
+[e :U 602 ]
+"138
+[e $ ! == -> . . _setup_pkt 0 2 `i -> 1 `i 603  ]
+{
+"139
+[e = _ep0_in_handler -> &U _ep0_in_handler_configure `*F5151 ]
+"140
+[e ( _ep1_configure ..  ]
+"141
+[e ( _ep2_configure ..  ]
+"142
+[e = . _ep0_in_bd 1 -> -> 0 `i `uc ]
+"143
+[e = . . _ep0_in_bd 0 0 -> | | -> 128 `i -> 64 `i -> 8 `i `uc ]
+"145
+[e = . _ep0_out_bd 1 -> -> 64 `i `uc ]
+"146
+[e = . . _ep0_out_bd 0 0 -> | -> 128 `i -> 8 `i `uc ]
+"147
+}
+[e :U 603 ]
+"148
+[e $U 581  ]
+"149
+[e :U 604 ]
+"150
+[e = *U + &U _ep0_in_buffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _ep0_in_buffer `ui `ux -> -> 0 `i `uc ]
+"152
+[e = . _ep0_in_bd 1 -> -> 1 `i `uc ]
+"153
+[e = . . _ep0_in_bd 0 0 -> | | -> 128 `i -> 64 `i -> 8 `i `uc ]
+"155
+[e = . _ep0_out_bd 1 -> -> 64 `i `uc ]
+"156
+[e = . . _ep0_out_bd 0 0 -> | | -> 128 `i -> 8 `i -> 64 `i `uc ]
+"157
+[e $U 581  ]
+"158
+[e :U 605 ]
+"159
+[e = . _ep0_in_bd 1 -> -> 0 `i `uc ]
+"160
+[e = . . _ep0_in_bd 0 0 -> | | -> 128 `i -> 64 `i -> 8 `i `uc ]
+"162
+[e = . _ep0_out_bd 1 -> -> 64 `i `uc ]
+"163
+[e = . . _ep0_out_bd 0 0 -> | -> 128 `i -> 8 `i `uc ]
+"164
+[e $U 581  ]
+"165
+}
+[e $U 581  ]
+"56
+[e :U 582 ]
+[e [\ . . _setup_pkt 0 1 , $ -> -> 0 `i `uc 583
+ , $ -> -> 6 `i `uc 590
+ , $ -> -> 5 `i `uc 599
+ , $ -> -> 8 `i `uc 600
+ , $ -> -> 9 `i `uc 602
+ , $ -> -> 10 `i `uc 604
+ , $ -> -> 11 `i `uc 605
+ 581 ]
+"165
+[e :U 581 ]
+"167
+[e = . . _UCONbits 0 4 -> -> 0 `i `uc ]
+"168
+[e :UE 580 ]
+}
+"170
+[v _ep0_handle_standard_device `(v ~T0 @X0 1 ef ]
+{
+[e :U _ep0_handle_standard_device ]
+[f ]
+"171
+[v _pid `uc ~T0 @X0 1 a ]
+"173
+[e $ ! == -> _ep0_dir `i -> 1 `i 607  ]
+"174
+[e = _pid -> >> & | | | -> 32 `i -> 16 `i -> 8 `i -> 4 `i -> . . _ep0_in_bd 0 0 `i -> 2 `i `uc ]
+[e $U 608  ]
+"175
+[e :U 607 ]
+"176
+[e = _pid -> >> & | | | -> 32 `i -> 16 `i -> 8 `i -> 4 `i -> . . _ep0_out_bd 0 0 `i -> 2 `i `uc ]
+[e :U 608 ]
+"180
+[e $U 610  ]
+{
+"181
+[e :U 611 ]
+"182
+[e ( *U _ep0_out_handler ..  ]
+"183
+[e $U 609  ]
+"184
+[e :U 612 ]
+"185
+[e ( *U _ep0_in_handler ..  ]
+"186
+[e $U 609  ]
+"187
+[e :U 613 ]
+"188
+[e ( _ep0_handle_setup_transaction ..  ]
+"189
+[e $U 609  ]
+"190
+}
+[e $U 609  ]
+"180
+[e :U 610 ]
+[e [\ _pid , $ -> -> 1 `i `uc 611
+ , $ -> -> 9 `i `uc 612
+ , $ -> -> 13 `i `uc 613
+ 609 ]
+"190
+[e :U 609 ]
+"191
+[e :UE 606 ]
+}
+"193
+[v _ep0_entry_point `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _ep0_entry_point ]
+[v _ustat `uc ~T0 @X0 1 r1 ]
+[f ]
+"194
+[v _bmRequestType `uc ~T0 @X0 1 a ]
+"196
+[e $ ! == >> & -> _ustat `i -> 4 `i -> 2 `i -> 1 `i 615  ]
+{
+"197
+[e = _ep0_dir -> -> 1 `i `uc ]
+"198
+[e = _bmRequestType -> & >> -> . . _setup_pkt 0 1 `i -> 5 `i -> 3 `i `uc ]
+"199
+}
+[e $U 616  ]
+[e :U 615 ]
+{
+"200
+[e = _ep0_dir -> -> 0 `i `uc ]
+"201
+[e = _bmRequestType -> & >> -> . . _setup_pkt 0 1 `i -> 5 `i -> 3 `i `uc ]
+"202
+}
+[e :U 616 ]
+"204
+[e $U 618  ]
+{
+"205
+[e :U 619 ]
+"206
+[e ( _ep0_handle_standard_device ..  ]
+"207
+[e $U 617  ]
+"208
+}
+[e $U 617  ]
+"204
+[e :U 618 ]
+[e [\ _bmRequestType , $ -> -> 0 `i `uc 619
+ 617 ]
+"208
+[e :U 617 ]
+"210
+[e :UE 614 ]
+}
+"212
+[v _ep0_in_handler_send_descriptor `(v ~T0 @X0 1 ef ]
+{
+[e :U _ep0_in_handler_send_descriptor ]
+[f ]
+"213
+[v _num `ui ~T0 @X0 1 a ]
+[e = _num ? < -> -> 64 `i `ui _ep0_in_total_bytes_to_send : -> -> 64 `i `ui _ep0_in_total_bytes_to_send ]
+"215
+[e $ ! > _num -> -> 0 `i `ui 621  ]
+"216
+[e ( _ReadFlash (3 , , -> _ep0_in_decsriptor `ul _num &U _ep0_in_buffer ]
+[e :U 621 ]
+"218
+[e =+ _ep0_in_decsriptor * -> _num `ux -> -> # *U _ep0_in_decsriptor `ui `ux ]
+"219
+[e = . _ep0_in_bd 1 -> _num `uc ]
+"221
+[e $ ! == -> . . . _ep0_in_bd 0 1 6 `i -> 1 `i 622  ]
+"222
+[e = . . _ep0_in_bd 0 0 -> | -> 128 `i -> 8 `i `uc ]
+[e $U 623  ]
+"223
+[e :U 622 ]
+"224
+[e = . . _ep0_in_bd 0 0 -> | | -> 128 `i -> 8 `i -> 64 `i `uc ]
+[e :U 623 ]
+"226
+[e :UE 620 ]
+}
+"228
+[v _ep0_out_handler_ack `(v ~T0 @X0 1 ef ]
+{
+[e :U _ep0_out_handler_ack ]
+[f ]
+"230
+[e = . _ep0_out_bd 1 -> -> 64 `i `uc ]
+"231
+[e = . . _ep0_out_bd 0 0 -> | -> 128 `i -> 8 `i `uc ]
+"232
+[e :UE 624 ]
+}
+"234
+[v _ep0_in_handler_ack `(v ~T0 @X0 1 ef ]
+{
+[e :U _ep0_in_handler_ack ]
+[f ]
+"236
+[e = . _ep0_in_bd 1 -> -> 0 `i `uc ]
+"237
+[e = . . _ep0_in_bd 0 0 -> -> 128 `i `uc ]
+"238
+[e :UE 625 ]
+}
+"240
+[v _ep0_in_handler_set_address `(v ~T0 @X0 1 ef ]
+{
+[e :U _ep0_in_handler_set_address ]
+[f ]
+"241
+[e = _UADDR _ep0_temp_uaddr ]
+"242
+[e :UE 626 ]
+}
+"244
+[v _ep0_in_handler_configure `(v ~T0 @X0 1 ef ]
+{
+[e :U _ep0_in_handler_configure ]
+[f ]
+"245
+[e = _usb_device_state -> -> 1 `i `uc ]
+"246
+[e :UE 627 ]
+}
