@@ -1,0 +1,17 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"1 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x.c
+[v _loop `(v ~T0 @X0 1 ef ]
+{
+[e :U _loop ]
+[f ]
+"3
+[e :UE 1 ]
+}
+"5
+[v _setup `(v ~T0 @X0 1 ef ]
+{
+[e :U _setup ]
+[f ]
+"7
+[e :UE 2 ]
+}

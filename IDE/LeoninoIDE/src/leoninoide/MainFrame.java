@@ -4,13 +4,11 @@
  */
 package leoninoide;
 
+import compiler.LeoninoCompiler;
+import compiler.LeoninoCompilerParams;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import leoninoide.eventslistener.EditorEventListener;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import leoninoide.action.WindowAction;
 import leoninoide.eventslistener.ShortcutListener;
 
 /**
@@ -19,14 +17,19 @@ import leoninoide.eventslistener.ShortcutListener;
  */
 public class MainFrame extends javax.swing.JFrame implements EditorEventListener, ShortcutListener {
 
+    public Workspace currentWorkspace;
+
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        currentWorkspace = new Workspace();
         codePanel.setCStyle();
         codePanel.addEditorListener(this);
         shortcutBar.addShortcutListener(this);
+        currentWorkspace = new Workspace();
+        currentWorkspace.setProjectName("x");
     }
 
     /**
@@ -112,7 +115,6 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
     private leoninoide.EditorPanel codePanel;
     private leoninoide.ShortcutBar shortcutBar;
     // End of variables declaration//GEN-END:variables
-    private String projectName = "empty";
 
     @Override
     public void CtrlF() {
@@ -126,9 +128,14 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
     @Override
     public void compile() {
         try {
-            WindowAction.save(projectName, codePanel.getCode());
+            Workspace.save(currentWorkspace.getProjectName(), codePanel.getCode());
+
+            LeoninoCompilerParams params = new LeoninoCompilerParams();
+            params.setBoard(LeoninoCompilerParams.LionBoard);
+            params.setProjectName(currentWorkspace.getProjectName());
+
+            LeoninoCompiler.compile(params);
         } catch (IOException ex) {
-            
         }
     }
 }

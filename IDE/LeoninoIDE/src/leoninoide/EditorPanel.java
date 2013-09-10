@@ -9,7 +9,6 @@ import leoninoide.eventslistener.EditorEventFirer;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.*;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
@@ -52,10 +51,10 @@ public class EditorPanel extends JPanel implements KeyListener, EditorEventFirer
         return textArea;
     }
 
-    public String getCode(){
+    public String getCode() {
         return textArea.getText();
     }
-    
+
     @Override
     public void keyTyped(KeyEvent e) {
     }

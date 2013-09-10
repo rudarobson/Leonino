@@ -1,5 +1,5 @@
 
-# 1 "../leonino/delay.c"
+# 1 "C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\lib\main.c"
 
 # 44 "C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h"
 extern volatile unsigned char SPPDATA @ 0xF62;
@@ -6188,10 +6188,10 @@ extern void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern void _delay3(unsigned char);
 
-# 15 "../leonino/delay.h"
+# 15 "C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\h\leonino\delay.h"
 void delay_ms(unsigned int t);
 
-# 87 "../leonino/usb/usb.h"
+# 87 "C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\h\leonino\usb/usb.h"
 typedef void(*usb_handler_t)(void);
 
 
@@ -6270,13 +6270,16 @@ unsigned char usb_send();
 
 char usb_device_state = 0;
 
-# 43 "../leonino/leonino.h"
+# 43 "C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\h\leonino\leonino.h"
 void delay_ms(unsigned int t);
 
-# 4 "../leonino/delay.c"
-void delay_ms(unsigned int t) {
-do {
-_delay(48000000/4 / 1000);
-} while (t-- != 0);
-}
+# 3 "C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\lib\main.c"
+void setup();
+void loop();
 
+int main(){
+setup();
+for(;;){
+loop();
+}
+}
