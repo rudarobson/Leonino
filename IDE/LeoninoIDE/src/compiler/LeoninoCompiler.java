@@ -21,7 +21,7 @@ public class LeoninoCompiler {
     private final static String bootloaderOffset = "2000h";
     private final static String compCommand =
             "xc8 --chip={0} --runtime=default,+clear,+init,-keep,-no_startup,+download,-config,+clib,+plib "
-            + "-I{5} --OUTDIR=\"{1}\" --OBJDIR=.\\trash -Oleonino --OUTPUT=inhx32 "
+            + "-I{5} --OUTDIR=\"{1}\" --OBJDIR=.\\trash -Oleonino "
             + "--CODEOFFSET=" + bootloaderOffset + " "
             + "\"{2}\" \"{3}\" \"{4}\"";
 

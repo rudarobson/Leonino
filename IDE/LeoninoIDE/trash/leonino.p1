@@ -1,39 +1,407 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"7 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x\leonino.c
-[v _delay_ms `(i ~T0 @X0 0 ef ]
-"1 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x\leonino.c
+"2728 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
+[s S201 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S201 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"2738
+[s S202 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S202 . INT0 INT1 INT2 . PGM PGC PGD ]
+"2747
+[s S203 :3 `uc 1 :1 `uc 1 ]
+[n S203 . . CCP2_PA2 ]
+"2727
+[u S200 `S201 1 `S202 1 `S203 1 ]
+[n S200 . . . . ]
+"2752
+[v _PORTBbits `VS200 ~T0 @X0 0 e@3969 ]
+"15 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\h\leonino\delay.h
+[v _delay_ms `(v ~T0 @X0 0 ef1`ui ]
+"4179 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
+[s S298 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S298 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"4189
+[s S299 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S299 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"4178
+[u S297 `S298 1 `S299 1 ]
+[n S297 . . . ]
+"4200
+[v _TRISBbits `VS297 ~T0 @X0 0 e@3987 ]
+"46 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
+[; <" SPPDATA equ 0F62h ;# ">
+"65
+[; <" SPPCFG equ 0F63h ;# ">
+"141
+[; <" SPPEPS equ 0F64h ;# ">
+"214
+[; <" SPPCON equ 0F65h ;# ">
+"239
+[; <" UFRM equ 0F66h ;# ">
+"245
+[; <" UFRML equ 0F66h ;# ">
+"322
+[; <" UFRMH equ 0F67h ;# ">
+"361
+[; <" UIR equ 0F68h ;# ">
+"416
+[; <" UIE equ 0F69h ;# ">
+"471
+[; <" UEIR equ 0F6Ah ;# ">
+"521
+[; <" UEIE equ 0F6Bh ;# ">
+"571
+[; <" USTAT equ 0F6Ch ;# ">
+"630
+[; <" UCON equ 0F6Dh ;# ">
+"680
+[; <" UADDR equ 0F6Eh ;# ">
+"743
+[; <" UCFG equ 0F6Fh ;# ">
+"824
+[; <" UEP0 equ 0F70h ;# ">
+"955
+[; <" UEP1 equ 0F71h ;# ">
+"1086
+[; <" UEP2 equ 0F72h ;# ">
+"1217
+[; <" UEP3 equ 0F73h ;# ">
+"1348
+[; <" UEP4 equ 0F74h ;# ">
+"1479
+[; <" UEP5 equ 0F75h ;# ">
+"1610
+[; <" UEP6 equ 0F76h ;# ">
+"1741
+[; <" UEP7 equ 0F77h ;# ">
+"1872
+[; <" UEP8 equ 0F78h ;# ">
+"1959
+[; <" UEP9 equ 0F79h ;# ">
+"2046
+[; <" UEP10 equ 0F7Ah ;# ">
+"2133
+[; <" UEP11 equ 0F7Bh ;# ">
+"2220
+[; <" UEP12 equ 0F7Ch ;# ">
+"2307
+[; <" UEP13 equ 0F7Dh ;# ">
+"2394
+[; <" UEP14 equ 0F7Eh ;# ">
+"2481
+[; <" UEP15 equ 0F7Fh ;# ">
+"2568
+[; <" PORTA equ 0F80h ;# ">
+"2724
+[; <" PORTB equ 0F81h ;# ">
+"2833
+[; <" PORTC equ 0F82h ;# ">
+"2986
+[; <" PORTD equ 0F83h ;# ">
+"3106
+[; <" PORTE equ 0F84h ;# ">
+"3357
+[; <" LATA equ 0F89h ;# ">
+"3492
+[; <" LATB equ 0F8Ah ;# ">
+"3624
+[; <" LATC equ 0F8Bh ;# ">
+"3739
+[; <" LATD equ 0F8Ch ;# ">
+"3871
+[; <" LATE equ 0F8Dh ;# ">
+"3973
+[; <" TRISA equ 0F92h ;# ">
+"3978
+[; <" DDRA equ 0F92h ;# ">
+"4170
+[; <" TRISB equ 0F93h ;# ">
+"4175
+[; <" DDRB equ 0F93h ;# ">
+"4391
+[; <" TRISC equ 0F94h ;# ">
+"4396
+[; <" DDRC equ 0F94h ;# ">
+"4562
+[; <" TRISD equ 0F95h ;# ">
+"4567
+[; <" DDRD equ 0F95h ;# ">
+"4783
+[; <" TRISE equ 0F96h ;# ">
+"4788
+[; <" DDRE equ 0F96h ;# ">
+"4884
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"4942
+[; <" PIE1 equ 0F9Dh ;# ">
+"5030
+[; <" PIR1 equ 0F9Eh ;# ">
+"5118
+[; <" IPR1 equ 0F9Fh ;# ">
+"5206
+[; <" PIE2 equ 0FA0h ;# ">
+"5276
+[; <" PIR2 equ 0FA1h ;# ">
+"5346
+[; <" IPR2 equ 0FA2h ;# ">
+"5416
+[; <" EECON1 equ 0FA6h ;# ">
+"5481
+[; <" EECON2 equ 0FA7h ;# ">
+"5487
+[; <" EEDATA equ 0FA8h ;# ">
+"5493
+[; <" EEADR equ 0FA9h ;# ">
+"5499
+[; <" RCSTA equ 0FABh ;# ">
+"5504
+[; <" RCSTA1 equ 0FABh ;# ">
+"5656
+[; <" TXSTA equ 0FACh ;# ">
+"5661
+[; <" TXSTA1 equ 0FACh ;# ">
+"5919
+[; <" TXREG equ 0FADh ;# ">
+"5924
+[; <" TXREG1 equ 0FADh ;# ">
+"5930
+[; <" RCREG equ 0FAEh ;# ">
+"5935
+[; <" RCREG1 equ 0FAEh ;# ">
+"5941
+[; <" SPBRG equ 0FAFh ;# ">
+"5946
+[; <" SPBRG1 equ 0FAFh ;# ">
+"5952
+[; <" SPBRGH equ 0FB0h ;# ">
+"5958
+[; <" T3CON equ 0FB1h ;# ">
+"6080
+[; <" TMR3 equ 0FB2h ;# ">
+"6086
+[; <" TMR3L equ 0FB2h ;# ">
+"6092
+[; <" TMR3H equ 0FB3h ;# ">
+"6098
+[; <" CMCON equ 0FB4h ;# ">
+"6193
+[; <" CVRCON equ 0FB5h ;# ">
+"6277
+[; <" ECCP1AS equ 0FB6h ;# ">
+"6282
+[; <" CCP1AS equ 0FB6h ;# ">
+"6438
+[; <" ECCP1DEL equ 0FB7h ;# ">
+"6443
+[; <" CCP1DEL equ 0FB7h ;# ">
+"6575
+[; <" BAUDCON equ 0FB8h ;# ">
+"6580
+[; <" BAUDCTL equ 0FB8h ;# ">
+"6754
+[; <" CCP2CON equ 0FBAh ;# ">
+"6817
+[; <" CCPR2 equ 0FBBh ;# ">
+"6823
+[; <" CCPR2L equ 0FBBh ;# ">
+"6829
+[; <" CCPR2H equ 0FBCh ;# ">
+"6835
+[; <" CCP1CON equ 0FBDh ;# ">
+"6840
+[; <" ECCP1CON equ 0FBDh ;# ">
+"6996
+[; <" CCPR1 equ 0FBEh ;# ">
+"7002
+[; <" CCPR1L equ 0FBEh ;# ">
+"7008
+[; <" CCPR1H equ 0FBFh ;# ">
+"7014
+[; <" ADCON2 equ 0FC0h ;# ">
+"7084
+[; <" ADCON1 equ 0FC1h ;# ">
+"7174
+[; <" ADCON0 equ 0FC2h ;# ">
+"7296
+[; <" ADRES equ 0FC3h ;# ">
+"7302
+[; <" ADRESL equ 0FC3h ;# ">
+"7308
+[; <" ADRESH equ 0FC4h ;# ">
+"7314
+[; <" SSPCON2 equ 0FC5h ;# ">
+"7375
+[; <" SSPCON1 equ 0FC6h ;# ">
+"7444
+[; <" SSPSTAT equ 0FC7h ;# ">
+"7710
+[; <" SSPADD equ 0FC8h ;# ">
+"7716
+[; <" SSPBUF equ 0FC9h ;# ">
+"7722
+[; <" T2CON equ 0FCAh ;# ">
+"7819
+[; <" PR2 equ 0FCBh ;# ">
+"7824
+[; <" MEMCON equ 0FCBh ;# ">
+"7830
+[; <" TMR2 equ 0FCCh ;# ">
+"7836
+[; <" T1CON equ 0FCDh ;# ">
+"7940
+[; <" TMR1 equ 0FCEh ;# ">
+"7946
+[; <" TMR1L equ 0FCEh ;# ">
+"7952
+[; <" TMR1H equ 0FCFh ;# ">
+"7958
+[; <" RCON equ 0FD0h ;# ">
+"8106
+[; <" WDTCON equ 0FD1h ;# ">
+"8133
+[; <" HLVDCON equ 0FD2h ;# ">
+"8138
+[; <" LVDCON equ 0FD2h ;# ">
+"8402
+[; <" OSCCON equ 0FD3h ;# ">
+"8484
+[; <" T0CON equ 0FD5h ;# ">
+"8553
+[; <" TMR0 equ 0FD6h ;# ">
+"8559
+[; <" TMR0L equ 0FD6h ;# ">
+"8565
+[; <" TMR0H equ 0FD7h ;# ">
+"8571
+[; <" STATUS equ 0FD8h ;# ">
+"8649
+[; <" FSR2 equ 0FD9h ;# ">
+"8655
+[; <" FSR2L equ 0FD9h ;# ">
+"8661
+[; <" FSR2H equ 0FDAh ;# ">
+"8667
+[; <" PLUSW2 equ 0FDBh ;# ">
+"8673
+[; <" PREINC2 equ 0FDCh ;# ">
+"8679
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"8685
+[; <" POSTINC2 equ 0FDEh ;# ">
+"8691
+[; <" INDF2 equ 0FDFh ;# ">
+"8697
+[; <" BSR equ 0FE0h ;# ">
+"8703
+[; <" FSR1 equ 0FE1h ;# ">
+"8709
+[; <" FSR1L equ 0FE1h ;# ">
+"8715
+[; <" FSR1H equ 0FE2h ;# ">
+"8721
+[; <" PLUSW1 equ 0FE3h ;# ">
+"8727
+[; <" PREINC1 equ 0FE4h ;# ">
+"8733
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"8739
+[; <" POSTINC1 equ 0FE6h ;# ">
+"8745
+[; <" INDF1 equ 0FE7h ;# ">
+"8751
+[; <" WREG equ 0FE8h ;# ">
+"8757
+[; <" FSR0 equ 0FE9h ;# ">
+"8763
+[; <" FSR0L equ 0FE9h ;# ">
+"8769
+[; <" FSR0H equ 0FEAh ;# ">
+"8775
+[; <" PLUSW0 equ 0FEBh ;# ">
+"8781
+[; <" PREINC0 equ 0FECh ;# ">
+"8787
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"8793
+[; <" POSTINC0 equ 0FEEh ;# ">
+"8799
+[; <" INDF0 equ 0FEFh ;# ">
+"8805
+[; <" INTCON3 equ 0FF0h ;# ">
+"8896
+[; <" INTCON2 equ 0FF1h ;# ">
+"8972
+[; <" INTCON equ 0FF2h ;# ">
+"9108
+[; <" PROD equ 0FF3h ;# ">
+"9114
+[; <" PRODL equ 0FF3h ;# ">
+"9120
+[; <" PRODH equ 0FF4h ;# ">
+"9126
+[; <" TABLAT equ 0FF5h ;# ">
+"9134
+[; <" TBLPTR equ 0FF6h ;# ">
+"9140
+[; <" TBLPTRL equ 0FF6h ;# ">
+"9146
+[; <" TBLPTRH equ 0FF7h ;# ">
+"9152
+[; <" TBLPTRU equ 0FF8h ;# ">
+"9160
+[; <" PCLAT equ 0FF9h ;# ">
+"9167
+[; <" PC equ 0FF9h ;# ">
+"9173
+[; <" PCL equ 0FF9h ;# ">
+"9179
+[; <" PCLATH equ 0FFAh ;# ">
+"9185
+[; <" PCLATU equ 0FFBh ;# ">
+"9191
+[; <" STKPTR equ 0FFCh ;# ">
+"9266
+[; <" TOS equ 0FFDh ;# ">
+"9272
+[; <" TOSL equ 0FFDh ;# ">
+"9278
+[; <" TOSH equ 0FFEh ;# ">
+"9284
+[; <" TOSU equ 0FFFh ;# ">
+"163 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\h\leonino\usb/usb.h
+[v _usb_device_state `uc ~T0 @X0 1 e ]
+[i _usb_device_state
+-> -> 0 `i `uc
+]
+"3 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x\leonino.c
 [v _x `(i ~T0 @X0 1 ef ]
 {
 [e :U _x ]
 [f ]
-"3
-[e :UE 1 ]
-}
 "5
+[e :UE 579 ]
+}
+"7
 [v _loop `(v ~T0 @X0 1 ef ]
 {
 [e :U _loop ]
 [f ]
-[v _PORTBbits `i ~T0 @X0 1 s ]
-"6
-[e = _PORTBbits -> 1 `i ]
-"7
-[e ( _delay_ms -> 1000 `i ]
 "8
-[e = _PORTBbits -> 0 `i ]
+[e = . . _PORTBbits 0 3 -> -> 1 `i `uc ]
 "9
-[e ( _delay_ms -> 1000 `i ]
+[e ( _delay_ms (1 -> -> 100 `i `ui ]
 "10
-[e :UE 2 ]
-}
+[e = . . _PORTBbits 0 3 -> -> 0 `i `uc ]
+"11
+[e ( _delay_ms (1 -> -> 100 `i `ui ]
 "12
+[e :UE 580 ]
+}
+"14
 [v _setup `(v ~T0 @X0 1 ef ]
 {
 [e :U _setup ]
 [f ]
-[v _TRISBbits `i ~T0 @X0 1 s ]
-"13
-[e = _TRISBbits -> 0 `i ]
-"14
-[e :UE 3 ]
+"15
+[e = . . _TRISBbits 1 3 -> -> 0 `i `uc ]
+"16
+[e :UE 581 ]
 }

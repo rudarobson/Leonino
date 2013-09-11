@@ -1,5 +1,6 @@
-_loop: CODE, 32742 0 2
-_main: CODE, 32754 0 14
-__initialization: CODE, 32746 0 2
-_setup: CODE, 32744 0 2
-Total: 20
+_loop: CODE, 32698 0 30
+_main: CODE, 32682 0 16
+__initialization: CODE, 32674 0 2
+_delay_ms: CODE, 32728 0 40
+_setup: CODE, 32670 0 4
+Total: 92

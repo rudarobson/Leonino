@@ -2,15 +2,15 @@
 ### Memory Usage ###
  Unused memory ranges:
   0h - 1FFFh
-  2010h - 7FDFh
+  2010h - 7F8Fh
   
  Filled ROM ranges:
   2008h - 200Fh
-  7FE0h - 7FE5h
+  7F90h - 7F9Dh
   
  workspace\projs\x\leonino.hex ranges:
   2000h - 2007h
-  7FE6h - 7FFFh
+  7F9Eh - 7FFFh
   
 ### Hex Memory Map ###
  Legend:
@@ -26,4 +26,5 @@
   1 = workspace\projs\x\leonino.hex
 00000000: ----------------------------------------------------------------
 00002000: 11111111FFFFFFFF------------------------------------------------
-00007FC0: --------------------------------FFFFFF11111111111111111111111111
+00007F80: ----------------FFFFFFFFFFFFFF1111111111111111111111111111111111
+00007FC0: 1111111111111111111111111111111111111111111111111111111111111111
