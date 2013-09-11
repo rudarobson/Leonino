@@ -126,9 +126,11 @@
 [v ___aslmul __aslmul `(ul  1 e 4 0 ]
 "6 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\lib\main.c
 [v _main main `(i  1 e 2 0 ]
-"1 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x.c
-[v _loop loop `(v  1 e 0 0 ]
+"1 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x\leonino.c
+[v _x x `(i  1 e 2 0 ]
 "5
+[v _loop loop `(v  1 e 0 0 ]
+"9
 [v _setup setup `(v  1 e 0 0 ]
 "163 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\h\leonino\usb/usb.h
 [v _usb_device_state usb_device_state `uc  1 e 1 0 ]
@@ -137,13 +139,13 @@
 {
 "11
 } 0
-"5 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x.c
+"9 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x\leonino.c
 [v _setup setup `(v  1 e 0 0 ]
 {
-"7
+"11
 } 0
-"1
+"5
 [v _loop loop `(v  1 e 0 0 ]
 {
-"3
+"7
 } 0

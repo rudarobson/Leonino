@@ -14,7 +14,11 @@ public class LeoninoCompilerParams {
 
     final public static int LionBoard = 1;
     private int board;
-    private String projectName;
+    private Workspace project;
+
+    public LeoninoCompilerParams(Workspace work) {
+        this.project = work;
+    }
 
     public String mapBoardToChip() {
         if (board == LionBoard) {
@@ -32,26 +36,22 @@ public class LeoninoCompilerParams {
     }
 
     public String getProjectFolderPath() {
-        return Workspace.ProjsFolder;
+        return project.getProjectFolder();
+    }
+
+    public String getProjectSourcePath() {
+        return project.getProjectSourcePath();
     }
 
     public String getLibPath() {
-        return Workspace.LibFilePath;
+        return project.getLibPath();
     }
 
-    public void setProjectName(String name) {
-        projectName = name;
+    public String getMainPath() {
+        return project.getMainPath();
     }
 
-    public String getProjectPath() {
-        return Workspace.projectNameFullPath(projectName);
-    }
-
-    public String getMainPath(){
-        return Workspace.MainPath;
-    }
-    
     public String getHeaderFolder() {
-        return Workspace.HIncludePath;
+        return project.getHIncludePath();
     }
 }

@@ -1,0 +1,39 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"7 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x\leonino.c
+[v _delay_ms `(i ~T0 @X0 0 ef ]
+"1 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x\leonino.c
+[v _x `(i ~T0 @X0 1 ef ]
+{
+[e :U _x ]
+[f ]
+"3
+[e :UE 1 ]
+}
+"5
+[v _loop `(v ~T0 @X0 1 ef ]
+{
+[e :U _loop ]
+[f ]
+[v _PORTBbits `i ~T0 @X0 1 s ]
+"6
+[e = _PORTBbits -> 1 `i ]
+"7
+[e ( _delay_ms -> 1000 `i ]
+"8
+[e = _PORTBbits -> 0 `i ]
+"9
+[e ( _delay_ms -> 1000 `i ]
+"10
+[e :UE 2 ]
+}
+"12
+[v _setup `(v ~T0 @X0 1 ef ]
+{
+[e :U _setup ]
+[f ]
+[v _TRISBbits `i ~T0 @X0 1 s ]
+"13
+[e = _TRISBbits -> 0 `i ]
+"14
+[e :UE 3 ]
+}

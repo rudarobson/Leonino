@@ -156,18 +156,18 @@ cinit 7FEA 7FF1 CODE 7FEA 0
 text1 7FE8 7FE9 CODE 7FE8 0
 text2 7FE6 7FE7 CODE 7FE6 0
 %locals
-workspace\projs\leonino.obj
+workspace\projs\x\leonino.obj
 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\lib\main.c
 7 7FF2 0 CODE 0
 9 7FF6 0 CODE 0
 10 7FFA 0 CODE 0
 11 7FFC 0 CODE 0
-C:\Users\RUDARO~1\AppData\Local\Temp\s2lk.
+C:\Users\RUDARO~1\AppData\Local\Temp\s4r8.
 494 7FEA 0 CODE 0
 501 7FEC 0 CODE 0
 502 7FEE 0 CODE 0
-C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x.c
-7 7FE8 0 CODE 0
-C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x.c
-3 7FE6 0 CODE 0
+C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x\leonino.c
+11 7FE8 0 CODE 0
+C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\projs\x\leonino.c
+7 7FE6 0 CODE 0

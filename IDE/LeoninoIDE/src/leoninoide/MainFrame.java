@@ -6,16 +6,26 @@ package leoninoide;
 
 import compiler.LeoninoCompiler;
 import compiler.LeoninoCompilerParams;
+import java.awt.KeyEventPostProcessor;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import leoninoide.eventslistener.EditorEventListener;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import leoninobootloader.BootloaderProgram;
 import leoninoide.eventslistener.ShortcutListener;
 
 /**
  *
  * @author rudarobson
  */
-public class MainFrame extends javax.swing.JFrame implements EditorEventListener, ShortcutListener {
+public class MainFrame extends javax.swing.JFrame implements EditorEventListener, ShortcutListener, KeyEventPostProcessor {
 
     public Workspace currentWorkspace;
 
@@ -24,12 +34,10 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
      */
     public MainFrame() {
         initComponents();
-        currentWorkspace = new Workspace();
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventPostProcessor(this);
         codePanel.setCStyle();
         codePanel.addEditorListener(this);
         shortcutBar.addShortcutListener(this);
-        currentWorkspace = new Workspace();
-        currentWorkspace.setProjectName("x");
     }
 
     /**
@@ -41,30 +49,52 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        codePanel = new leoninoide.EditorPanel();
+        compilerOutput1 = new leoninoide.CompilerOutput();
+        jPanel1 = new javax.swing.JPanel();
         shortcutBar = new leoninoide.ShortcutBar();
+        codePanel = new leoninoide.EditorPanel();
+        compilerPanel = new leoninoide.CompilerOutput();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setAutoscrolls(true);
+
+        compilerPanel.setMaximumSize(new java.awt.Dimension(32767, 10));
+        compilerPanel.setMinimumSize(new java.awt.Dimension(23, 10));
+        compilerPanel.setPreferredSize(new java.awt.Dimension(492, 10));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(shortcutBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 10, Short.MAX_VALUE))
+            .addComponent(codePanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(compilerPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addComponent(shortcutBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(codePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(compilerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(codePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
-                    .addComponent(shortcutBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addComponent(shortcutBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(codePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -74,6 +104,9 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        String hex = "C:\\Users\\rudarobson\\Documents\\GitHub\\Leonino\\IDE\\LeoninoIDE\\workspace\\projs\\x\\leonino.hex";
+        BootloaderProgram.Write(hex, BootloaderProgram.erase_flash);
+        BootloaderProgram.Write(hex, BootloaderProgram.write_flash);
         /*
          * Set the Nimbus look and feel
          */
@@ -83,36 +116,39 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
          * default look and feel. For details see
          * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /*
-         * Create and display the form
-         */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new MainFrame().setVisible(true);
-            }
-        });
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(MainFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /*
+//         * Create and display the form
+//         */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//
+//            public void run() {
+//                new MainFrame().setVisible(true);
+//            }
+//        });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private leoninoide.EditorPanel codePanel;
+    private leoninoide.CompilerOutput compilerOutput1;
+    private leoninoide.CompilerOutput compilerPanel;
+    private javax.swing.JPanel jPanel1;
     private leoninoide.ShortcutBar shortcutBar;
     // End of variables declaration//GEN-END:variables
 
@@ -127,15 +163,79 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
 
     @Override
     public void compile() {
+        saveProject();
+
+        LeoninoCompilerParams params = new LeoninoCompilerParams(currentWorkspace);
+        params.setBoard(LeoninoCompilerParams.LionBoard);
+
+        String out = LeoninoCompiler.compile(params);
+        compilerPanel.setOutput(out);
+    }
+
+    @Override
+    public void upload() {
+        compile();
+        BootloaderProgram.Write(currentWorkspace.getHexFilePath(), BootloaderProgram.erase_flash);
+        BootloaderProgram.Write(currentWorkspace.getHexFilePath(), BootloaderProgram.write_flash);
+    }
+
+    @Override
+    public void save() {
+        saveProject();
+    }
+
+    @Override
+    public void open() {
+        openProject();
+    }
+
+    public void openProject() {
+        JFileChooser dlg = new JFileChooser();
+        FileNameExtensionFilter fltr = new FileNameExtensionFilter("leo files", "leo");
+        dlg.setFileFilter(fltr);
+        dlg.setCurrentDirectory(new File(Workspace.UserInstallDir));
+        dlg.showOpenDialog(null);
+        File leo = dlg.getSelectedFile();
+        if (leo != null) {
+            try {
+                currentWorkspace = Workspace.open(leo.getParent(), codePanel.getTextArea());
+            } catch (FileNotFoundException ex) {
+            } catch (IOException ex) {
+            }
+        }
+
+    }
+
+    private String promptProjectName() {
+        return JOptionPane.showInputDialog("Nome:");
+    }
+
+    public void saveProject() {
         try {
-            Workspace.save(currentWorkspace.getProjectName(), codePanel.getCode());
-
-            LeoninoCompilerParams params = new LeoninoCompilerParams();
-            params.setBoard(LeoninoCompilerParams.LionBoard);
-            params.setProjectName(currentWorkspace.getProjectName());
-
-            LeoninoCompiler.compile(params);
+            if (currentWorkspace == null) {
+                String name = promptProjectName();
+                currentWorkspace = Workspace.open(name, codePanel.getTextArea());
+            }
+            if (currentWorkspace != null) {//must not use else if 
+                currentWorkspace.save(codePanel.getCode());
+            }
         } catch (IOException ex) {
         }
+    }
+
+    @Override
+    public boolean postProcessKeyEvent(KeyEvent e) {
+        try {
+            if (e.getID() == KeyEvent.KEY_PRESSED) {
+                if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_O) {
+                    openProject();
+                } else if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_S) {
+                    saveProject();
+                }
+            }
+        } catch (Exception ex) {
+        }
+
+        return false;
     }
 }

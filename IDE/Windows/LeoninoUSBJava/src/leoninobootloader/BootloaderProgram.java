@@ -97,7 +97,7 @@ public class BootloaderProgram {
         }
     }
 
-    public static void Erase(int address, USBLowLevel usb) {
+    private static void Erase(int address, USBLowLevel usb) {
         resetVariables();
         if (address < 0x300000)//not config WORD
         {

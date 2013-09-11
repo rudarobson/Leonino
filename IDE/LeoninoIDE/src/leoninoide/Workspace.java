@@ -5,6 +5,7 @@
 package leoninoide;
 
 import java.io.*;
+import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 
 /**
  *
@@ -12,20 +13,27 @@ import java.io.*;
  */
 public class Workspace {
 
-    public final static String ProjsFolder;
-    public final static String ChipsPath;
-    public final static String HIncludePath;
-    public final static String LibFilePath;
-    public final static String MainPath;
-    public String projectName;
+    private final static String ProjsFolder;
+    private final static String ChipsPath;
+    private String projectName;
+    private String projectPath;
+    public final static String pathSeparator;
+    public final static String UserInstallDir;
 
     static {
-        String pre = System.getProperty("user.dir") + "\\";
-        ProjsFolder = pre + "workspace\\projs";
-        ChipsPath = pre + "workspace\\chips";
-        HIncludePath = ChipsPath + "\\h\\leonino";
-        LibFilePath = ChipsPath + "\\lib\\leonino.lpp";
-        MainPath = ChipsPath + "\\lib\\main.c";
+        pathSeparator = "\\";
+        UserInstallDir = System.getProperty("user.dir") + pathSeparator;
+        ProjsFolder = new File(UserInstallDir + "workspace" + pathSeparator + "projs").getAbsolutePath() + pathSeparator;
+        ChipsPath = new File(UserInstallDir + "workspace" + pathSeparator + "chips").getAbsolutePath() + pathSeparator;
+    }
+
+    private Workspace(String name, String path) {
+        this.projectName = name;
+
+        if (path == null) {
+            path = ProjsFolder;
+        }
+        this.projectPath = path;
     }
 
     public String getProjectName() {
@@ -36,29 +44,75 @@ public class Workspace {
         this.projectName = projectName;
     }
 
-    public String projectNameFullPath() {
-        return ProjsFolder + "\\" + projectName + ".c";
+    public String getProjectFolder() {
+        return ProjsFolder + projectName + pathSeparator;
     }
 
-    public static String projectNameFullPath(String projName) {
-        return ProjsFolder + "\\" + projName + ".c";
+    public String getProjectLeoFilePath() {
+        return ProjsFolder + projectName + pathSeparator + projectName + ".leo";
     }
 
-    public static void save(String projName, String code) throws IOException {
-        BufferedWriter codeFile = new BufferedWriter(new FileWriter(Workspace.projectNameFullPath(projName)));
+    public String getProjectSourcePath() {
+        return ProjsFolder + projectName + pathSeparator + "leonino.c";
+    }
+
+    public String getHIncludePath() {
+        return ChipsPath + "h" + pathSeparator + "leonino";
+    }
+
+    public String getLibPath() {
+        return ChipsPath + "lib" + pathSeparator + "leonino.lpp";
+    }
+
+    public String getMainPath() {
+        return ChipsPath + "lib" + pathSeparator + "main.c";
+    }
+
+    public String getHexFilePath() {
+        return ProjsFolder + projectName + pathSeparator + "leonino.hex";
+    }
+
+    public void save(String code) throws IOException {
+        BufferedWriter codeFile = new BufferedWriter(new FileWriter(this.getProjectSourcePath()));
         codeFile.write(code, 0, code.length());
         codeFile.close();
     }
 
-    public static String open(String projName) throws FileNotFoundException, IOException {
-        BufferedReader codeFile = new BufferedReader(new FileReader(Workspace.projectNameFullPath(projName)));
-        String roleFile = "";
+    public static Workspace open(String path, RSyntaxTextArea codeScreen) throws FileNotFoundException, IOException {
+        File dir = new File(path);
+        Workspace work = new Workspace(dir.getName(), dir.getAbsolutePath());
+
+        if (!dir.isAbsolute()) {
+            dir = new File(ProjsFolder + path.replace("/", Workspace.pathSeparator));
+        }
+
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+
+        File sourceFile = new File(work.getProjectSourcePath());
+        if (!sourceFile.exists()) {
+            sourceFile.createNewFile();
+        }
+
+        File leoFile = new File(work.getProjectLeoFilePath());
+        if (!leoFile.exists()) {
+            leoFile.createNewFile();
+        }
+
+        BufferedReader codeFile = new BufferedReader(new FileReader(work.getProjectSourcePath()));
+
         String line = null;
-        while ((line = codeFile.readLine()) != null) {
-            roleFile += line + System.lineSeparator();
+        StringBuffer fileData = new StringBuffer();
+
+        char[] buf = new char[1024];
+        int numRead = 0;
+        while ((numRead = codeFile.read(buf)) != -1) {
+            String readData = String.valueOf(buf, 0, numRead);
+            fileData.append(readData);
         }
         codeFile.close();
-        return roleFile;
-
+        codeScreen.setText(fileData.toString());
+        return work;
     }
 }

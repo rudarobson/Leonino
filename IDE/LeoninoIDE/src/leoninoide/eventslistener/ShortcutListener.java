@@ -10,4 +10,7 @@ package leoninoide.eventslistener;
  */
 public interface ShortcutListener {
     public void compile();
+    public void upload();
+    public void save();
+    public void open();
 }

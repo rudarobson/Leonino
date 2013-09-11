@@ -8,7 +8,7 @@
   2008h - 200Fh
   7FE0h - 7FE5h
   
- workspace\projs\leonino.hex ranges:
+ workspace\projs\x\leonino.hex ranges:
   2000h - 2007h
   7FE6h - 7FFFh
   
@@ -23,7 +23,7 @@
   T = Trailing code
   & = Find & replace opcode
   X = Find & delete opcode
-  1 = workspace\projs\leonino.hex
+  1 = workspace\projs\x\leonino.hex
 00000000: ----------------------------------------------------------------
 00002000: 11111111FFFFFFFF------------------------------------------------
 00007FC0: --------------------------------FFFFFF11111111111111111111111111
