@@ -130,31 +130,31 @@
 [v _ReadFlash ReadFlash `(v  1 e 0 0 ]
 "26 C:\Program Files (x86)\Microchip\xc8\v1.20\sources\pic18\plib\Flash\WriteBytesFlash.c
 [v _WriteBytesFlash WriteBytesFlash `(v  1 e 0 0 ]
-"4 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/delay.c
+"4 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/delay.c
 [v _delay_ms delay_ms `(v  1 e 0 0 ]
-"3 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/mem_flash.c
+"3 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/mem_flash.c
 [v _SafeWriteBytesFlash SafeWriteBytesFlash `(v  1 e 0 0 ]
 "8
 [v _SafeEraseFlash SafeEraseFlash `(v  1 e 0 0 ]
-"38 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/usb/ep0.c
+"30 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/usb/ep0.c
 [v _ep0_configure ep0_configure `(v  1 e 0 0 ]
-"53
+"45
 [v _ep0_handle_setup_transaction ep0_handle_setup_transaction `(v  1 e 0 0 ]
-"178
+"162
 [v _ep0_handle_standard_device ep0_handle_standard_device `(v  1 e 0 0 ]
-"201
+"185
 [v _ep0_entry_point ep0_entry_point `(v  1 e 0 0 ]
-"220
+"204
 [v _ep0_in_handler_send_descriptor ep0_in_handler_send_descriptor `(v  1 e 0 0 ]
-"236
+"220
 [v _ep0_out_handler_ack ep0_out_handler_ack `(v  1 e 0 0 ]
-"242
+"226
 [v _ep0_in_handler_ack ep0_in_handler_ack `(v  1 e 0 0 ]
-"248
+"232
 [v _ep0_in_handler_set_address ep0_in_handler_set_address `(v  1 e 0 0 ]
-"252
+"236
 [v _ep0_in_handler_configure ep0_in_handler_configure `(v  1 e 0 0 ]
-"16 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/usb/ep1.c
+"16 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/usb/ep1.c
 [v _ep1_configure ep1_configure `(v  1 e 0 0 ]
 "25
 [v _ep1_unconfigure ep1_unconfigure `(v  1 e 0 0 ]
@@ -164,7 +164,7 @@
 [v _ep1_send ep1_send `(uc  1 e 1 0 ]
 "61
 [v _ep1_entry_point ep1_entry_point `(v  1 e 0 0 ]
-"17 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/usb/ep2.c
+"17 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/usb/ep2.c
 [v _ep2_configure ep2_configure `(v  1 e 0 0 ]
 "25
 [v _ep2_unconfigure ep2_unconfigure `(v  1 e 0 0 ]
@@ -178,7 +178,7 @@
 [v _ep2_entry_point ep2_entry_point `(v  1 e 0 0 ]
 "61
 [v _ep2_read ep2_read `(uc  1 e 1 0 ]
-"7 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/usb/usb.c
+"7 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/usb/usb.c
 [v _usb_device_configure usb_device_configure `(v  1 e 0 0 ]
 "14
 [v _usb_start usb_start `(v  1 e 0 0 ]
@@ -202,7 +202,7 @@
 [v _main main `(i  1 e 2 0 ]
 "359 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
 [v _UIR UIR `VEuc  1 e 1 @3944 ]
-[s S131 . 1 `uc 1 . 1 0 :1:0 
+[s S99 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 SUSPND 1 0 :1:1 
 `uc 1 RESUME 1 0 :1:2 
 `uc 1 USBEN 1 0 :1:3 
@@ -211,8 +211,8 @@
 `uc 1 PPBRST 1 0 :1:6 
 ]
 "375
-[u S139 . 1 `S131 1 . 1 0 ]
-[v _UIRbits UIRbits `VES139  1 e 1 @3944 ]
+[u S107 . 1 `S99 1 . 1 0 ]
+[v _UIRbits UIRbits `VES107  1 e 1 @3944 ]
 "414
 [v _UIE UIE `VEuc  1 e 1 @3945 ]
 "569
@@ -220,7 +220,7 @@
 "628
 [v _UCON UCON `VEuc  1 e 1 @3949 ]
 "644
-[v _UCONbits UCONbits `VES139  1 e 1 @3949 ]
+[v _UCONbits UCONbits `VES107  1 e 1 @3949 ]
 "678
 [v _UADDR UADDR `VEuc  1 e 1 @3950 ]
 "741
@@ -231,7 +231,7 @@
 [v _UEP1 UEP1 `VEuc  1 e 1 @3953 ]
 "1084
 [v _UEP2 UEP2 `VEuc  1 e 1 @3954 ]
-[s S625 . 1 `uc 1 RD 1 0 :1:0 
+[s S621 . 1 `uc 1 RD 1 0 :1:0 
 `uc 1 WR 1 0 :1:1 
 `uc 1 WREN 1 0 :1:2 
 `uc 1 WRERR 1 0 :1:3 
@@ -241,14 +241,14 @@
 `uc 1 EEPGD 1 0 :1:7 
 ]
 "5435
-[s S634 . 1 `uc 1 . 1 0 :6:0 
+[s S630 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 EEFS 1 0 :1:6 
 ]
-[u S637 . 1 `S625 1 . 1 0 `S634 1 . 1 0 ]
-[v _EECON1bits EECON1bits `VES637  1 e 1 @4006 ]
+[u S633 . 1 `S621 1 . 1 0 `S630 1 . 1 0 ]
+[v _EECON1bits EECON1bits `VES633  1 e 1 @4006 ]
 "5479
 [v _EECON2 EECON2 `VEuc  1 e 1 @4007 ]
-[s S653 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S649 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -258,7 +258,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "9022
-[s S662 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S658 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -267,7 +267,7 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S671 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S667 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -276,7 +276,7 @@
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[s S680 . 1 `uc 1 . 1 0 :1:0 
+[s S676 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -285,12 +285,12 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S689 . 1 `uc 1 . 1 0 :6:0 
+[s S685 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S693 . 1 `S653 1 . 1 0 `S662 1 . 1 0 `S671 1 . 1 0 `S680 1 . 1 0 `S689 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES693  1 e 1 @4082 ]
+[u S689 . 1 `S649 1 . 1 0 `S658 1 . 1 0 `S667 1 . 1 0 `S676 1 . 1 0 `S685 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES689  1 e 1 @4082 ]
 "9124
 [v _TABLAT TABLAT `VEuc  1 e 1 @4085 ]
 "9138
@@ -299,19 +299,13 @@
 [v _TBLPTRH TBLPTRH `VEuc  1 e 1 @4087 ]
 "9150
 [v _TBLPTRU TBLPTRU `VEuc  1 e 1 @4088 ]
-"163 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/usb/usb.h
-[v _usb_device_state usb_device_state `uc  1 e 1 0 ]
-"14 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/usb/descriptor.h
+"14 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/usb/descriptor.h
 [v _dev_desc dev_desc `C[18]uc  1 e 18 0 ]
 "52
 [v _conf_desc_0 conf_desc_0 `C[32]uc  1 e 32 0 ]
 "98
-[v _string_desc_0 string_desc_0 `C[4]uc  1 e 4 0 ]
-"107
-[v _string_desc_1 string_desc_1 `C[12]uc  1 e 12 0 ]
-"116
-[v _string_desc_2 string_desc_2 `C[24]uc  1 e 24 0 ]
-[s S53 . 1 `uc 1 BC8 1 0 :1:0 
+[v _string_desc_1 string_desc_1 `C[15]uc  1 e 15 0 ]
+[s S21 . 1 `uc 1 BC8 1 0 :1:0 
 `uc 1 BC9 1 0 :1:1 
 `uc 1 BSTALL 1 0 :1:2 
 `uc 1 DTSEN 1 0 :1:3 
@@ -320,58 +314,60 @@
 `uc 1 DTS 1 0 :1:6 
 `uc 1 UOWN 1 0 :1:7 
 ]
-"12 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/usb/ep0.c
-[s S62 . 1 `uc 1 . 1 0 :2:0 
+"11 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/usb/ep0.c
+[s S30 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID0 1 0 :1:2 
 `uc 1 PID1 1 0 :1:3 
 `uc 1 PID2 1 0 :1:4 
 `uc 1 PID3 1 0 :1:5 
 `uc 1 . 1 0 :2:6 
 ]
-[s S69 . 1 `uc 1 . 1 0 :2:0 
+[s S37 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PID 1 0 :4:2 
 `uc 1 . 1 0 :2:6 
 ]
-[u S73 . 1 `uc 1 uc 1 0 `S53 1 . 1 0 `S62 1 . 1 0 `S69 1 . 1 0 ]
-[s S78 bdentry 4 `S73 1 BDSTAT 1 0 `uc 1 BDCNT 1 1 `uc 1 BDADDRL 1 2 `uc 1 BDADDRH 1 3 ]
-[v _ep0_out_bd ep0_out_bd `S78  1 e 4 @1024 ]
-"13
+[u S41 . 1 `uc 1 uc 1 0 `S21 1 . 1 0 `S30 1 . 1 0 `S37 1 . 1 0 ]
+[s S46 bdentry 4 `S41 1 BDSTAT 1 0 `uc 1 BDCNT 1 1 `uc 1 BDADDRL 1 2 `uc 1 BDADDRH 1 3 ]
+[v _ep0_out_bd ep0_out_bd `S46  1 e 4 @1024 ]
+"12
 [v _ep0_out_buffer ep0_out_buffer `[64]uc  1 e 64 @1280 ]
-[s S83 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `uc 1 wValueLow 1 2 `uc 1 wValueHigh 1 3 `uc 1 wIndexLow 1 4 `uc 1 wIndexHigh 1 5 `uc 1 wLengthLow 1 6 `uc 1 wLengthHigh 1 7 ]
-"14
-[s S92 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `ui 1 wValue 2 2 `ui 1 wIndex 2 4 `ui 1 wLength 2 6 ]
-[u S98 SetupPacket 8 `S83 1 . 8 0 `S92 1 . 8 0 ]
-[v _setup_pkt setup_pkt `S98  1 e 8 @1280 ]
-"20
+[s S51 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `uc 1 wValueLow 1 2 `uc 1 wValueHigh 1 3 `uc 1 wIndexLow 1 4 `uc 1 wIndexHigh 1 5 `uc 1 wLengthLow 1 6 `uc 1 wLengthHigh 1 7 ]
+"13
+[s S60 . 8 `uc 1 bmRequestType 1 0 `uc 1 bRequest 1 1 `ui 1 wValue 2 2 `ui 1 wIndex 2 4 `ui 1 wLength 2 6 ]
+[u S66 SetupPacket 8 `S51 1 . 8 0 `S60 1 . 8 0 ]
+[v _setup_pkt setup_pkt `S66  1 e 8 @1280 ]
+"15
 [v _ep0_out_handler ep0_out_handler `*.37(v  1 e 2 0 ]
-"23
-[v _ep0_in_bd ep0_in_bd `S78  1 e 4 @1028 ]
-"24
+"18
+[v _ep0_in_bd ep0_in_bd `S46  1 e 4 @1028 ]
+"19
 [v _ep0_in_buffer ep0_in_buffer `[64]uc  1 e 64 @1344 ]
-"30
+"22
 [v _ep0_in_handler ep0_in_handler `*.37(v  1 e 2 0 ]
-"32
+"24
 [v _ep0_in_decsriptor ep0_in_decsriptor `*.25uc  1 e 2 0 ]
-"33
+"25
 [v _ep0_in_total_bytes_to_send ep0_in_total_bytes_to_send `ui  1 e 2 0 ]
-"35
+"27
 [v _ep0_dir ep0_dir `uc  1 e 1 0 ]
-"36
+"28
 [v _ep0_temp_uaddr ep0_temp_uaddr `uc  1 e 1 0 ]
-"11 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/usb/ep1.c
-[v _ep1_bd ep1_bd `S78  1 e 4 @1036 ]
+"11 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/usb/ep1.c
+[v _ep1_bd ep1_bd `S46  1 e 4 @1036 ]
 "12
 [v _ep1_buffer ep1_buffer `[64]uc  1 e 64 @1408 ]
 "13
 [v _total_writen total_writen `uc  1 e 1 0 ]
-"11 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/usb/ep2.c
-[v _ep2_bd ep2_bd `S78  1 e 4 @1040 ]
+"11 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/usb/ep2.c
+[v _ep2_bd ep2_bd `S46  1 e 4 @1040 ]
 "12
 [v _ep2_buffer ep2_buffer `[64]uc  1 e 64 @1472 ]
 "15
 [v _ep2_receive_handler ep2_receive_handler `*.37(v  1 e 2 0 ]
-"51 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/usb/usb.c
+"51 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/usb/usb.c
 [v _toggle toggle `uc  1 e 1 0 ]
+"172 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/leonino/lion/usb/usb.h
+[v _usb_device_state usb_device_state `uc  1 e 1 0 ]
 "14 C:\Users\rudarobson\Documents\GitHub\Leonino\PIC\Libraries.X\src/main.c
 [v _main main `(i  1 e 2 0 ]
 {

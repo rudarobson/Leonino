@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=src/leonino/usb/ep0.c src/leonino/usb/ep1.c src/leonino/usb/ep2.c src/leonino/usb/usb.c src/leonino/delay.c src/leonino/mem_flash.c src/main.c
+SOURCEFILES_QUOTED_IF_SPACED=src/leonino/lion/usb/ep0.c src/leonino/lion/usb/ep1.c src/leonino/lion/usb/ep2.c src/leonino/lion/usb/usb.c src/leonino/lion/delay.c src/leonino/lion/mem_flash.c src/main.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/leonino/usb/ep0.p1 ${OBJECTDIR}/src/leonino/usb/ep1.p1 ${OBJECTDIR}/src/leonino/usb/ep2.p1 ${OBJECTDIR}/src/leonino/usb/usb.p1 ${OBJECTDIR}/src/leonino/delay.p1 ${OBJECTDIR}/src/leonino/mem_flash.p1 ${OBJECTDIR}/src/main.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/src/leonino/usb/ep0.p1.d ${OBJECTDIR}/src/leonino/usb/ep1.p1.d ${OBJECTDIR}/src/leonino/usb/ep2.p1.d ${OBJECTDIR}/src/leonino/usb/usb.p1.d ${OBJECTDIR}/src/leonino/delay.p1.d ${OBJECTDIR}/src/leonino/mem_flash.p1.d ${OBJECTDIR}/src/main.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/leonino/lion/usb/ep0.p1 ${OBJECTDIR}/src/leonino/lion/usb/ep1.p1 ${OBJECTDIR}/src/leonino/lion/usb/ep2.p1 ${OBJECTDIR}/src/leonino/lion/usb/usb.p1 ${OBJECTDIR}/src/leonino/lion/delay.p1 ${OBJECTDIR}/src/leonino/lion/mem_flash.p1 ${OBJECTDIR}/src/main.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/src/leonino/lion/usb/ep0.p1.d ${OBJECTDIR}/src/leonino/lion/usb/ep1.p1.d ${OBJECTDIR}/src/leonino/lion/usb/ep2.p1.d ${OBJECTDIR}/src/leonino/lion/usb/usb.p1.d ${OBJECTDIR}/src/leonino/lion/delay.p1.d ${OBJECTDIR}/src/leonino/lion/mem_flash.p1.d ${OBJECTDIR}/src/main.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/src/leonino/usb/ep0.p1 ${OBJECTDIR}/src/leonino/usb/ep1.p1 ${OBJECTDIR}/src/leonino/usb/ep2.p1 ${OBJECTDIR}/src/leonino/usb/usb.p1 ${OBJECTDIR}/src/leonino/delay.p1 ${OBJECTDIR}/src/leonino/mem_flash.p1 ${OBJECTDIR}/src/main.p1
+OBJECTFILES=${OBJECTDIR}/src/leonino/lion/usb/ep0.p1 ${OBJECTDIR}/src/leonino/lion/usb/ep1.p1 ${OBJECTDIR}/src/leonino/lion/usb/ep2.p1 ${OBJECTDIR}/src/leonino/lion/usb/usb.p1 ${OBJECTDIR}/src/leonino/lion/delay.p1 ${OBJECTDIR}/src/leonino/lion/mem_flash.p1 ${OBJECTDIR}/src/main.p1
 
 # Source Files
-SOURCEFILES=src/leonino/usb/ep0.c src/leonino/usb/ep1.c src/leonino/usb/ep2.c src/leonino/usb/usb.c src/leonino/delay.c src/leonino/mem_flash.c src/main.c
+SOURCEFILES=src/leonino/lion/usb/ep0.c src/leonino/lion/usb/ep1.c src/leonino/lion/usb/ep2.c src/leonino/lion/usb/usb.c src/leonino/lion/delay.c src/leonino/lion/mem_flash.c src/main.c
 
 
 CFLAGS=
@@ -78,47 +78,47 @@ MP_PROCESSOR_OPTION=18F4550
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/src/leonino/usb/ep0.p1: src/leonino/usb/ep0.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino/usb 
-	@${RM} ${OBJECTDIR}/src/leonino/usb/ep0.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/usb/ep0.p1  src/leonino/usb/ep0.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/usb/ep0.d ${OBJECTDIR}/src/leonino/usb/ep0.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/usb/ep0.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/usb/ep0.p1: src/leonino/lion/usb/ep0.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion/usb 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/usb/ep0.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/usb/ep0.p1  src/leonino/lion/usb/ep0.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/usb/ep0.d ${OBJECTDIR}/src/leonino/lion/usb/ep0.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/usb/ep0.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/leonino/usb/ep1.p1: src/leonino/usb/ep1.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino/usb 
-	@${RM} ${OBJECTDIR}/src/leonino/usb/ep1.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/usb/ep1.p1  src/leonino/usb/ep1.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/usb/ep1.d ${OBJECTDIR}/src/leonino/usb/ep1.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/usb/ep1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/usb/ep1.p1: src/leonino/lion/usb/ep1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion/usb 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/usb/ep1.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/usb/ep1.p1  src/leonino/lion/usb/ep1.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/usb/ep1.d ${OBJECTDIR}/src/leonino/lion/usb/ep1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/usb/ep1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/leonino/usb/ep2.p1: src/leonino/usb/ep2.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino/usb 
-	@${RM} ${OBJECTDIR}/src/leonino/usb/ep2.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/usb/ep2.p1  src/leonino/usb/ep2.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/usb/ep2.d ${OBJECTDIR}/src/leonino/usb/ep2.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/usb/ep2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/usb/ep2.p1: src/leonino/lion/usb/ep2.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion/usb 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/usb/ep2.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/usb/ep2.p1  src/leonino/lion/usb/ep2.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/usb/ep2.d ${OBJECTDIR}/src/leonino/lion/usb/ep2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/usb/ep2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/leonino/usb/usb.p1: src/leonino/usb/usb.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino/usb 
-	@${RM} ${OBJECTDIR}/src/leonino/usb/usb.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/usb/usb.p1  src/leonino/usb/usb.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/usb/usb.d ${OBJECTDIR}/src/leonino/usb/usb.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/usb/usb.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/usb/usb.p1: src/leonino/lion/usb/usb.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion/usb 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/usb/usb.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/usb/usb.p1  src/leonino/lion/usb/usb.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/usb/usb.d ${OBJECTDIR}/src/leonino/lion/usb/usb.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/usb/usb.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/leonino/delay.p1: src/leonino/delay.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino 
-	@${RM} ${OBJECTDIR}/src/leonino/delay.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/delay.p1  src/leonino/delay.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/delay.d ${OBJECTDIR}/src/leonino/delay.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/delay.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/delay.p1: src/leonino/lion/delay.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/delay.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/delay.p1  src/leonino/lion/delay.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/delay.d ${OBJECTDIR}/src/leonino/lion/delay.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/delay.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/leonino/mem_flash.p1: src/leonino/mem_flash.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino 
-	@${RM} ${OBJECTDIR}/src/leonino/mem_flash.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/mem_flash.p1  src/leonino/mem_flash.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/mem_flash.d ${OBJECTDIR}/src/leonino/mem_flash.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/mem_flash.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/mem_flash.p1: src/leonino/lion/mem_flash.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/mem_flash.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=none  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/mem_flash.p1  src/leonino/lion/mem_flash.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/mem_flash.d ${OBJECTDIR}/src/leonino/lion/mem_flash.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/mem_flash.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/src/main.p1: src/main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src 
@@ -128,47 +128,47 @@ ${OBJECTDIR}/src/main.p1: src/main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${FIXDEPS} ${OBJECTDIR}/src/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/src/leonino/usb/ep0.p1: src/leonino/usb/ep0.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino/usb 
-	@${RM} ${OBJECTDIR}/src/leonino/usb/ep0.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/usb/ep0.p1  src/leonino/usb/ep0.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/usb/ep0.d ${OBJECTDIR}/src/leonino/usb/ep0.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/usb/ep0.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/usb/ep0.p1: src/leonino/lion/usb/ep0.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion/usb 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/usb/ep0.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/usb/ep0.p1  src/leonino/lion/usb/ep0.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/usb/ep0.d ${OBJECTDIR}/src/leonino/lion/usb/ep0.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/usb/ep0.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/leonino/usb/ep1.p1: src/leonino/usb/ep1.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino/usb 
-	@${RM} ${OBJECTDIR}/src/leonino/usb/ep1.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/usb/ep1.p1  src/leonino/usb/ep1.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/usb/ep1.d ${OBJECTDIR}/src/leonino/usb/ep1.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/usb/ep1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/usb/ep1.p1: src/leonino/lion/usb/ep1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion/usb 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/usb/ep1.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/usb/ep1.p1  src/leonino/lion/usb/ep1.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/usb/ep1.d ${OBJECTDIR}/src/leonino/lion/usb/ep1.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/usb/ep1.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/leonino/usb/ep2.p1: src/leonino/usb/ep2.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino/usb 
-	@${RM} ${OBJECTDIR}/src/leonino/usb/ep2.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/usb/ep2.p1  src/leonino/usb/ep2.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/usb/ep2.d ${OBJECTDIR}/src/leonino/usb/ep2.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/usb/ep2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/usb/ep2.p1: src/leonino/lion/usb/ep2.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion/usb 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/usb/ep2.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/usb/ep2.p1  src/leonino/lion/usb/ep2.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/usb/ep2.d ${OBJECTDIR}/src/leonino/lion/usb/ep2.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/usb/ep2.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/leonino/usb/usb.p1: src/leonino/usb/usb.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino/usb 
-	@${RM} ${OBJECTDIR}/src/leonino/usb/usb.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/usb/usb.p1  src/leonino/usb/usb.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/usb/usb.d ${OBJECTDIR}/src/leonino/usb/usb.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/usb/usb.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/usb/usb.p1: src/leonino/lion/usb/usb.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion/usb 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/usb/usb.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/usb/usb.p1  src/leonino/lion/usb/usb.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/usb/usb.d ${OBJECTDIR}/src/leonino/lion/usb/usb.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/usb/usb.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/leonino/delay.p1: src/leonino/delay.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino 
-	@${RM} ${OBJECTDIR}/src/leonino/delay.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/delay.p1  src/leonino/delay.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/delay.d ${OBJECTDIR}/src/leonino/delay.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/delay.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/delay.p1: src/leonino/lion/delay.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/delay.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/delay.p1  src/leonino/lion/delay.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/delay.d ${OBJECTDIR}/src/leonino/lion/delay.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/delay.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/src/leonino/mem_flash.p1: src/leonino/mem_flash.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR}/src/leonino 
-	@${RM} ${OBJECTDIR}/src/leonino/mem_flash.p1.d 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/mem_flash.p1  src/leonino/mem_flash.c 
-	@-${MV} ${OBJECTDIR}/src/leonino/mem_flash.d ${OBJECTDIR}/src/leonino/mem_flash.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/src/leonino/mem_flash.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/src/leonino/lion/mem_flash.p1: src/leonino/lion/mem_flash.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} ${OBJECTDIR}/src/leonino/lion 
+	@${RM} ${OBJECTDIR}/src/leonino/lion/mem_flash.p1.d 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --emi=wordwrite --opt=default,+asm,-asmfile,+speed,-space,-debug --addrqual=ignore --mode=free -P -N255 --warn=0 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-download,+config,+clib,+plib --output=-mcof,+elf "--errformat=%%f:%%l: error: %%s" "--warnformat=%%f:%%l: warning: %%s" "--msgformat=%%f:%%l: advisory: %%s"  -o${OBJECTDIR}/src/leonino/lion/mem_flash.p1  src/leonino/lion/mem_flash.c 
+	@-${MV} ${OBJECTDIR}/src/leonino/lion/mem_flash.d ${OBJECTDIR}/src/leonino/lion/mem_flash.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/leonino/lion/mem_flash.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/src/main.p1: src/main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} ${OBJECTDIR}/src 

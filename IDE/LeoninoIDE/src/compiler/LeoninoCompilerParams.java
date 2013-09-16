@@ -14,7 +14,12 @@ public class LeoninoCompilerParams {
 
     final public static int LionBoard = 1;
     private int board;
+    private static String pathSeparator;
     private Workspace project;
+
+    static {
+        pathSeparator = Workspace.pathSeparator;
+    }
 
     public LeoninoCompilerParams(Workspace work) {
         this.project = work;
@@ -35,6 +40,10 @@ public class LeoninoCompilerParams {
         this.board = board;
     }
 
+    public String getProjectDistPath() {
+        return project.getProjectDistFolder();
+    }
+
     public String getProjectFolderPath() {
         return project.getProjectFolder();
     }
@@ -44,14 +53,22 @@ public class LeoninoCompilerParams {
     }
 
     public String getLibPath() {
-        return project.getLibPath();
+        return project.getLibRootPath() + mapIntToStringBoard(board) + pathSeparator + "leonino.lpp";
     }
 
     public String getMainPath() {
-        return project.getMainPath();
+        return project.getMainRootPath() + "main.c";
     }
 
     public String getHeaderFolder() {
-        return project.getHIncludePath();
+        return project.getHIncludeRootPath() + mapIntToStringBoard(board) + pathSeparator + "leonino";
+    }
+
+    private String mapIntToStringBoard(int board) {
+        switch (board) {
+            case LeoninoCompilerParams.LionBoard:
+                return "lion";
+        }
+        throw new RuntimeException("Unkown board!");
     }
 }

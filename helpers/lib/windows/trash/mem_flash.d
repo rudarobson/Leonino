@@ -1,1 +1,0 @@
- trash/mem_flash.d  trash/mem_flash.p1:  ../src/leonino/mem_flash.c ../src/leonino/leonino.h ../src/leonino/delay.h ../src/leonino/mem_flash.h ../src/leonino/usb/usb.h

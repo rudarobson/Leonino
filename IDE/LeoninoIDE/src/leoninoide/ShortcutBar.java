@@ -37,6 +37,7 @@ public class ShortcutBar extends javax.swing.JPanel implements ShortcutFirer {
         jButton1 = new javax.swing.JButton();
         openButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
+        newButton = new javax.swing.JButton();
 
         verifyButton.setText("Verify");
         verifyButton.setActionCommand("verify");
@@ -67,6 +68,13 @@ public class ShortcutBar extends javax.swing.JPanel implements ShortcutFirer {
             }
         });
 
+        newButton.setText("New");
+        newButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,7 +88,9 @@ public class ShortcutBar extends javax.swing.JPanel implements ShortcutFirer {
                 .addComponent(openButton)
                 .addGap(18, 18, 18)
                 .addComponent(saveButton)
-                .addContainerGap(189, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(newButton)
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -89,7 +99,8 @@ public class ShortcutBar extends javax.swing.JPanel implements ShortcutFirer {
                     .addComponent(jButton1)
                     .addComponent(verifyButton)
                     .addComponent(openButton)
-                    .addComponent(saveButton))
+                    .addComponent(saveButton)
+                    .addComponent(newButton))
                 .addGap(0, 11, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -118,8 +129,15 @@ public class ShortcutBar extends javax.swing.JPanel implements ShortcutFirer {
         }
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
+        for (Iterator<ShortcutListener> it = shortcutListeners.iterator(); it.hasNext();) {
+            it.next().create();
+        }
+    }//GEN-LAST:event_newButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton newButton;
     private javax.swing.JButton openButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton verifyButton;

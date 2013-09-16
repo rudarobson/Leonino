@@ -4,6 +4,8 @@
  */
 package leoninoide;
 
+import compiler.LeoninoCompiler;
+import compiler.LeoninoCompilerParams;
 import java.io.*;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 
@@ -33,7 +35,7 @@ public class Workspace {
         if (path == null) {
             path = ProjsFolder;
         }
-        this.projectPath = path;
+        this.projectPath = path + "\\";
     }
 
     public String getProjectName() {
@@ -45,31 +47,35 @@ public class Workspace {
     }
 
     public String getProjectFolder() {
-        return ProjsFolder + projectName + pathSeparator;
+        return this.projectPath + projectName + pathSeparator;
+    }
+
+    public String getProjectDistFolder() {
+        return this.projectPath + projectName + pathSeparator + "dist" + pathSeparator;
     }
 
     public String getProjectLeoFilePath() {
-        return ProjsFolder + projectName + pathSeparator + projectName + ".leo";
+        return this.projectPath + projectName + pathSeparator + projectName + ".leo";
     }
 
     public String getProjectSourcePath() {
-        return ProjsFolder + projectName + pathSeparator + "leonino.c";
+        return this.projectPath + projectName + pathSeparator + "leonino.c";
     }
 
-    public String getHIncludePath() {
-        return ChipsPath + "h" + pathSeparator + "leonino";
+    public String getHIncludeRootPath() {
+        return ChipsPath + "h" + pathSeparator;
     }
 
-    public String getLibPath() {
-        return ChipsPath + "lib" + pathSeparator + "leonino.lpp";
+    public String getLibRootPath() {
+        return ChipsPath + "lib" + pathSeparator;
     }
 
-    public String getMainPath() {
-        return ChipsPath + "lib" + pathSeparator + "main.c";
+    public String getMainRootPath() {
+        return ChipsPath + "lib" + pathSeparator;
     }
 
     public String getHexFilePath() {
-        return ProjsFolder + projectName + pathSeparator + "leonino.hex";
+        return this.getProjectDistFolder() + pathSeparator + "leonino.hex";
     }
 
     public void save(String code) throws IOException {
@@ -80,7 +86,8 @@ public class Workspace {
 
     public static Workspace open(String path, RSyntaxTextArea codeScreen) throws FileNotFoundException, IOException {
         File dir = new File(path);
-        Workspace work = new Workspace(dir.getName(), dir.getAbsolutePath());
+
+        Workspace work = new Workspace(dir.getName(), dir.getParent());
 
         if (!dir.isAbsolute()) {
             dir = new File(ProjsFolder + path.replace("/", Workspace.pathSeparator));
@@ -98,6 +105,11 @@ public class Workspace {
         File leoFile = new File(work.getProjectLeoFilePath());
         if (!leoFile.exists()) {
             leoFile.createNewFile();
+        }
+
+        File distFolder = new File(work.getProjectDistFolder());
+        if (!distFolder.exists()) {
+            distFolder.mkdirs();
         }
 
         BufferedReader codeFile = new BufferedReader(new FileReader(work.getProjectSourcePath()));

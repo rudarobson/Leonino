@@ -1,0 +1,1 @@
+ trash/delay.d  trash/delay.p1:  ../../src/leonino/lion/delay.c ../../src/leonino/lion/delay.h ../../src/leonino/lion/usb/usb.h ../../src/leonino/lion/leonino.h

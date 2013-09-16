@@ -1,8 +1,6 @@
 _conf_desc_0: SMALLCONST, 2048 0 32
-_main: CODE, 2162 0 4
-__initialization: CODE, 2140 0 12
-_string_desc_0: SMALLCONST, 2134 0 4
-_string_desc_1: SMALLCONST, 2122 0 12
-_string_desc_2: SMALLCONST, 2080 0 24
-_dev_desc: SMALLCONST, 2104 0 18
-Total: 106
+_main: CODE, 2136 0 4
+__initialization: CODE, 2114 0 12
+_string_desc_1: SMALLCONST, 2098 0 15
+_dev_desc: SMALLCONST, 2080 0 18
+Total: 81

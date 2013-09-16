@@ -13,4 +13,5 @@ public interface ShortcutListener {
     public void upload();
     public void save();
     public void open();
+    public void create();
 }

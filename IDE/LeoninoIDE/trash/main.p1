@@ -344,7 +344,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "9284
 [; <" TOSU equ 0FFFh ;# ">
-"163 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\h\leonino\usb/usb.h
+"172 C:\Users\rudarobson\Documents\GitHub\Leonino\IDE\LeoninoIDE\workspace\chips\h\lion\leonino\usb/usb.h
 [v _usb_device_state `uc ~T0 @X0 1 e ]
 [i _usb_device_state
 -> -> 0 `i `uc

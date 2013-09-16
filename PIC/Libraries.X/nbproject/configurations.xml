@@ -5,16 +5,19 @@
                    displayName="Header Files"
                    projectFiles="true">
       <logicalFolder name="leonino" displayName="leonino" projectFiles="true">
-        <logicalFolder name="usb" displayName="usb" projectFiles="true">
-          <itemPath>src/leonino/usb/descriptor.h</itemPath>
-          <itemPath>src/leonino/usb/ep0.h</itemPath>
-          <itemPath>src/leonino/usb/ep1.h</itemPath>
-          <itemPath>src/leonino/usb/ep2.h</itemPath>
-          <itemPath>src/leonino/usb/usb.h</itemPath>
+        <logicalFolder name="lion" displayName="lion" projectFiles="true">
+          <logicalFolder name="usb" displayName="usb" projectFiles="true">
+            <itemPath>src/leonino/lion/usb/descriptor.h</itemPath>
+            <itemPath>src/leonino/lion/usb/ep0.h</itemPath>
+            <itemPath>src/leonino/lion/usb/ep1.h</itemPath>
+            <itemPath>src/leonino/lion/usb/ep2.h</itemPath>
+            <itemPath>src/leonino/lion/usb/usb.h</itemPath>
+          </logicalFolder>
+          <itemPath>src/leonino/lion/delay.h</itemPath>
+          <itemPath>src/leonino/lion/leonino.h</itemPath>
+          <itemPath>src/leonino/lion/mem_flash.h</itemPath>
         </logicalFolder>
-        <itemPath>src/leonino/delay.h</itemPath>
         <itemPath>src/leonino/leonino.h</itemPath>
-        <itemPath>src/leonino/mem_flash.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -25,14 +28,16 @@
                    displayName="Source Files"
                    projectFiles="true">
       <logicalFolder name="leonino" displayName="leonino" projectFiles="true">
-        <logicalFolder name="usb" displayName="usb" projectFiles="true">
-          <itemPath>src/leonino/usb/ep0.c</itemPath>
-          <itemPath>src/leonino/usb/ep1.c</itemPath>
-          <itemPath>src/leonino/usb/ep2.c</itemPath>
-          <itemPath>src/leonino/usb/usb.c</itemPath>
+        <logicalFolder name="lion" displayName="lion" projectFiles="true">
+          <logicalFolder name="usb" displayName="usb" projectFiles="true">
+            <itemPath>src/leonino/lion/usb/ep0.c</itemPath>
+            <itemPath>src/leonino/lion/usb/ep1.c</itemPath>
+            <itemPath>src/leonino/lion/usb/ep2.c</itemPath>
+            <itemPath>src/leonino/lion/usb/usb.c</itemPath>
+          </logicalFolder>
+          <itemPath>src/leonino/lion/delay.c</itemPath>
+          <itemPath>src/leonino/lion/mem_flash.c</itemPath>
         </logicalFolder>
-        <itemPath>src/leonino/delay.c</itemPath>
-        <itemPath>src/leonino/mem_flash.c</itemPath>
       </logicalFolder>
       <itemPath>src/main.c</itemPath>
     </logicalFolder>

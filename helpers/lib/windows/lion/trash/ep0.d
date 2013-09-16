@@ -1,0 +1,1 @@
+ trash/ep0.d  trash/ep0.p1:  ../../src/leonino/lion/usb/ep0.c ../../src/leonino/lion/usb/../leonino.h ../../src/leonino/lion/usb/descriptor.h ../../src/leonino/lion/delay.h ../../src/leonino/lion/usb/ep0.h ../../src/leonino/lion/usb/ep1.h ../../src/leonino/lion/usb/ep2.h ../../src/leonino/lion/usb/usb.h ../../src/leonino/lion/usb/usb.h

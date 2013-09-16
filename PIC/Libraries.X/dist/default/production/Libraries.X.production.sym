@@ -11,7 +11,7 @@ _ep0_in_handler_ack 0 0 ABS 0
 _UCFG F6F 0 ABS 0
 _UCON F6D 0 ABS 0
 _ep0_in_total_bytes_to_send 5 0 COMRAM 1
-_main 872 0 CODE 0
+_main 858 0 CODE 0
 start 0 0 CODE 0
 __Hirdata 0 0 CODE 0
 __Lirdata 0 0 CODE 0
@@ -19,7 +19,7 @@ __HRAM 0 0 ABS 0
 __LRAM 1 0 ABS 0
 _UADDR F6E 0 ABS 0
 _USTAT F6C 0 ABS 0
-_dev_desc 838 0 SMALLCONST 0
+_dev_desc 820 0 SMALLCONST 0
 __Hconfig 30000E 0 CONFIG 0
 __Lconfig 300000 0 CONFIG 0
 _ep0_in_bd 404 0 ABS 1
@@ -84,13 +84,12 @@ __Linit 0 0 CODE 0
 __Hintcodelo 0 0 CODE 0
 __Lintcodelo 0 0 CODE 0
 __Hrbss 0 0 COMRAM 1
-__end_of_main 876 0 CODE 0
+__end_of_main 85C 0 CODE 0
 __Lrbss 0 0 COMRAM 1
 __Htext 0 0 ABS 0
 __Ltext 0 0 ABS 0
 _ep0_out_bd 400 0 ABS 1
-_string_desc_0 856 0 SMALLCONST 0
-end_of_initialization 868 0 CODE 0
+end_of_initialization 84E 0 CODE 0
 _conf_desc_0 800 0 SMALLCONST 0
 _ep0_out_handler 7 0 COMRAM 1
 __Hibigdata 0 0 CODE 0
@@ -123,7 +122,7 @@ __Lbank7 0 0 ABS 0
 _ep0_in_decsriptor 1 0 COMRAM 1
 __Htext0 0 0 ABS 0
 __Ltext0 0 0 ABS 0
-__ptext0 872 0 CODE 0
+__ptext0 858 0 CODE 0
 _TBLPTRU FF8 0 ABS 0
 __HbssCOMRAM 0 0 ABS 0
 __LbssCOMRAM 0 0 ABS 0
@@ -131,11 +130,9 @@ __pbssCOMRAM 1 0 COMRAM 1
 __Hclrtext 0 0 ABS 0
 __Lclrtext 0 0 ABS 0
 _usb_device_state F 0 COMRAM 1
-_string_desc_1 84A 0 SMALLCONST 0
-__end_of__initialization 868 0 CODE 0
-__end_of_string_desc_0 85A 0 SMALLCONST 0
-__end_of_string_desc_1 856 0 SMALLCONST 0
-__end_of_string_desc_2 838 0 SMALLCONST 0
+_string_desc_1 832 0 SMALLCONST 0
+__end_of__initialization 84E 0 CODE 0
+__end_of_string_desc_1 841 0 SMALLCONST 0
 __Hidata 0 0 CODE 0
 __Lidata 0 0 CODE 0
 __Hrdata 0 0 COMRAM 1
@@ -148,7 +145,7 @@ __HcstackCOMRAM 0 0 ABS 0
 __LcstackCOMRAM 0 0 ABS 0
 __pcstackCOMRAM 10 0 COMRAM 1
 _ep0_dir B 0 COMRAM 1
-__Hsmallconst 85C 0 SMALLCONST 0
+__Hsmallconst 842 0 SMALLCONST 0
 __Lsmallconst 800 0 SMALLCONST 0
 __psmallconst 800 0 SMALLCONST 0
 __Hnvbit 0 0 COMRAM 1
@@ -156,17 +153,16 @@ __Lnvbit 0 0 COMRAM 1
 __Hcinit 0 0 ABS 0
 __Lcinit 0 0 ABS 0
 _UIRbits F68 0 ABS 0
-__pcinit 85C 0 CODE 0
+__pcinit 842 0 CODE 0
 __ramtop 800 0 RAM 0
 __mediumconst 0 0 MEDIUMCONST 0
 __size_of_main 0 0 ABS 0
 __Hconst 0 0 CODE 0
 __Lconst 0 0 CODE 0
-__end_of_dev_desc 84A 0 SMALLCONST 0
+__end_of_dev_desc 832 0 SMALLCONST 0
 _total_writen E 0 COMRAM 1
 _ep1_buffer 580 0 ABS 1
 _ep2_buffer 5C0 0 ABS 1
-_string_desc_2 820 0 SMALLCONST 0
 _ep0_in_handler 3 0 COMRAM 1
 _EECON1bits FA6 0 ABS 0
 _ep0_in_handler_send_descriptor 0 0 ABS 0
@@ -185,28 +181,28 @@ intlevel2 0 0 CODE 0
 intlevel3 0 0 CODE 0
 _ep0_in_handler_set_address 0 0 ABS 0
 _ep0_temp_uaddr C 0 COMRAM 1
-start_initialization 85C 0 CODE 0
-__initialization 85C 0 CODE 0
+start_initialization 842 0 CODE 0
+__initialization 842 0 CODE 0
 __activetblptr 2 0 ABS 0
 %segments
 reset_vec 0 3 CODE 0 0
-smallconst 800 85B SMALLCONST 800 0
+smallconst 800 841 SMALLCONST 800 0
 config 300000 30000D CONFIG 300000 0
 idloc 200000 200007 IDLOC 200000 0
 bssCOMRAM 1 14 COMRAM 1 1
-cinit 85C 875 CODE 85C 0
+cinit 842 85B CODE 842 0
 %locals
 dist/default/production\Libraries.X.production.obj
 C:\Program Files (x86)\Microchip\xc8\v1.20\include\pic18f4550.h
-C:\Users\RUDARO~1\AppData\Local\Temp\s4pc.
-2435 85C 0 CODE 0
-2436 860 0 CODE 0
-2438 862 0 CODE 0
-2439 864 0 CODE 0
-2440 866 0 CODE 0
-2448 868 0 CODE 0
-2449 86A 0 CODE 0
-2450 86C 0 CODE 0
-2451 86E 0 CODE 0
+C:\Users\RUDARO~1\AppData\Local\Temp\s4v0.
+2394 842 0 CODE 0
+2395 846 0 CODE 0
+2397 848 0 CODE 0
+2398 84A 0 CODE 0
+2399 84C 0 CODE 0
+2407 84E 0 CODE 0
+2408 850 0 CODE 0
+2409 852 0 CODE 0
+2410 854 0 CODE 0
 src/main.c
-17 872 0 CODE 0
+17 858 0 CODE 0

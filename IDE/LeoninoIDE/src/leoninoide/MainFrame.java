@@ -4,7 +4,9 @@
  */
 package leoninoide;
 
+import compiler.CompilerOutput;
 import compiler.LeoninoCompiler;
+import compiler.LeoninoCompilerListener;
 import compiler.LeoninoCompilerParams;
 import java.awt.KeyEventPostProcessor;
 import java.awt.KeyboardFocusManager;
@@ -12,8 +14,6 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import leoninoide.eventslistener.EditorEventListener;
 import javax.swing.JOptionPane;
@@ -25,7 +25,7 @@ import leoninoide.eventslistener.ShortcutListener;
  *
  * @author rudarobson
  */
-public class MainFrame extends javax.swing.JFrame implements EditorEventListener, ShortcutListener, KeyEventPostProcessor {
+public class MainFrame extends javax.swing.JFrame implements EditorEventListener, ShortcutListener, KeyEventPostProcessor, LeoninoCompilerListener {
 
     public Workspace currentWorkspace;
 
@@ -49,11 +49,11 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        compilerOutput1 = new leoninoide.CompilerOutput();
+        compilerOutput1 = new leoninoide.CompilerOutputWindow();
         jPanel1 = new javax.swing.JPanel();
         shortcutBar = new leoninoide.ShortcutBar();
         codePanel = new leoninoide.EditorPanel();
-        compilerPanel = new leoninoide.CompilerOutput();
+        compilerPanel = new leoninoide.CompilerOutputWindow();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -143,8 +143,8 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private leoninoide.EditorPanel codePanel;
-    private leoninoide.CompilerOutput compilerOutput1;
-    private leoninoide.CompilerOutput compilerPanel;
+    private leoninoide.CompilerOutputWindow compilerOutput1;
+    private leoninoide.CompilerOutputWindow compilerPanel;
     private javax.swing.JPanel jPanel1;
     private leoninoide.ShortcutBar shortcutBar;
     // End of variables declaration//GEN-END:variables
@@ -159,14 +159,18 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
     }
 
     @Override
+    public void exit(CompilerOutput out) {
+        compilerPanel.setOutput(out.getExitMessage());
+    }
+
+    @Override
     public void compile() {
         saveProject();
-
+        compilerPanel.setOutput("");
         LeoninoCompilerParams params = new LeoninoCompilerParams(currentWorkspace);
         params.setBoard(LeoninoCompilerParams.LionBoard);
 
-        String out = LeoninoCompiler.compile(params);
-        compilerPanel.setOutput(out);
+        LeoninoCompiler.compile(params, this);
     }
 
     @Override
@@ -186,32 +190,44 @@ public class MainFrame extends javax.swing.JFrame implements EditorEventListener
         openProject();
     }
 
+    @Override
+    public void create() {
+        createProject();
+    }
+
+    public void createProject() {
+        try {
+            CreateProjectPopUp pop = new CreateProjectPopUp();
+            pop.showDialog();
+            currentWorkspace = Workspace.open(pop.getFullPath(), codePanel.getTextArea());
+        } catch (Exception ex) {
+        }
+
+    }
+
     public void openProject() {
         JFileChooser dlg = new JFileChooser();
         FileNameExtensionFilter fltr = new FileNameExtensionFilter("leo files", "leo");
         dlg.setFileFilter(fltr);
         dlg.setCurrentDirectory(new File(Workspace.UserInstallDir));
         dlg.showOpenDialog(null);
+
         File leo = dlg.getSelectedFile();
-        if (leo != null) {
-            try {
-                currentWorkspace = Workspace.open(leo.getParent(), codePanel.getTextArea());
-            } catch (FileNotFoundException ex) {
-            } catch (IOException ex) {
+        try {
+            if (leo != null) {
+                if (leo.isFile()) {
+                    currentWorkspace = Workspace.open(leo.getParent(), codePanel.getTextArea());
+                }
             }
+        } catch (FileNotFoundException ex) {
+        } catch (IOException ex) {
         }
-
-    }
-
-    private String promptProjectName() {
-        return JOptionPane.showInputDialog("Nome:");
     }
 
     public void saveProject() {
         try {
             if (currentWorkspace == null) {
-                String name = promptProjectName();
-                currentWorkspace = Workspace.open(name, codePanel.getTextArea());
+                createProject();
             }
             if (currentWorkspace != null) {//must not use else if 
                 currentWorkspace.save(codePanel.getCode());
